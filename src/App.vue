@@ -11,6 +11,21 @@ export default {
   components: {
       index
   },
+  data() {
+    return {
+   
+    }
+  },
+  mounted(){
+    let loading = this.$loading({
+        type: 'audio',
+        text: 'Loading...',
+        background: '#000'
+    })
+    setTimeout(() => {
+      loading.close();
+    }, 5000)
+  }
 }
 </script>
 
@@ -21,6 +36,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
