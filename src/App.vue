@@ -1,15 +1,14 @@
 <template>
   <div id="app">
-    <index></index>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import index from './pages/index'
 export default {
   name: 'app',
   components: {
-      index
+    
   },
   data() {
     return {
@@ -24,7 +23,7 @@ export default {
     })
     setTimeout(() => {
       loading.close();
-    }, 5000)
+    }, 2000)
   }
 }
 </script>
@@ -36,5 +35,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin:0;
+  padding:0;
 }
 </style>

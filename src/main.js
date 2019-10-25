@@ -10,6 +10,10 @@ import store from './store'
 import loading from 'vue-nice-loading'
 Vue.use(loading)
 
+import 'fullpage.js/vendors/scrolloverflow' // Optional. When using scrollOverflow:true
+import VueFullPage from 'vue-fullpage.js'
+Vue.use(VueFullPage);
+
 Vue.config.productionTip = false
 
 new Vue({
