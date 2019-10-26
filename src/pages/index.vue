@@ -2,7 +2,7 @@
   <div id="app">
     <full-page :options="options" id="fullpage">
       <div class="section">
-        <h3>Section 1</h3>
+        <part-one></part-one>
       </div>
       <div class="section">
         <div class="slide">
@@ -27,8 +27,13 @@
 
 <script>
 import '../assets/css/fullpage.min.css'
+import partOne from '../components/index/partOne'
+
 export default {
   name: "app",
+  components: {
+    partOne
+  },
   data() {
     return {
       options: {
@@ -39,13 +44,12 @@ export default {
         navigation: true,
         //anchors: ["page1", "page2", "page3"],
         sectionsColor: [
-          "#41b883",
+          "#000",
           "#ff5f45",
           "#0798ec",
           "#fec401",
           "#1bcee6",
           "#ee1a59",
-          "#2c3e4f",
           "#ba5be9",
           "#b4b8ab"
         ]
@@ -56,22 +60,21 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less" scoped>
 body{
    margin:0;
    padding:0;
 }
-ul {
+ul{
   list-style-type: none;
   padding: 0;
 }
-
-li {
+li{
   display: inline-block;
   margin: 0 10px;
 }
-
-a {
+a{
   color: #42b983;
 }
+
 </style>

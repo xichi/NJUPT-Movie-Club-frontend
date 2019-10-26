@@ -7,6 +7,9 @@ import router from './router.js'
 
 import store from './store'
 
+import less from 'less'
+Vue.use(less)
+
 import loading from 'vue-nice-loading'
 Vue.use(loading)
 
