@@ -1,54 +1,32 @@
 <template>
   <div class="main">
     <div class="card">
-      <div class="card__m card__m--1"></div>
-      <div class="card__m card__m--2"></div>
-      <div class="card__m card__m--3"></div>
-      <div class="card__m card__m--4"></div>
-      <div class="card__m card__m--5"></div>
-      <div class="card__m card__m--6"></div>
-      <div class="card__sun"></div>
+<!--       <div class="card__sun"></div> -->
       <div class="card__txt">
         <h4>NJUPT</h4>
         <h1>Movie Club</h1>
-        <h2>
-          FRIDAY SEP 4
-          <sup>th</sup>
-        </h2>
       </div>
       <div class="card__star card__star--1"></div>
       <div class="card__star card__star--2"></div>
       <div class="card__star card__star--3"></div>
       <div class="card__star card__star--4"></div>
       <div class="card__star card__star--5"></div>
+      <div class="card__star card__star--6"></div>
+      <div class="card__star card__star--7"></div>
+      <div class="card__star card__star--8"></div>
       <div class="card__fugaz"></div>
+    <div class="main_content">
+      <!-- <img src="../../../public/index1.png" alt="" width="40%" class="pic_border"> -->
+      <div>
+        <h1>南邮电影协会</h1>
+        <h4>世界这么大，我只想和你聊聊电影~</h4>
+      </div> 
+    </div>  
     </div>
-    <!-- <div class="card card--b">
-      <div class="card__m card__m--1 card__m--b1"></div>
-      <div class="card__m card__m--2 card__m--b2"></div>
-      <div class="card__m card__m--3 card__m--b3"></div>
-      <div class="card__m card__m--4 card__m--b4"></div>
-      <div class="card__m card__m--5 card__m--b5"></div>
-      <div class="card__sun"></div>
-      <div class="card__txt">
-        <h1>MONTANA</h1>
-        <h4>CLOUDY 40o</h4>
-        <h2>
-          FRIDAY SEP 4
-          <sup>th</sup>
-        </h2>
-      </div>
-      <div class="card__star card__star--1"></div>
-      <div class="card__star card__star--2"></div>
-      <div class="card__star card__star--3"></div>
-      <div class="card__star card__star--4"></div>
-      <div class="card__star card__star--5"></div>
-      <div class="card__fugaz"></div>
-    </div> -->
   </div>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
 *,
 *::after,
 *::before {
@@ -93,10 +71,6 @@ h2 {
   letter-spacing: 2px;
 }
 
-sup {
-  font-size: 6px;
-}
-
 .main {
   display: flex;
   justify-content: center;
@@ -119,77 +93,36 @@ sup {
 .card--b {
   background-image: linear-gradient(to bottom, #93a2af, #ddd2d5 40%);
 }
-.card__m {
+/* .card__m {
   z-index: 100;
   position: absolute;
+  width: 80%;
+  height: 80%;
   transform: rotateZ(135deg) skew(20deg, 20deg);
 }
 .card__m--1 {
-  top: 220px;
-  left: -235px;
-  width: 500px;
-  height: 500px;
-  background-color: #55ded5;
+  top: 90%;
+  left: -50%;
+  background-color: #40557c;
   transition: 0.2s ease-in;
 }
 .card__m--2 {
-  top: 220px;
-  left: -135px;
-  width: 500px;
-  height: 500px;
+  top: 75%;
+  left: -60%;
   background-color: #00cfcf;
   transition: 0.15s ease-in;
 }
 .card__m--3 {
-  top: 220px;
-  left: 100px;
-  width: 500px;
-  height: 500px;
+  top: 80%;
+  right: -10%;
   background-color: #1c84a6;
   transition: 0.1s ease-in;
 }
-.card__m--4 {
-  top: 350px;
-  left: -75px;
-  width: 500px;
-  height: 500px;
-  background-color: #40557c;
-}
-.card__m--5 {
-  top: 340px;
-  left: -285px;
-  width: 500px;
-  height: 500px;
-  background-color: #47466b;
-}
-
-.card__m--6 {
-  top: 340px;
-  left: 885px;
-  width: 1200px;
-  height: 600px;
-  background-color: #281231;
-}
-
-.card__m--b1 {
-  background-color: #aeb7be;
-}
-.card__m--b2 {
-  background-color: #6f8a9c;
-}
-.card__m--b3 {
-  background-color: #205a6e;
-}
-.card__m--b4 {
-  background-color: #3a405a;
-}
-.card__m--b5 {
-  background-color: #453750;
-}
+ */
 .card__sun {
   position: absolute;
   left: 30%;
-  top: 30%;
+  top: 70%;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -240,6 +173,24 @@ sup {
   top: 30%;
   left: 10%;
 }
+.card__star--6 {
+  height: 4px;
+  width: 4px;
+  top: 10%;
+  left: 20%;
+}
+.card__star--7 {
+  height: 3px;
+  width: 3px;
+  top: 33%;
+  left: 25%;
+}
+.card__star--8 {
+  height: 5px;
+  width: 5px;
+  top: 15%;
+  left: 35%;
+}
 .card__fugaz {
   position: absolute;
   left: -100px;
@@ -272,13 +223,13 @@ sup {
 /**/
 @keyframes fugaz {
   0% {
-    left: -100px;
-    top: -100px;
+    left: -10%;
+    top: -10%;
   }
   60%,
   100% {
-    top: 100px;
-    left: 380px;
+    top: 20%;
+    left: 80%;
   }
 }
 @keyframes fugaz-2 {
@@ -289,6 +240,24 @@ sup {
     transform: skewX(-30deg) scaleY(0.5);
   }
 }
+
+/* 主体内容 */
+.main_content{
+  width:80%;
+  height:80%;
+  margin:100px auto;
+  position:relative;
+  background-color: rgba(0, 0, 0, 0.1);
+  .pic_border{
+    position: absolute;
+    top:20%;
+    left:10%;
+  }
+}
+
+
+
+
 </style>
 
 <script>
@@ -297,39 +266,31 @@ export default {
     return {};
   },
   mounted() {
-    let bd = document.body;
-    let sunny = document.querySelectorAll(".card__sun");
-    let m1 = document.querySelectorAll(".card__m--1");
-    let m2 = document.querySelectorAll(".card__m--2");
-    let m3 = document.querySelectorAll(".card__m--3");
+   /*  let bd = document.body;
+    //let sunny = document.querySelector(".card__sun");
+    let m1 = document.querySelector(".card__m--1");
+    let m2 = document.querySelector(".card__m--2");
+    let m3 = document.querySelector(".card__m--3");
 
     let getCard = event => {
       //let w = window.innerWidth / 2;
       let x = event.clientX;
       let y = event.clientY;
 
-      sunny[0].style.transform = `translateX(${x / 20}px) translateY(${y /
-        20}px)`;
-      sunny[1].style.transform = `translateX(${x / 20}px) translateY(${y /
-        20}px)`;
+      //sunny.style.transform = `translateX(${x / 20}px) translateY(${y /
+      //  20}px)`;
 
-      m1[0].style.transform = `rotateZ(135deg) skew(20deg, 20deg) translateX(${x /
-        50}px) translateY(${y / 55}px)`;
-      m1[1].style.transform = `rotateZ(135deg) skew(20deg, 20deg) translateX(${x /
+      m1.style.transform = `rotateZ(135deg) skew(20deg, 20deg) translateX(${x /
         50}px) translateY(${y / 55}px)`;
 
-      m2[0].style.transform = `rotateZ(135deg) skew(20deg, 20deg) translateX(${x /
-        35}px) translateY(${y / 45}px)`;
-      m2[1].style.transform = `rotateZ(135deg) skew(20deg, 20deg) translateX(${x /
+      m2.style.transform = `rotateZ(135deg) skew(20deg, 20deg) translateX(${x /
         35}px) translateY(${y / 45}px)`;
 
-      m3[0].style.transform = `rotateZ(135deg) skew(20deg, 20deg) translateX(${x /
-        35}px) translateY(${y / 35}px)`;
-      m3[1].style.transform = `rotateZ(135deg) skew(20deg, 20deg) translateX(${x /
+      m3.style.transform = `rotateZ(135deg) skew(20deg, 20deg) translateX(${x /
         35}px) translateY(${y / 35}px)`;
     };
 
-    bd.addEventListener("mousemove", getCard);
+    bd.addEventListener("mousemove", getCard); */
   },
   methods: {}
 };

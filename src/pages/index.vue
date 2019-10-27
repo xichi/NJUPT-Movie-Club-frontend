@@ -1,8 +1,8 @@
 <template>
-  <div id="app">
+  <div>
     <full-page :options="options" id="fullpage">
       <div class="section">
-        <part-one></part-one>
+        <first-section></first-section>
       </div>
       <div class="section">
         <div class="slide">
@@ -27,12 +27,11 @@
 
 <script>
 import '../assets/css/fullpage.min.css'
-import partOne from '../components/index/partOne'
+import FirstSection from '../components/index/FirstSection'
 
 export default {
-  name: "app",
   components: {
-    partOne
+    FirstSection
   },
   data() {
     return {
@@ -75,6 +74,12 @@ li{
 }
 a{
   color: #42b983;
+}
+
+#fullpage{
+  .section:nth-child(2){
+    background-image: linear-gradient(to bottom, #abc0d1, #ddd2d5 40%);
+  }
 }
 
 </style>

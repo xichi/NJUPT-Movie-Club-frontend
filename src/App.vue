@@ -19,11 +19,11 @@ export default {
     let loading = this.$loading({
         type: 'audio',
         text: 'Loading...',
-        background: '#000'
+        background: '#rgba(255,245,236,0.5)'
     })
     setTimeout(() => {
       loading.close();
-    }, 2000)
+    }, 1000)
   }
 }
 </script>
