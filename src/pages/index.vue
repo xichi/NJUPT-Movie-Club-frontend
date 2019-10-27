@@ -3,6 +3,7 @@
     <full-page :options="options" id="fullpage">
       <div class="section">
         <first-section></first-section>
+        <down></down>
       </div>
       <div class="section">
         <div class="slide">
@@ -28,10 +29,12 @@
 <script>
 import '../assets/css/fullpage.min.css'
 import FirstSection from '../components/index/FirstSection'
+import down from '../components/down'
 
 export default {
   components: {
-    FirstSection
+    FirstSection,
+    down
   },
   data() {
     return {
@@ -43,8 +46,8 @@ export default {
         navigation: true,
         //anchors: ["page1", "page2", "page3"],
         sectionsColor: [
-          "#000",
-          "#ff5f45",
+          "#rgba(0,0,0,0)",
+          "#ddd2d5",
           "#0798ec",
           "#fec401",
           "#1bcee6",
@@ -76,10 +79,10 @@ a{
   color: #42b983;
 }
 
-#fullpage{
+/* #fullpage{
   .section:nth-child(2){
     background-image: linear-gradient(to bottom, #abc0d1, #ddd2d5 40%);
   }
-}
+} */
 
 </style>

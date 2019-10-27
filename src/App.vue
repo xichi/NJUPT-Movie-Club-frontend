@@ -16,14 +16,14 @@ export default {
     }
   },
   mounted(){
-    let loading = this.$loading({
+/*     let loading = this.$loading({
         type: 'audio',
         text: 'Loading...',
         background: '#rgba(255,245,236,0.5)'
     })
     setTimeout(() => {
       loading.close();
-    }, 1000)
+    }, 1000) */
   }
 }
 </script>
