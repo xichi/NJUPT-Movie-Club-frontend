@@ -12,33 +12,32 @@ export default {
 
 <style scoped>
 .main{
-    position: relative;
+    position: relative; 
 }
 .main img{
-    position: absolute;
+    position: absolute; 
     width: 50px;
     height: 50px;
-    bottom: 10px;
     left: 50%;
-    transform: translateX(-25px);
+    transform: translateX(-50%);
     animation: rotate 1.5s linear infinite;
 }
 
 @keyframes rotate {
     0% {
-        transform: translateY(0) ;
+        transform: translate(-50%, 0) ;
     }
     25% {
-        transform: translateY(5px);
+        transform: translate(-50%, 5px);
     }
     50% {
-        transform: translateY(10px) scale(1.1, 0.9);  
+        transform: translate(-50%, 10px) scale(1.1, 0.9);  
     }
     75% {
-        ransform: translateY(5px);
+        ransform: translate(-50%, 5px);
     }
     100% {
-        transform: translateY(0) ;
+        transform: translate(-50%, 0) ;
     }
 }
 </style>

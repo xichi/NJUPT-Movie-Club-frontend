@@ -44,6 +44,7 @@ export default {
         scrollOverflow: true,
         scrollBar: false,
         navigation: true,
+        menu: '#menu',
         //anchors: ["page1", "page2", "page3"],
         sectionsColor: [
           "#rgba(0,0,0,0)",
@@ -79,10 +80,5 @@ a{
   color: #42b983;
 }
 
-/* #fullpage{
-  .section:nth-child(2){
-    background-image: linear-gradient(to bottom, #abc0d1, #ddd2d5 40%);
-  }
-} */
 
 </style>

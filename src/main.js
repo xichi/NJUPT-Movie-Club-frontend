@@ -10,6 +10,10 @@ import store from './store'
 import less from 'less'
 Vue.use(less)
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 import loading from 'vue-nice-loading'
 Vue.use(loading)
 
