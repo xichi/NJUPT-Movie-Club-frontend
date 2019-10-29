@@ -172,7 +172,7 @@ const enterImage = (current,last,initial = false)=>{
   })
 }
 
-/* const enterText = (index,initial = false) => {
+ const enterText = (index,initial = false) => {
   ableToClick = true;
   const timeline = anime.timeline();
   timeline.add({
@@ -268,10 +268,10 @@ const initialTextEnter = ()=>{
   
   
 }
- */
+ 
 window.onload = function(){
   initialAnimation();
-/*   const hammerElement = new Hammer(window);
+  const hammerElement = new Hammer(window);
   hammerElement.on('tap',function(){
     if(!ableToClick) return; 
     ableToClick = false;
@@ -283,5 +283,5 @@ window.onload = function(){
     }
 
     enterImage(current + 1,last + 1);
-  }) */
+  }) 
 }
