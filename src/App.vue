@@ -40,4 +40,20 @@ export default {
   margin:0;
   padding:0;
 }
+body{
+   margin:0;
+   padding:0;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+}
+li{
+  display: inline-block;
+  padding: 0 20px;
+}
+a{
+  color:rgb(223, 222, 222);
+}
+
 </style>

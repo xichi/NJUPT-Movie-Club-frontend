@@ -1,9 +1,13 @@
 <template>
   <div class="main">
       <div class="main_pic"></div>
-      <div class="main_intro">
-          <div class="intro_title">NJUPT Movie Club</div>
-          <div class="intro_subtitle">世界这么大，我只想和你聊聊电影</div>
+      <div class="main_intro ">
+          <transition :duration="{ enter: 1000, leave: 800 }">
+                <div class="intro_title animated lightSpeedIn delay-2s">NJUPT Movie Club</div>
+          </transition>
+          <transition :duration="{ enter: 1000, leave: 800 }">
+                <div class="intro_subtitle animated lightSpeedIn delay-3s">世界这么大，我只想和你聊聊电影</div>
+          </transition>
       </div>
   </div>
 </template>
@@ -15,18 +19,21 @@ export default {
 
        }
    },
+   methods:{
+   },
    mounted(){
         let bd = document.body;
-        let m1 = document.querySelector(".main_intro");
-
+        
         let titleMove = event => {
         let x = event.clientX;
         let y = event.clientY;
+        let m1 = document.querySelector(".main_intro");
         m1.style.transform = `translateX(${x /
             50}px) translateY(${y / 55}px)`;
         };
 
-        bd.addEventListener("mousemove", titleMove); 
+        bd.addEventListener("mousemove", titleMove);  
+    
    }
 }
 </script>
@@ -69,4 +76,5 @@ export default {
         }
     }
 }
+
 </style>

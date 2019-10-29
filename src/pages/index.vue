@@ -6,18 +6,18 @@
         <down></down>
       </div>
       <div class="section">
-        <div class="slide">
-          <h3>Slide 2.1</h3>
-        </div>
-        <div class="slide">
-          <h3>Slide 2.2</h3>
-        </div>
-        <div class="slide">
-          <h3>Slide 2.3</h3>
-        </div>
+        <second-section></second-section>
       </div>
       <div class="section">
-        <h3>Section 3</h3>
+        <div class="slide">
+          <h3>Slide 3.1</h3>
+        </div>
+        <div class="slide">
+          <h3>Slide 3.2</h3>
+        </div>
+        <div class="slide">
+          <h3>Slide 3.3</h3>
+        </div>
       </div>
       <div class="section">
         <h3>Section 4</h3>
@@ -29,12 +29,14 @@
 <script>
 import '../assets/css/fullpage.min.css'
 import FirstSection from '../components/index/FirstSection'
+import SecondSection from '../components/index/SecondSection'
 import down from '../components/down'
 
 export default {
   components: {
     FirstSection,
-    down
+    down,
+    SecondSection
   },
   data() {
     return {
@@ -55,15 +57,17 @@ export default {
           "#ee1a59",
           "#ba5be9",
           "#b4b8ab"
-        ]
+        ],
       }
     };
   },
-  methods: {}
+  methods: {
+
+  }
 };
 </script>
 
-<style lang="less" scoped>
+<style>
 body{
    margin:0;
    padding:0;
@@ -77,7 +81,7 @@ li{
   margin: 0 10px;
 }
 a{
-  color: #42b983;
+  color: #dae0de;
 }
 
 
