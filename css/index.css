@@ -1,0 +1,163 @@
+/* css初始化 */
+* {
+  margin: 0;
+  padding: 0;
+  /* 清除内外边距 */
+  color: #fff;
+}
+body {
+  font-family: "Lato", sans-serif;
+  background-color: #EFF1F2;
+}
+ul {
+  list-style: none;
+  /* 去掉列表样式小点 */
+  margin: 0;
+  padding: 0;
+}
+.clearfix:before,
+.clearfix:after {
+  /* 清除浮动 */
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+a {
+  color: #050505;
+  text-decoration: none;
+  /* 取消下划线 */
+}
+input,
+select {
+  border: 0;
+  /* 所有的表单边框为0 */
+  box-sizing: border-box;
+  /* CSS3盒子模型 border 和 padding 都包含到 width 里面去 */
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 360px) {
+  html {
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 375px) {
+  html {
+    font-size: 18.75px;
+  }
+}
+@media screen and (min-width: 414px) {
+  html {
+    font-size: 20.07px;
+  }
+}
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 38.4px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html {
+    font-size: 51.2px;
+  }
+}
+@media screen and (min-width: 1288px) {
+  html {
+    font-size: 64.4px;
+  }
+}
+@media screen and (min-width: 2000px) {
+  html {
+    font-size: 100px;
+  }
+}
+/* 装饰函数 */
+.intro-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #272928;
+  z-index: 0;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: left center;
+  transform-origin: left center;
+  overflow: hidden;
+  opacity: 1;
+}
+.intro-wrapper .centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.intro-wrapper .centered .intro-title {
+  color: white;
+  font-size: 48px;
+  font-family: 'Oranienbaum', serif;
+  font-weight: 200;
+}
+.intro-wrapper .centered .intro-title span {
+  opacity: 0.1;
+  font-family: 'Oranienbaum', serif;
+  font-weight: 200;
+}
+.intro-wrapper .centered .intro-title span:nth-child(2n+1) {
+  display: inline-block;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+.intro-wrapper .centered .intro-title span:nth-child(2n) {
+  display: inline-block;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+.intro-wrapper .centered .square {
+  background: #ac7824;
+  width: 250px;
+  height: 250px;
+  -webkit-transform: scaleY(0);
+  transform: scaleY(0);
+}
+.intro-wrapper .centered .line {
+  width: 250px;
+  height: 5px;
+  opacity: 1;
+  background-color: #fff;
+}
+.main .first-section {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+.main .first-section .image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.main .first-section .image-wrapper .back-img {
+  background-image: url(../asserts/th.jpg);
+  filter: brightness(0.3);
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
