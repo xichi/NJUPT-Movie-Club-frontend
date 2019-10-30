@@ -91,6 +91,7 @@ const initialAnimation = ()=> {
     duration: 100,
     begin:()=>{
       $('.my-header').css('display','block'); 
+      $('.left-section').css('display','block');
     }
   }).add({
     targets: '.slogan',
@@ -109,15 +110,16 @@ const initialAnimation = ()=> {
 
 $(function(){
   $(window).on("load",function(){
-    $('.my-header').css('display','none'); 
-    initialAnimation();
+/*     $('.my-header').css('display','none'); 
+    $('.left-section').css('display','none'); 
+    initialAnimation(); */
   });
-  $(document.body).on("mousemove",function(){
+/*   $(document.body).on("mousemove",function(){
   let x = event.clientX;
   let y = event.clientY;
-  $('.back-img').css('background-position',`${-x /
+  $('').css('background-position',`${-x /
     50}px ${-y / 30}px`);
-  }); 
+  });  */
 
 });
 

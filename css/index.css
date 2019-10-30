@@ -3,7 +3,6 @@
   margin: 0;
   padding: 0;
   /* 清除内外边距 */
-  color: #fff;
 }
 body {
   font-family: "Lato", sans-serif;
@@ -87,6 +86,7 @@ select {
   right: 0;
   bottom: 0;
   background: #272928;
+  color: #fff;
   z-index: 0;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -146,12 +146,12 @@ select {
   top: 0;
   left: 0;
   /* background-color: rgba(0,0,0,0.3); */
-  color: #fff;
   z-index: 9999;
   overflow: hidden;
   margin: 0;
 }
 .my-header a {
+  color: #fff;
   display: inline-block;
   padding: 0 15px;
 }
@@ -175,6 +175,7 @@ select {
   align-items: center;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
   z-index: 1;
 }
 .main .first-section .image-wrapper {
@@ -195,9 +196,32 @@ select {
 .main .first-section .slogan {
   font-size: 1rem;
 }
-.main .second-section {
+.main .first-section .slogan .my-btn {
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #fff;
+  border-radius: 10px;
+}
+.main .first-section .slogan .my-btn:hover {
+  background-color: #fff;
+}
+.main .left-section .second-section {
   height: 500px;
-  color: #000;
+  color: black;
+}
+.main .left-section .second-section .department-intro h1 {
+  text-align: center;
+}
+.main .left-section .second-section .department-intro .line {
+  background-color: #dfb11a;
+  width: 300px;
+  height: 10px;
+  margin: 0 auto;
+}
+.main .left-section .second-section .department-intro .department-intro-box {
+  margin-top: 50px;
+}
+.main .left-section .second-section .department-intro .department-intro-box .panel {
+  height: 300px;
 }
 /* 小插件 */
 .up-down {

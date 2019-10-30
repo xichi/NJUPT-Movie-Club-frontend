@@ -2,7 +2,6 @@
 * {
     margin: 0;
     padding: 0;  /* 清除内外边距 */
-    color: #fff;
 }
 body {
     font-family: "Lato", sans-serif;
@@ -79,6 +78,7 @@ input, select {
     right: 0;
     bottom: 0;
     background: #272928;
+    color: #fff;
     z-index: 0;
     -webkit-transform: scaleX(0);
             transform: scaleX(0);
@@ -139,11 +139,11 @@ input, select {
         top:0;
         left:0;
         /* background-color: rgba(0,0,0,0.3); */
-        color:#fff;
         z-index:9999;
         overflow: hidden;
         margin:0;
         a{
+            color: #fff;
             display:inline-block;
             padding:0 15px;
         }
@@ -168,6 +168,7 @@ input, select {
             align-items: center;
             overflow: hidden;
             background-color: rgba(0,0,0,0.5);
+            color: #fff;
             z-index: 1;
             .image-wrapper {
                 position: absolute;
@@ -186,11 +187,41 @@ input, select {
             }
             .slogan{
                font-size: 1rem;
+               .my-btn{
+                   background-color: rgba(0,0,0,0);
+                   border:2px solid #fff;
+                   border-radius: 10px;
+                   
+                   &:hover{
+                    background-color:#fff;
+                   }
+               }
             }
         }
-        .second-section{
-            height: 500px;
-            color:#000;
+        
+        .left-section{
+            .second-section{
+                height: 500px;
+                color: black;
+                .department-intro{
+                    h1{
+                        text-align: center;
+                    }
+                    .line{
+                        background-color: rgb(223, 177, 26);
+                        width:300px;
+                        height:10px;
+                        margin:0 auto;
+                    }
+                    .department-intro-box{
+                        margin-top:50px;
+                        .panel{
+                            height:300px;
+                        }
+                    }
+                }
+
+            }
         }
     }
    /* 小插件 */
