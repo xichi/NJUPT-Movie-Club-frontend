@@ -124,7 +124,7 @@ select {
   transform: translateY(100%);
 }
 .intro-wrapper .centered .square {
-  background: #ac7824;
+  background: #3085a3;
   width: 250px;
   height: 250px;
   -webkit-transform: scaleY(0);
@@ -205,23 +205,72 @@ select {
   background-color: #fff;
 }
 .main .left-section .second-section {
-  height: 500px;
+  height: 800px;
   color: black;
 }
-.main .left-section .second-section .department-intro h1 {
+.main .left-section .second-section .weekly-movies {
+  background-image: url(../asserts/timg.jpg);
+}
+.main .left-section .third-section {
+  overflow: hidden;
+}
+.main .left-section .third-section .department-intro h1 {
   text-align: center;
 }
-.main .left-section .second-section .department-intro .line {
-  background-color: #dfb11a;
+.main .left-section .third-section .department-intro .line {
+  background-color: #3085a3;
   width: 300px;
   height: 10px;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
-.main .left-section .second-section .department-intro .department-intro-box {
-  margin-top: 50px;
+.main .left-section .fourth-section {
+  margin-top: 100px;
 }
-.main .left-section .second-section .department-intro .department-intro-box .panel {
-  height: 300px;
+.main .left-section .fourth-section .nav {
+  text-align: center;
+  background-color: none;
+  border: none;
+  position: relative;
+}
+.main .left-section .fourth-section .nav li {
+  float: none;
+  display: inline-block;
+}
+.main .left-section .fourth-section .nav li a {
+  border: none;
+  background-color: #EFF1F2 !important;
+  padding: 0;
+  margin: 0 1rem;
+  font-size: 0.5rem;
+  color: #a1a1a1;
+}
+.main .left-section .fourth-section .nav li a:hover,
+.main .left-section .fourth-section .nav li a:focus {
+  background-color: #EFF1F2 !important;
+  color: #000;
+}
+@media screen and (max-width: 768px) {
+  .main .left-section .fourth-section .nav li a {
+    font-size: 1rem;
+  }
+}
+.main .left-section .fourth-section .nav li:nth-child(2)::before,
+.main .left-section .fourth-section .nav li:nth-child(3)::before {
+  content: '';
+  background-color: #3085a3;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -0.5rem;
+  width: 1rem;
+  height: 10px;
+}
+.main .left-section .fourth-section .nav li.active a {
+  color: #000;
+}
+.main .left-section .fourth-section .tab-content {
+  height: 500px;
 }
 /* 小插件 */
 .up-down {

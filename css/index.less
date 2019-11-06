@@ -114,7 +114,7 @@ input, select {
               }
         }         
         .square {
-            background: #ac7824;
+            background: #3085a3;
             width: 250px;
             height: 250px;
             -webkit-transform: scaleY(0);
@@ -201,26 +201,76 @@ input, select {
         
         .left-section{
             .second-section{
-                height: 500px;
-                color: black;
+                height: 800px;
+                color: black;                
+                .weekly-movies{
+                    background-image: url(../asserts/timg.jpg);
+                }
+
+            }
+            .third-section{
+                overflow: hidden;
                 .department-intro{
                     h1{
                         text-align: center;
                     }
                     .line{
-                        background-color: rgb(223, 177, 26);
+                        background-color: #3085a3;
                         width:300px;
                         height:10px;
                         margin:0 auto;
-                    }
-                    .department-intro-box{
-                        margin-top:50px;
-                        .panel{
-                            height:300px;
-                        }
+                        margin-bottom: 50px;
                     }
                 }
 
+            }
+            .fourth-section{
+                margin-top:100px;
+                .nav{
+                    text-align: center;
+                    background-color: none;
+                    border:none;
+                    position: relative;
+                    li{
+                        float:none;
+                        display:inline-block;
+                        a{
+                            border:none;
+                            background-color:#EFF1F2!important;
+                            padding:0;
+                            margin:0 1rem;
+                            font-size: 0.5rem;
+                            color:rgb(161, 161, 161);
+                        &:hover,&:focus{
+                            background-color:#EFF1F2!important;
+                            color:#000;
+                        }  
+                        }
+                        @media screen and (max-width: 768px){
+                            a{
+                                font-size: 1rem;
+                            }
+                        }
+                    &:nth-child(2)::before,&:nth-child(3)::before{
+                        content:'';
+                        background-color: #3085a3;
+                        position: absolute;
+                        top:50%;
+                        transform: translateY(-50%);
+                        left:-0.5rem;
+                        width:1rem;
+                        height:10px;
+                    } 
+                    &.active{
+                        a{
+                            color:#000;
+                        }
+                    }   
+                    }
+                }
+                .tab-content{
+                    height:500px;
+                }
             }
         }
     }

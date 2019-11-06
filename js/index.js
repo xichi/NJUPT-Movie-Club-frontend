@@ -1,3 +1,4 @@
+/* 开屏动画 */
 const calcScale = (itemRect, targetRect) => {
   const scaleX = targetRect.width / itemRect.width;
   const scaleY = targetRect.height / itemRect.height;
@@ -108,11 +109,57 @@ const initialAnimation = ()=> {
   })
 }
 
+/* 影评动画 */
+const FilmReviewAnimation = ()=> {
+	var $app = $('.app');
+	var animation = true;
+	var curSlide = 1;
+	var scrolledUp = void 0,
+	    nextSlide = void 0;
+
+	var pagination = function pagination(slide, target) {
+		animation = true;
+		if (target === undefined) {
+			nextSlide = scrolledUp ? slide - 1 : slide + 1;
+		} else {
+			nextSlide = target;
+		}
+
+		$('.pages__item--' + nextSlide).addClass('page__item-active');
+		$('.pages__item--' + slide).removeClass('page__item-active');
+
+		$app.toggleClass('active');
+		setTimeout(function () {
+			animation = false;
+		}, 3000);
+  };
+  
+  /* 滚动监听 */
+  $(window).scroll(function(){
+      if($(window).scrollTop() >= $('.filmReview').offset().top){
+          $app.addClass('initial');
+      } else{
+        setTimeout(function () {
+          animation = false;
+        }, 4500);
+      }
+  });
+
+
+	$(document).on("click", ".pages__item:not(.page__item-active)", function () {
+		if (animation) return;
+		var target = +$(this).attr('data-target');
+		pagination(curSlide, target);
+		curSlide = target;
+  });
+  
+};
+
 $(function(){
   $(window).on("load",function(){
-/*     $('.my-header').css('display','none'); 
+    $('.my-header').css('display','none'); 
     $('.left-section').css('display','none'); 
-    initialAnimation(); */
+    initialAnimation();  
   });
 /*   $(document.body).on("mousemove",function(){
   let x = event.clientX;
@@ -121,5 +168,15 @@ $(function(){
     50}px ${-y / 30}px`);
   });  */
 
+  /* 滚动监听 */
+  new WOW().init();
+
+  /* 影评的动画 */
+  FilmReviewAnimation();
+  $('.app__img').on('click',function(){
+    
+  });
+  
 });
+
 
