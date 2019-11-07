@@ -1,3 +1,35 @@
+/* 滚动监听 */
+var xRoll = function (el, fn) {
+  xRoll.prototype.init(el, fn)
+};
+xRoll.prototype = {
+  init: function (_el, fn) {
+      _el.attr("data-state", false);
+      this.start(_el, fn);
+      $(window).on("scroll", function () {
+          xRoll.prototype.start(_el, fn)
+      })
+  },
+  start: function (_el, fn) {
+      var _this = this;
+      $(_el).each(function () {
+          var _self = $(this);
+          var xRollTop = $(window).scrollTop();
+          var isWindowHeiget = $(window).height();
+          if (_self.data().state) {
+              return
+          }
+          if (xRollTop + isWindowHeiget > $(this).offset().top) {
+              fn();
+              setTimeout(function () {
+                  _self.attr("data-state", true);
+                  _self.data().state = true
+              })
+          }
+      })
+  }
+};
+
 /* 开屏动画 */
 const calcScale = (itemRect, targetRect) => {
   const scaleX = targetRect.width / itemRect.width;
@@ -117,6 +149,7 @@ const FilmReviewAnimation = ()=> {
 	var scrolledUp = void 0,
 	    nextSlide = void 0;
 
+  /* 分页 */
 	var pagination = function pagination(slide, target) {
 		animation = true;
 		if (target === undefined) {
@@ -134,32 +167,85 @@ const FilmReviewAnimation = ()=> {
 		}, 3000);
   };
   
-  /* 滚动监听 */
-  $(window).scroll(function(){
-      if($(window).scrollTop() >= $('.filmReview').offset().top){
-          $app.addClass('initial');
-      } else{
-        setTimeout(function () {
-          animation = false;
-        }, 4500);
-      }
+  /* 滚动监听--播放动画 */
+  xRoll($('.filmReview'), function() {
+    setTimeout(function () {
+      $app.addClass('initial');
+     }, 500);
+     setTimeout(function () {
+      animation = false;
+     }, 4500);
   });
 
 
 	$(document).on("click", ".pages__item:not(.page__item-active)", function () {
 		if (animation) return;
-		var target = +$(this).attr('data-target');
+    var target = +$(this).attr('data-target');
 		pagination(curSlide, target);
 		curSlide = target;
+  });
+
+  /* 点击查看详细影评 */
+  $('.app__content').css('display','none');
+  $('.app').on('click',function(){
+    const timeline = anime.timeline();
+    timeline.add({
+      targets: '.app__img',
+      opacity: [1,0],  
+      translateY:['0%','-50%'],
+      easing: 'easeInOutSine',
+      duration: 1000,
+    }).add({
+      targets: '.app__bgimg-image',
+      translateY:['0%','-50%'],
+      easing: 'easeInOutSine',
+      duration: 900,
+    }).add({
+      targets: '.app__text',
+      scale:[1,0.6],
+      translateX: ['0%','90%'],
+      translateY:['0%','-70%'],
+      easing: 'easeInOutSine',
+      duration: 900,
+    }).add({
+      targets: '.app__content',
+      translateY:['100%','50%'],
+      easing: 'easeInOutSine',
+      duration: 900,
+      begin:()=>{
+        $('.app__content--'+$('.page__item-active').attr('data-target')).css('display','inline-block');
+      }
+    }); 
+    $(document).on("click", ".pages__item:not(.page__item-active)", function () {
+      const timeline2 = anime.timeline();
+      timeline2.add({
+        targets: '.app__content',
+        opacity: [1,0],  
+        translateY:['50%','100%'],
+        easing: 'easeInOutSine',
+        duration: 1000,
+      }).add({
+        targets: '.app__content',
+        opacity: [0,1],  
+        translateY:['100%','50%'],
+        easing: 'easeInOutSine',
+        duration: 1000,
+        begin:()=>{
+          let target = $('.page__item-active').attr('data-target');
+          $('.app__content').css('display','none');
+          $('.app__content--'+target).css('display','inline-block');
+        },
+      });
+    });
   });
   
 };
 
 $(function(){
   $(window).on("load",function(){
-    $('.my-header').css('display','none'); 
+/*     $('.my-header').css('display','none'); 
     $('.left-section').css('display','none'); 
-    initialAnimation();  
+    initialAnimation(); */  
   });
 /*   $(document.body).on("mousemove",function(){
   let x = event.clientX;
@@ -173,9 +259,7 @@ $(function(){
 
   /* 影评的动画 */
   FilmReviewAnimation();
-  $('.app__img').on('click',function(){
-    
-  });
+  
   
 });
 

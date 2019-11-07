@@ -232,6 +232,7 @@ select {
   background-color: none;
   border: none;
   position: relative;
+  margin-bottom: 80px;
 }
 .main .left-section .fourth-section .nav li {
   float: none;
@@ -271,6 +272,11 @@ select {
 }
 .main .left-section .fourth-section .tab-content {
   height: 500px;
+}
+.main .left-section .fourth-section .tab-content .col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* 小插件 */
 .up-down {

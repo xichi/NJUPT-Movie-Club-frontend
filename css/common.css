@@ -129,7 +129,60 @@
         -webkit-transition-delay: 0.1s;
         transition-delay: 0.1s;
     }
- 
+/* 社员介绍 */ 
+.single-member{
+  width: 280px; 
+  float: left; 
+  font-family: sans-sarif; 
+  margin: 30px 2.5%; 
+  background-color: #fff; 
+  text-align: center; 
+  position: relative;
+}
+.member-image img{
+  max-width: 100%; 
+  vertical-align: middle;
+}
+h3 {
+  font-size: 24px; 
+  font-weight: normal; 
+  margin: 10px 0 0; 
+  text-transform: uppercase;
+}
+h5 {
+  font-size: 16px; 
+  font-weight: 300; 
+  margin: 0 0 15px; 
+  line-height: 22px;
+}
+p {font-size: 14px; 
+  font-weight: 300; 
+  line-height: 22px; 
+  padding: 0 30px; 
+  margin-bottom: 10px;
+}
+.social-touch a{
+  display: inline-block; 
+  width: 27px; 
+  height: 26px; 
+  vertical-align: middle; 
+  margin: 0 2px; 
+  background-image: url(images/social-icons.png); 
+  background-repeat: no-repeat; 
+  opacity: 0.7; 
+  transition: 0.3s;
+}
+.social-touch a:hover{
+  opacity: 1; 
+  transition: 0.3s;
+}
+.effect-1{border-radius: 5px 5px 0 0; padding-bottom: 40px;}
+.effect-1 .member-image {border: 2px solid #fff; border-radius: 60px 0; display: inline-block; margin-top: -72px; overflow: hidden; transition: 0.3s;}
+.effect-1 .social-touch{background-color: #e13157; position: absolute; left: 0; bottom: 0; height: 5px; overflow: hidden; padding: 5px 0 0; width: 100%; transition: 0.3s;}
+.effect-1 .member-image img{transition: 0.3s; border-radius: 60px 0;}
+.effect-1:hover .member-image{border-color: #e13157; transition: 0.3s; border-radius: 50%;}
+.effect-1:hover .social-touch{padding: 6px 0; height: 38px; transition: 0.3s;}
+
 /* 影评 */    
 .filmReview {
     position: relative;
@@ -137,7 +190,6 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-/*     background-image: linear-gradient(to left bottom, #F2E3C6 0%, #A7A1A5 100%); */
     overflow: hidden;
   }
   
@@ -146,6 +198,7 @@
     min-width: 850px;
     height: 540px;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
     overflow: hidden;
   }
   .app__bgimg {
@@ -211,11 +264,6 @@
     transition: transform 1500ms 1700ms, opacity 1500ms 2000ms;
     transition: transform 1500ms 1700ms, opacity 1500ms 2000ms, -webkit-transform 1500ms 1700ms;
   }
-  .app__text-line--1 {
-    transition: opacity 1500ms 2250ms, -webkit-transform 1500ms 1800ms;
-    transition: transform 1500ms 1800ms, opacity 1500ms 2250ms;
-    transition: transform 1500ms 1800ms, opacity 1500ms 2250ms, -webkit-transform 1500ms 1800ms;
-  }
   .app__text-line--4 {
     font-size: 50px;
     font-weight: 700;
@@ -230,12 +278,6 @@
     font-size: 14px;
     font-weight: 500;
     color: #0099CC;
-  }
-  .app__text-line--1 {
-    margin-top: 15px;
-  }
-  .app__text-line--1 img {
-    width: 50px;
   }
   .app__text--1 .app__text-line {
     -webkit-transform: translate3d(0, -125px, 0);
@@ -267,12 +309,6 @@
     transition: transform 1500ms 75ms, opacity 400ms 275ms;
     transition: transform 1500ms 75ms, opacity 400ms 275ms, -webkit-transform 1500ms 75ms;
   }
-  .app__text--2 .app__text-line--1 {
-    opacity: 0;
-    transition: opacity 400ms 350ms, -webkit-transform 1500ms 150ms;
-    transition: transform 1500ms 150ms, opacity 400ms 350ms;
-    transition: transform 1500ms 150ms, opacity 400ms 350ms, -webkit-transform 1500ms 150ms;
-  }
   .app__img {
     position: absolute;
     -webkit-transform: translate3d(0, -750px, 0);
@@ -296,14 +332,7 @@
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
   }
-  .initial .app__text--1 .app__text-line--1 {
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
-    transition: opacity 400ms 1600ms, -webkit-transform 1500ms 1400ms;
-    transition: transform 1500ms 1400ms, opacity 400ms 1600ms;
-    transition: transform 1500ms 1400ms, opacity 400ms 1600ms, -webkit-transform 1500ms 1400ms;
-    opacity: 1;
-  }
+
   .initial .app__text--1 .app__text-line--2 {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
@@ -351,14 +380,7 @@
     z-index: -1;
     transition: z-index 0ms 1500ms;
   }
-  .active .app__text--1 .app__text-line--1 {
-    -webkit-transform: translate3d(0, -125px, 0);
-            transform: translate3d(0, -125px, 0);
-    transition: opacity 400ms 500ms, -webkit-transform 1500ms 300ms;
-    transition: transform 1500ms 300ms, opacity 400ms 500ms;
-    transition: transform 1500ms 300ms, opacity 400ms 500ms, -webkit-transform 1500ms 300ms;
-    opacity: 0;
-  }
+
   .active .app__text--1 .app__text-line--2 {
     -webkit-transform: translate3d(0, -125px, 0);
             transform: translate3d(0, -125px, 0);
@@ -386,14 +408,7 @@
   .active .app__text--2 {
     z-index: 1;
   }
-  .active .app__text--2 .app__text-line--1 {
-    -webkit-transform: translate3d(0, -125px, 0);
-            transform: translate3d(0, -125px, 0);
-    transition: opacity 1300ms 1300ms, -webkit-transform 2500ms 1100ms;
-    transition: transform 2500ms 1100ms, opacity 1300ms 1300ms;
-    transition: transform 2500ms 1100ms, opacity 1300ms 1300ms, -webkit-transform 2500ms 1100ms;
-    opacity: 1;
-  }
+
   .active .app__text--2 .app__text-line--2 {
     -webkit-transform: translate3d(0, -125px, 0);
             transform: translate3d(0, -125px, 0);
@@ -462,18 +477,13 @@
             transform: translate(-50%, -50%) scale(1, 1);
     opacity: 1;
   }
-  
-  .icon-link {
-    position: absolute;
-    left: 5px;
-    bottom: 5px;
-    width: 50px;
+
+  /* 详情 */
+  .app__content{
+     position: absolute;
+     background-color: rgba(0, 0, 0, 0.5);
+     color:white;
   }
-  .icon-link img {
-    width: 100%;
-    vertical-align: top;
-  }
-  .icon-link--twitter {
-    left: auto;
-    right: 5px;
+  .app__content p{
+    text-indent: 0.5rem;
   }
