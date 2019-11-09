@@ -243,9 +243,9 @@ const FilmReviewAnimation = ()=> {
 
 $(function(){
   $(window).on("load",function(){
-/*     $('.my-header').css('display','none'); 
+    $('.my-header').css('display','none'); 
     $('.left-section').css('display','none'); 
-    initialAnimation(); */  
+    initialAnimation(); 
   });
 /*   $(document.body).on("mousemove",function(){
   let x = event.clientX;
