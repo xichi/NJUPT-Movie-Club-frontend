@@ -138,11 +138,11 @@ select {
 }
 /* 导航栏 */
 .my-header {
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: 100px;
-  line-height: 100px;
-  font-size: 15px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 20px;
   top: 0;
   left: 0;
   /* background-color: rgba(0,0,0,0.3); */
@@ -153,6 +153,7 @@ select {
 .my-header a {
   color: #fff;
   display: inline-block;
+  text-decoration: none;
   padding: 0 15px;
 }
 .my-header a:hover,
@@ -204,6 +205,9 @@ select {
 .main .first-section .slogan .my-btn:hover {
   background-color: #fff;
 }
+.main .left-section {
+  position: relative;
+}
 .main .left-section .second-section {
   height: 800px;
   color: black;
@@ -212,7 +216,13 @@ select {
   background-image: url(../asserts/timg.jpg);
 }
 .main .left-section .third-section {
-  overflow: hidden;
+  position: relative;
+}
+.main .left-section .third-section .layer-1 {
+  background: url('../asserts/layer/bg2.png') no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
 }
 .main .left-section .third-section .department-intro h1 {
   text-align: center;
@@ -225,7 +235,29 @@ select {
   margin-bottom: 50px;
 }
 .main .left-section .fourth-section {
+  position: relative;
   margin-top: 100px;
+}
+.main .left-section .fourth-section .layer-2 {
+  background: url('../asserts/layer/layer-1.png') no-repeat;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.main .left-section .fourth-section .small-1 {
+  background: url('../asserts/layer/small-1.png') no-repeat;
+  width: 180px;
+  height: 180px;
+  left: 100px;
+  top: -50px;
+  position: absolute;
+}
+.main .left-section .fourth-section .small-2 {
+  background: url('../asserts/layer/small-2.png') no-repeat;
+  width: 100px;
+  height: 100px;
+  left: 200px;
+  position: absolute;
 }
 .main .left-section .fourth-section .nav {
   text-align: center;
@@ -272,11 +304,24 @@ select {
 }
 .main .left-section .fourth-section .tab-content {
   height: 500px;
+  /* background-color:rgba(#ff4893,0.2); */
 }
 .main .left-section .fourth-section .tab-content .col {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.main .left-section .fourth-section .tab-content .col .single-member {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.main .left-section .fourth-section .tab-content .col .single-member .social-touch a {
+  padding-right: 0.5rem;
+}
+.main .left-section .fourth-section .tab-content .col .single-member .social-touch a i {
+  color: #fff;
+}
+.main .left-section .fifth-section {
+  position: relative;
 }
 /* 小插件 */
 .up-down {

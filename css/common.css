@@ -1,3 +1,5 @@
+/* header */
+
 /* 部门介绍 */
     .grid {
         position: relative;
@@ -178,10 +180,17 @@ p {font-size: 14px;
 }
 .effect-1{border-radius: 5px 5px 0 0; padding-bottom: 40px;}
 .effect-1 .member-image {border: 2px solid #fff; border-radius: 60px 0; display: inline-block; margin-top: -72px; overflow: hidden; transition: 0.3s;}
-.effect-1 .social-touch{background-color: #e13157; position: absolute; left: 0; bottom: 0; height: 5px; overflow: hidden; padding: 5px 0 0; width: 100%; transition: 0.3s;}
+.effect-1 .social-touch{ position: absolute; left: 0; bottom: 0; height: 5px; overflow: hidden; padding: 5px 0 0; width: 100%; transition: 0.3s;}
 .effect-1 .member-image img{transition: 0.3s; border-radius: 60px 0;}
-.effect-1:hover .member-image{border-color: #e13157; transition: 0.3s; border-radius: 50%;}
+.effect-1:hover .member-image{transition: 0.3s; border-radius: 50%;}
 .effect-1:hover .social-touch{padding: 6px 0; height: 38px; transition: 0.3s;}
+
+.effect-bgc-1 .social-touch{background-color: #ff4893;}
+.effect-bgc-1:hover .member-image{border-color: #f553b7;}
+.effect-bgc-2 .social-touch{background-color: #facd39;}
+.effect-bgc-2:hover .member-image{border-color: #f7dc31;}
+.effect-bgc-3 .social-touch{background-color: #3cdb74;}
+.effect-bgc-3:hover .member-image{border-color: #64e291;}
 
 /* 影评 */    
 .filmReview {
@@ -195,12 +204,61 @@ p {font-size: 14px;
   
   .app {
     position: relative;
-    min-width: 850px;
-    height: 540px;
+    min-width: 12.24rem; 
+    height: 7.77rem;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     overflow: hidden;
   }
+/*----------影评移动端适配 ---------------------*/
+  @media screen and (max-width: 768px){
+    .filmReview {
+      position: relative;
+      flex-direction: column;
+    }
+    .app{
+      min-width: 18.96rem; 
+      height: 25rem;
+    }
+    .filmReview-title{
+      display: flex;
+      flex-direction: row;
+      margin-bottom:20px;
+    }
+    .filmReview .app .app__img img{
+      width: 100%;
+      height: 400%;
+    }
+    .pages__list{
+      display: flex;
+      flex-direction: row;
+      margin-top:20px;
+    }
+    .pages__item{
+      margin-right:15px;
+    }
+    .filmReview .app .app__text--2 {
+      left: 2rem;
+      top: 15rem;
+    }
+   }
+   @media screen and (max-width: 414px){
+    .filmReview .app .app__img img{
+      width: 100%;
+      height: 480%;
+    }
+    .app__text .app__text-line--4 {
+      font-size: 1.5rem;
+    }
+    .app__text .app__text-line--3 {
+      font-size: 1.2rem;
+    }
+    .filmReview .app .app__text--2 {
+      left: 2rem;
+      top: 15rem;
+    }
+  }
+/* pc端 */
   .app__bgimg {
     position: absolute;
     top: 0;
@@ -233,8 +291,8 @@ p {font-size: 14px;
   }
   .app__text {
     position: absolute;
-    right: 165px;
-    top: 150px;
+    left: 2rem;
+    top: 2rem;
     font-family: 'Roboto', sans-serif;
     text-transform: uppercase;
     z-index: 1;
@@ -265,17 +323,17 @@ p {font-size: 14px;
     transition: transform 1500ms 1700ms, opacity 1500ms 2000ms, -webkit-transform 1500ms 1700ms;
   }
   .app__text-line--4 {
-    font-size: 50px;
+    font-size: 1rem;
     font-weight: 700;
     color: #0A101D;
   }
   .app__text-line--3 {
-    font-size: 40px;
+    font-size: 0.5rem;
     font-weight: 300;
   }
   .app__text-line--2 {
-    margin-top: 10px;
-    font-size: 14px;
+    margin-top: 0.2rem;
+    font-size: 0.2rem;
     font-weight: 500;
     color: #0099CC;
   }
@@ -286,8 +344,8 @@ p {font-size: 14px;
   }
   .app__text--2 {
     right: initial;
-    top: 250px;
-    left: 80px;
+    left: 2rem;
+    top: 5rem;
     z-index: -1;
     transition: z-index 1500ms;
   }
@@ -313,7 +371,7 @@ p {font-size: 14px;
     position: absolute;
     -webkit-transform: translate3d(0, -750px, 0);
             transform: translate3d(0, -750px, 0);
-    width: 850px;
+    width: 105%;
     height: 100%;
     transition: -webkit-transform 3s cubic-bezier(0.6, 0.13, 0.31, 1.02);
     transition: transform 3s cubic-bezier(0.6, 0.13, 0.31, 1.02);

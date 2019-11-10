@@ -141,6 +141,9 @@ const initialAnimation = ()=> {
   })
 }
 
+/* 成员介绍切换动画 */
+
+
 /* 影评动画 */
 const FilmReviewAnimation = ()=> {
 	var $app = $('.app');
@@ -202,14 +205,14 @@ const FilmReviewAnimation = ()=> {
       duration: 900,
     }).add({
       targets: '.app__text',
-      scale:[1,0.6],
-      translateX: ['0%','90%'],
+      scale:[1,0.5],
+      translateX: ['0%','60%'],
       translateY:['0%','-70%'],
       easing: 'easeInOutSine',
       duration: 900,
     }).add({
       targets: '.app__content',
-      translateY:['100%','50%'],
+      top:'50%',
       easing: 'easeInOutSine',
       duration: 900,
       begin:()=>{
@@ -221,13 +224,13 @@ const FilmReviewAnimation = ()=> {
       timeline2.add({
         targets: '.app__content',
         opacity: [1,0],  
-        translateY:['50%','100%'],
+        top:'0%',
         easing: 'easeInOutSine',
         duration: 1000,
       }).add({
         targets: '.app__content',
         opacity: [0,1],  
-        translateY:['100%','50%'],
+        top:'50%',
         easing: 'easeInOutSine',
         duration: 1000,
         begin:()=>{
@@ -243,9 +246,9 @@ const FilmReviewAnimation = ()=> {
 
 $(function(){
   $(window).on("load",function(){
-    $('.my-header').css('display','none'); 
+  /*  $('.my-header').css('display','none'); 
     $('.left-section').css('display','none'); 
-    initialAnimation(); 
+    initialAnimation();   */
   });
 /*   $(document.body).on("mousemove",function(){
   let x = event.clientX;
@@ -257,7 +260,7 @@ $(function(){
   /* 滚动监听 */
   new WOW().init();
 
-  /* 影评的动画 */
+  /* 影评动画 */
   FilmReviewAnimation();
   
   
