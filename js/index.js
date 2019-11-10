@@ -29,7 +29,19 @@ xRoll.prototype = {
       })
   }
 };
-
+/* header */
+const navbarFixed = ()=>{
+  if ( $('.header_area').length ){ 
+      $(window).on('scroll', function() {
+          var scroll = $(window).scrollTop();   
+          if (scroll >= 295) {
+              $(".header_area").addClass("navbar_fixed");
+          } else {
+              $(".header_area").removeClass("navbar_fixed");
+          }
+      }); 
+  };
+}; 
 /* 开屏动画 */
 const calcScale = (itemRect, targetRect) => {
   const scaleX = targetRect.width / itemRect.width;
@@ -206,8 +218,10 @@ const FilmReviewAnimation = ()=> {
     }).add({
       targets: '.app__text',
       scale:[1,0.5],
-      translateX: ['0%','60%'],
-      translateY:['0%','-70%'],
+      top:'20%',
+      left:'0%',
+      /* translateX: ['0%','60%'],
+      translateY:['0%','-70%'], */
       easing: 'easeInOutSine',
       duration: 900,
     }).add({
@@ -262,7 +276,7 @@ $(function(){
 
   /* 影评动画 */
   FilmReviewAnimation();
-  
+  navbarFixed();
   
 });
 

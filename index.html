@@ -4,34 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="asserts/icon1.png"/>
   <link rel="stylesheet" href="./lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="lib/animate.min.css">
   <link rel="stylesheet" href="lib/font-awesome.min.css">
   <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/effect.css">
   <title>南邮电影协会</title>
 </head>
 <body style="overflow-x:hidden;" >
-    <ul class="my-header">
-      <a href="">
-        <li>icon</li>
-      </a>
-      <a href="">
-        <li>本周电影</li>
-      </a>
-      <a href="">
-        <li>部门介绍</li>
-      </a>
-      <a href="">
-          <li>社员介绍</li>
-      </a>
-      <a href="">
-          <li>精彩影评</li>
-      </a>
-      <a href="" class='header_right'>
-          <li>加入我们</li>
-      </a>
-    </ul>
+    <header class="header_area"> 
+        <div class="container">
+             <div class="header_menu"> 
+                 <nav class="navbar"> 
+                     <a class="navbar-brand" href=""><img src="asserts/icon1.png" alt=""></a>
+                     <!-- Small Divice Menu-->
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar_supported"  aria-expanded="false" aria-label="Toggle navigation"> 
+                         <i class="fa fa-bars" aria-hidden="true"></i>
+                     </button>
+ 
+                     <div class="collapse navbar-collapse navbar_supported">
+                         <ul class="navbar-nav"> 
+                             <li>
+                                 <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-expanded="false">首页</a>
+                             </li>
+                             <li class="dropdown">
+                                <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-expanded="false">每周电影</a>
+                                <ul class="dropdown-menu">  
+                                    <li class="dropdown">
+                                        <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">本周电影</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">《时空恋旅人》</a></li>   
+                                            <li><a href="">《请以你的名字呼唤我》</a></li>   
+                                            <li><a href="">《傲慢与偏见》</a></li>    
+                                            <li><a href="">《情书》</a></li>      
+                                        </ul>
+                                    </li> 
+                                    <li class="dropdown">
+                                        <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-expanded="false">往期电影</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="">往期主题</a></li>  
+                                            <li><a href="">完整影库</a></li>
+                                            <li><a href="">最受欢迎电影</a></li>  
+                                        </ul>
+                                    </li>    
+                                    <li><a href="">我要推荐</a></li>
+                                    <li><a href="">FAQ</a></li>      
+                                </ul>
+                            </li> 
+                             <li><a class="nav-link" href="">部门介绍</a></li>  
+                             <li><a class="nav-link" href="">成员介绍</a></li>   
+                             <li class="dropdown">
+                               <a href="">精彩影评</a>
+                               <ul class="dropdown-menu">
+                                  <li class="dropdown">
+                                      <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-expanded="false">优秀影评</a>
+                                      <ul class="dropdown-menu">
+                                          <li><a href="">蒙太奇的诞生与发展</a></li>  
+                                          <li><a href="">在悲伤中读懂生活</a></li>  
+                                      </ul>
+                                  </li>  
+                                  <li><a href="">我要撰写</a></li> 
+                               </ul>
+                              </li>  
+                             <li class="contact_us"><a href="#">联系我们</a></li>  
+                        </ul>   
+                    </div>
+                </nav>  
+          </div>
+        </div>
+    </header>
   <div class='intro-wrapper'>
     <div class='centered'>
       <div class='square'></div>
@@ -74,7 +116,7 @@
               <h1 class="wow rubberBand">DEPARTMENT INTRODUCE</h1>
               <div class="line"></div>
                 <figure class="effect-apollo wow slideInLeft" data-wow-delay="0.2s" id='projection'>    
-                  <img src="./asserts/17.jpg">   
+                  <img src="./asserts/1.jpg">   
                   <figcaption>    
                       <h2>Projection&emsp;<span>Department</span></span>
                       <h2>放映部</h2>
@@ -82,7 +124,7 @@
                   </figcaption>			    
                 </figure>   
               <figure class="effect-apollo  wow slideInRight" data-wow-delay="0.2s" id='Propaganda'>    
-                <img src="./asserts/18.jpg">   
+                <img src="./asserts/2.jpg">   
                 <figcaption>   
                     <h2>Propaganda <span>Department</span></h2>
                     <h2>宣传部</h2>
