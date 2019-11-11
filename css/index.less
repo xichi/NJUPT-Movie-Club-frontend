@@ -30,6 +30,10 @@ input, select {
     border: 0;  /* 所有的表单边框为0 */
     box-sizing: border-box; /* CSS3盒子模型 border 和 padding 都包含到 width 里面去 */
 }
+:root {
+  --duration: .8s;
+  --ease: cubic-bezier(.7, 0, .3, 1);
+}
 
 @media screen and (min-width: 320px){
     html{
@@ -420,6 +424,14 @@ input, select {
                    }
                }
             }
+            .bg-layer{
+                background: url('../asserts/bg-layer.png') no-repeat;
+                transform: rotate(-20deg);
+                width:100%;
+                height:100%;
+                position: absolute;
+                z-index:-1;
+            }
         }
         
         .left-section{
@@ -428,7 +440,63 @@ input, select {
                 height: 800px;
                 color: black;                
                 .weekly-movies{
-                    background-image: url(../asserts/timg.jpg);
+                    height: 800px;
+                    overflow: hidden;
+                    position: relative;
+                    .weekly-movies-nav {
+                      grid-column: 1;
+                      grid-row: 2;
+                      pointer-events: none;
+                      z-index: 10;
+                      display: flex;
+                      position: absolute;
+                      left: 0;
+                      right: 0;
+                      margin: auto;
+                      bottom: 0;
+                      max-width: 1000px;
+                    }
+                    .weekly-movies-nav svg {
+                      display: block;
+                      width: auto;
+                      height: auto;
+                      min-width: 100%;
+                      max-width: none;
+                      min-height: 100vh;
+                      margin-bottom: -50%;
+                    }
+                    @media (max-width: 600px) {
+                      .weekly-movies-nav svg {
+                        margin-bottom: -55%;
+                      }
+                    }
+                    .weekly-movies-nav tspan {
+                      cursor: pointer;
+                      fill: #3085a3;
+                      pointer-events: auto;
+                      opacity: 0;
+                      transition: opacity var(--duration) linear;
+                    }
+                    .weekly-movies-nav tspan[x] {
+                      opacity: 0.6;
+                    }
+                    .weekly-movies-nav tspan:hover, .weekly-movies-nav tspan:focus {
+                      opacity: 1;
+                    }
+                    .weekly-movies-nav svg {
+                      -webkit-transform-origin: center center;
+                              transform-origin: center center;
+                      --length: 7;
+                      --range: 160deg;
+                      -webkit-transform: rotate(calc(  (var(--active,0) / var(--length)) * (-1 * var(--range)) + (var(--range) / 2) ));
+                              transform: rotate(calc(  (var(--active,0) / var(--length)) * (-1 * var(--range)) + (var(--range) / 2) ));
+                      transition: -webkit-transform var(--duration) var(--ease);
+                      transition: transform var(--duration) var(--ease);
+                      transition: transform var(--duration) var(--ease), -webkit-transform var(--duration) var(--ease);
+                    }
+                    .weekly-movies-nav tspan {
+                      cursor: pointer;
+                    }
                 }
 
             }
@@ -544,6 +612,14 @@ input, select {
             }
             .fifth-section{
                 position:relative;
+                .banner-list{
+                    background: url('../asserts/banner-list.png') no-repeat;
+                    width:100%;
+                    height:100%;
+                    top:10%;
+                    opacity:0.8;
+                    position: absolute;
+                }
             }
         }
     }
@@ -571,9 +647,26 @@ input, select {
         transform: translate(-50%, 10px) scale(1.1, 0.9);  
     }
     75% {
-        ransform: translate(-50%, 5px);
+        transform: translate(-50%, 5px);
     }
     100% {
         transform: translate(-50%, 0) ;
+    }
+}
+@keyframes brand-animation {
+    0% {
+        transform: translateX(0) ;
+    }
+    25% {
+        transform: translateX(10px);
+    }
+    50% {
+        transform: translateX(0);  
+    }
+    75% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0) ;
     }
 }

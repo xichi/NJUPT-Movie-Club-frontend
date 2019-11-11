@@ -42,6 +42,42 @@ const navbarFixed = ()=>{
       }); 
   };
 }; 
+/* 第二屏 */
+const weeklyMovies = ()=>{
+  const elApp = document.querySelector('.weekly-movies');
+
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const elSvgNav = document.querySelector('.weekly-movies-nav svg');
+  
+  const elTspans = [...document.querySelectorAll('tspan')];;
+  const length = elTspans.length - 1;
+  
+  elSvgNav.style.setProperty('--length', length);
+  
+  // Getting the length for distributing the text along the path
+  const elNavPath = document.querySelector('#navPath');
+  const elLastTspan = elTspans[length];
+  const navPathLength = elNavPath.getTotalLength() - elLastTspan.getComputedTextLength();
+  
+  function selectPlanetByIndex(i) {
+    currentPlanetIndex = i;
+    elApp.style.setProperty('--active', i);
+    selectPlanet(planetKeys[i]);
+  }
+  
+  elTspans.forEach((tspan, i) => {
+    let percent = i / length;
+  
+    tspan.setAttribute('x', percent * navPathLength);
+    tspan.setAttributeNS(svgNS, 'x', percent * navPathLength);
+  
+    tspan.addEventListener('click', e => {
+      e.preventDefault();
+      selectPlanetByIndex(i);
+    });
+  
+  });
+}
 /* 开屏动画 */
 const calcScale = (itemRect, targetRect) => {
   const scaleX = targetRect.width / itemRect.width;
@@ -135,7 +171,7 @@ const initialAnimation = ()=> {
     easing: 'easeInOutQuad',
     duration: 100,
     begin:()=>{
-      $('.my-header').css('display','block'); 
+      $('.header_area').css('display','block');
       $('.left-section').css('display','block');
     }
   }).add({
@@ -260,24 +296,26 @@ const FilmReviewAnimation = ()=> {
 
 $(function(){
   $(window).on("load",function(){
-  /*  $('.my-header').css('display','none'); 
+/*     $('.header_area').css('display','none'); 
     $('.left-section').css('display','none'); 
     initialAnimation();   */
   });
-/*   $(document.body).on("mousemove",function(){
+  $(document.body).on("mousemove",function(){
   let x = event.clientX;
   let y = event.clientY;
-  $('').css('background-position',`${-x /
-    50}px ${-y / 30}px`);
-  });  */
+  $('.bg-layer').css('background-position',`${-x /
+    10}px ${-y / 10}px`);
+  });  
 
   /* 滚动监听 */
   new WOW().init();
 
-  /* 影评动画 */
+  /* SB动画 */
   FilmReviewAnimation();
   navbarFixed();
+  weeklyMovies();
   
 });
+
 
 
