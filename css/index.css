@@ -459,6 +459,28 @@ select {
   height: 800px;
   overflow: hidden;
   position: relative;
+  /* 屁话一通 */
+  /* 导航栏 */
+  /* 每周电影item */
+}
+.main .left-section .second-section .weekly-movies h1,
+.main .left-section .second-section .weekly-movies h3 {
+  text-align: center;
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-welcome-title span:nth-child(1) {
+  color: #F3934A;
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-welcome-title span:nth-child(2) {
+  color: #EB547D;
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-welcome-title span:nth-child(3) {
+  color: #9F6AA7;
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-welcome-title span:nth-child(4) {
+  color: #5476B3;
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-welcome-title span:nth-child(5) {
+  color: #2BB19B;
 }
 .main .left-section .second-section .weekly-movies .weekly-movies-nav {
   grid-column: 1;

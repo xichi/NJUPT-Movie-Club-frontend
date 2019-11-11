@@ -296,7 +296,7 @@ const FilmReviewAnimation = ()=> {
 
 $(function(){
   $(window).on("load",function(){
-/*     $('.header_area').css('display','none'); 
+    /* $('.header_area').css('display','none'); 
     $('.left-section').css('display','none'); 
     initialAnimation();   */
   });
