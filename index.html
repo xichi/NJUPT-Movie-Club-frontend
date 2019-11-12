@@ -103,45 +103,85 @@
      <div class='left-section'>
        <!-- 第二屏 -->
         <div class='second-section'>
+            <div class='weekly-movies-welcome-title'>
+                <h1>
+                    <span class='wow bounceIn' data-wow-delay="0.2s">你</span>
+                    <span class='wow bounceIn' data-wow-delay="0.4s">知</span>
+                    <span class='wow bounceIn' data-wow-delay="0.6s">道</span>
+                    <span class='wow bounceIn' data-wow-delay="0.8s">吗</span>
+                    <span class='wow bounceIn' data-wow-delay="1.0s">？</span>
+                </h1>
+                <h3 class='wow bounceIn' data-wow-delay="1.2s"><span>图书馆1楼</span>放映室<span>每周</span>都会放映<span>电影</span>哦。</h3>
+            </div> 
             <div class='weekly-movies'>
-                <div class='weekly-movies-welcome-title'>
-                    <h1>
-                        <span class='wow bounceIn' data-wow-delay="0.2s">你</span>
-                        <span class='wow bounceIn' data-wow-delay="0.4s">知</span>
-                        <span class='wow bounceIn' data-wow-delay="0.6s">道</span>
-                        <span class='wow bounceIn' data-wow-delay="0.8s">吗</span>
-                        <span class='wow bounceIn' data-wow-delay="1.0s">？</span>
-                    </h1>
-                    <h3 class='wow bounceIn' data-wow-delay="1.2s"><span>图书馆1楼</span>放映室<span>每周</span>都会放映<span>电影</span>哦。</h3>
-                </div>
+               <img class='theme wow fadeIn' src="./asserts/weekly-movies/theme.png" alt="">
                 <nav class="weekly-movies-nav">
-                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" >
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" >
                       <path 
                           id="navPath" 
-                          d="M10,200 C30,-28 370,-28 390,200"
+                          d="M10,100 C30,-14 170,-14 190,100"
                           fill="none" />
                       <text>
-                        <textPath href="#navPath" startOffset="0" font-size="11">
-                          <tspan>Tuesday</tspan>
-                          <tspan>Wednesday</tspan>
-                          <tspan>Thursday</tspan>
-                          <tspan>Friday</tspan>
-                          <tspan>More...</tspan>
+                        <textPath href="#navPath" startOffset="0" font-size="8" class="carousel-indicators">
+                          <tspan data-target="#carousel-example-generic" data-slide-to="0" class="active">Tue.</tspan>
+                          <tspan data-target="#carousel-example-generic" data-slide-to="1">Wed.</tspan>
+                          <tspan data-target="#carousel-example-generic" data-slide-to="2">Thurs.</tspan>
+                          <tspan data-target="#carousel-example-generic" data-slide-to="3">Fri.</tspan>
+                          <tspan></tspan>
                         </textPath>
                       </text>
                     </svg>
                   </nav>
 
-                  <div class="weekly-movies-item" data-planet="mercury" data-active>
-                    <div class="weekly-movies-item-title">
-
+                  <div id="carousel-example-generic" class="carousel slide weekly-movies-item" data-ride="carousel">
+                    <!-- Indicators -->
+                    <!-- <ol class="carousel-indicators">
+                      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol> -->
+                  
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        <img src="./asserts/weekly-movies/2.jpg" alt="...">
+                        <div class="carousel-caption">
+                          <h3>时空恋旅人</h3>
+                          <p>该剧讲述了一个拥有穿越时间能力的男人的故事。Tim21岁了，他的老爸告诉他，他们家族的男人都有时光旅行的超能力，可以回到过去。于是Tim将信就疑地试了一下，回到了夏天，在那里他试图改变和暗恋对象的关系，却发现怎么穿越时空都不能让不爱你的人爱上你</p>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="./asserts/weekly-movies/4.jpg" alt="...">
+                        <div class="carousel-caption">
+                          <h3>请以你的名字呼唤我</h3>
+                          <p>该片改编自安德烈·艾席蒙的同名小说，讲述了24岁的美国博士生奥利弗在意大利结识了17岁的少年艾利欧，两人从而发展出一段暧昧关系的故事</p>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="./asserts/weekly-movies/6.jpg" alt="...">
+                        <div class="carousel-caption">
+                          <h3>傲慢与偏见</h3>
+                          <p>该片讲述了19世纪初期英国的乡绅之女伊丽莎白·班内特五姐妹的爱情与择偶的故事。</p>
+                        </div>
+                      </div>
+                      <div class="item">
+                        <img src="./asserts/weekly-movies/8.jpg" alt="...">
+                        <div class="carousel-caption">
+                          <h3>情书</h3>
+                          <p>该片改编自同名小说《情书》，讲述了一封原本出于哀思而寄往天国的情书，却大出意料收到同名同姓的回信，并且逐渐挖掘出一段深埋多年却始终沉静的纯真单恋的爱情故事</p>
+                        </div>
+                      </div>
                     </div>
-                    <div class="weekly-movies-item-detail">
-
-                    </div>
-                    <figure class="weekly-movies-item-figure">
-                      <img src="./asserts/weekly-movies/2.jpg" />
-                    </figure>
+                  
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
                   </div>
             </div>
         </div>
@@ -152,7 +192,7 @@
               <h1 class="wow rubberBand">DEPARTMENT INTRODUCE</h1>
               <div class="line"></div>
                 <figure class="effect-apollo wow slideInLeft" data-wow-delay="0.2s" id='projection'>    
-                  <img src="./asserts/1.jpg">   
+                  <img src="./asserts/4.jpg">   
                   <figcaption>    
                       <h2>Projection&emsp;<span>Department</span></span>
                       <h2>放映部</h2>
@@ -160,7 +200,7 @@
                   </figcaption>			    
                 </figure>   
               <figure class="effect-apollo  wow slideInRight" data-wow-delay="0.2s" id='Propaganda'>    
-                <img src="./asserts/2.jpg">   
+                <img src="./asserts/5.jpg">   
                 <figcaption>   
                     <h2>Propaganda <span>Department</span></h2>
                     <h2>宣传部</h2>
@@ -206,7 +246,7 @@
                     <div class="col-md-4 col-sm-6 col-xs-12 col">
                         <div class="single-member effect-1 effect-bgc-1 wow slideInUp" data-wow-delay="0.5s">
                             <div class="member-image">
-                              <img src="asserts/protrait/demo2.jpeg"  width='200' height='200' alt="">
+                              <img src="asserts/protrait/demo2.jpg"  width='200' height='200' alt="">
                             </div>
                             <div class="member-info">
                               <h3>刘羿</h3>
@@ -224,7 +264,7 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 col">
                         <div class="single-member effect-1 effect-bgc-1 wow slideInUp" data-wow-delay="1s">
                             <div class="member-image">
-                              <img src="asserts/protrait/demo3.jpeg"  width='140' height='145' alt="">
+                              <img src="asserts/protrait/demo3.jpg"  width='140' height='145' alt="">
                             </div>
                             <div class="member-info">
                               <h3>何其凡</h3>
@@ -265,7 +305,7 @@
                     <div class="col-md-4 col-sm-6 col-xs-12 col">
                         <div class="single-member effect-1 effect-bgc-2 wow slideInUp" data-wow-delay="0.5s">
                             <div class="member-image">
-                              <img src="asserts/protrait/demo2.jpeg"  width='200' height='200' alt="">
+                              <img src="asserts/protrait/demo2.jpg"  width='200' height='200' alt="">
                             </div>
                             <div class="member-info">
                               <h3>刘羿</h3>
@@ -283,7 +323,7 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 col">
                         <div class="single-member effect-1 effect-bgc-2 wow slideInUp" data-wow-delay="1s">
                             <div class="member-image">
-                              <img src="asserts/protrait/demo3.jpeg"  width='140' height='145' alt="">
+                              <img src="asserts/protrait/demo3.jpg"  width='140' height='145' alt="">
                             </div>
                             <div class="member-info">
                               <h3>何其凡</h3>
@@ -324,7 +364,7 @@
                     <div class="col-md-4 col-sm-6 col-xs-12 col">
                         <div class="single-member effect-1 effect-bgc-3 wow slideInUp" data-wow-delay="0.5s">
                             <div class="member-image">
-                              <img src="asserts/protrait/demo2.jpeg"  width='200' height='200' alt="">
+                              <img src="asserts/protrait/demo2.jpg"  width='200' height='200' alt="">
                             </div>
                             <div class="member-info">
                               <h3>刘羿</h3>
@@ -342,7 +382,7 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 col">
                         <div class="single-member effect-1 effect-bgc-3 wow slideInUp" data-wow-delay="1s">
                             <div class="member-image">
-                              <img src="asserts/protrait/demo3.jpeg"  width='140' height='145' alt="">
+                              <img src="asserts/protrait/demo3.jpg"  width='140' height='145' alt="">
                             </div>
                             <div class="member-info">
                               <h3>何其凡</h3>
@@ -422,13 +462,47 @@
                 </div>
               </div>
         </div>
+        <!-- footer 联系我们 -->
+          <div class="footer_contact_us row"> 
+              <div class="col-lg-4 col-md-6 footer_logo">
+                  <a href="index.html"><img src="images/logo.png" alt=""></a> 
+                  <p>欢迎加入我们</p>
+                  <h6><i class="fa fa-location-arrow"></i>南京</h6> 
+                  <ul class="footer_social"> 
+                      <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                      <li><a href="#"><i class="fa fa-qq"></i></a></li>
+                      <li><a href="#"><i class="fa fa-wechat"></i></a></li>
+                  </ul>
+              </div>
+              <div class="footer_widget col-lg-3 col-sm-6">
+                  <h4>关于我们</h4>
+                  <ul class="footer_nav"> 
+                      <li><a href="#">每周电影</a></li>
+                      <li><a href="#">部门介绍</a></li>
+                      <li><a href="#">成员介绍</a></li>
+                      <li><a href="#">精彩影评</a></li> 
+                  </ul>
+              </div>   
+              <div class="footer_widget fw_3 col-lg-5 col-md-6">
+                  <h4>Contact us</h4>
+                  <address>
+                      124 New Street, Suite 521 <br>New York, NY 10010
+                      <a href="#" class="mail">youremail@Mogh.com</a>
+                      <a href="#">+88 (0) 101 0000 000</a>
+                  </address>
+              </div> 
+          </div>
+      </div>       
+      <div class="copy_right"> 
+          <p>Copyrights -2019 nupt movie club</p> 
+      </div>
+  </footer>
     </div>
    </div>
   <script src="./lib/jquery/jquery.min.js"></script>
   <script src="./lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <script src="./lib/wow.min.js"></script>
   <script src='./lib/anime.js/anime.min.js'></script>
-  <script src='./js/splitting.min.js'></script>
   <script src='./js/index.js'></script>
 </body>
 </html>

@@ -437,22 +437,72 @@ input, select {
         .left-section{
             position: relative;
             .second-section{
-                height: 800px;
-                color: black;                
+                color: black;
+                /* @media screen and (min-width: 480px){
+                  .weekly-movies-welcome-title{
+                    position:absolute;
+                    bottom:10%;
+                    left:50%;
+                    transform:translateX(-50%);
+                  }
+                } */
+                .weekly-movies-welcome-title{
+                  z-index:9;
+                  /* position:relative; */
+                  h1,h3{
+                    text-align:center;
+                    color:#000;
+                  }
+                  span:nth-child(1){color:#F3934A;}
+                  span:nth-child(2){color:#EB547D;}
+                  span:nth-child(3){color:#9F6AA7;}
+                  span:nth-child(4){color:#5476B3;}
+                  span:nth-child(5){color:#2BB19B;}
+                }                
                 .weekly-movies{
-                    height: 800px;
                     overflow: hidden;
                     position: relative;
+                    margin: 50px auto;
+                    display: table;
+                    box-shadow:0 0 30px rgba(0,0,0,0.3);
                     /* 屁话一通 */
-                    h1, h3{
-                      text-align: center;
+                    img.theme{
+                      position: absolute;
+                      width:2.5rem;
+                      height:auto;
+                      z-index:9;
+                      top:50%;
+                      left:50%;
+                      transform:translate(-50%,-50%);
                     }
-                    .weekly-movies-welcome-title{
-                      span:nth-child(1){color:#F3934A;}
-                      span:nth-child(2){color:#EB547D;}
-                      span:nth-child(3){color:#9F6AA7;}
-                      span:nth-child(4){color:#5476B3;}
-                      span:nth-child(5){color:#2BB19B;}
+                    /* 轮播图 */
+                    .weekly-movies-item{
+                      width:100%;
+                      max-height: 600px;
+                      .carousel-inner{
+                        width:100%;
+                        height:100%;
+                        .item{
+                          img{
+                            width:100%;
+                            height:100%;
+                          }
+                          .carousel-caption{
+                            top:60%;
+                            h3{
+                              font-size:0.5rem;
+                            }
+                            p{
+                              font-size:0.2rem;
+                            }
+                            @media screen and (max-width: 480px){
+                              p{
+                                display:block;
+                              }
+                            }
+                          }
+                        }
+                      }
                     }
                     /* 导航栏 */
                     .weekly-movies-nav {
@@ -479,18 +529,18 @@ input, select {
                     }
                     @media (max-width: 600px) {
                       .weekly-movies-nav svg {
-                        margin-bottom: -55%;
+                        display:none;
                       }
                     }
                     .weekly-movies-nav tspan {
                       cursor: pointer;
-                      fill: #3085a3;
+                      fill: #15b9f0;
                       pointer-events: auto;
                       opacity: 0;
                       transition: opacity var(--duration) linear;
                     }
                     .weekly-movies-nav tspan[x] {
-                      opacity: 0.6;
+                      opacity: 0.5;
                     }
                     .weekly-movies-nav tspan:hover, .weekly-movies-nav tspan:focus {
                       opacity: 1;
@@ -509,19 +559,7 @@ input, select {
                     .weekly-movies-nav tspan {
                       cursor: pointer;
                     }
-                    /* 每周电影item */
-                                        
-                    .weekly-movies-item{
-                     
-                    }
-                    .weekly-movies-item > .weekly-movies-item-figure {
-                      
-                    }
-                    .weekly-movies-item > .weekly-movies-item-figure img {
-                      
-                    }
                 }
-
             }
             .third-section{
                 position: relative;
@@ -644,6 +682,23 @@ input, select {
                     position: absolute;
                 }
             }
+            /* footer */
+            .footer_contact_us{
+              padding:0;
+              margin:0;
+              width:100%;
+              background-color:#1b2a49;
+              font-size:15px;
+              color:#fff;
+              a{
+                color:#fff;
+              }
+            }
+            .copy_right{
+              width:100%;
+              background-color:#1b2a49;
+              color:#fff;
+            }
         }
     }
    /* 小插件 */
@@ -652,6 +707,7 @@ input, select {
     bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
+    cursor: pointer;
     animation: rotate 1.5s linear infinite;
 }
 .up-down img{

@@ -1,3 +1,4 @@
+
 /* 滚动监听 */
 var xRoll = function (el, fn) {
   xRoll.prototype.init(el, fn)
@@ -29,7 +30,7 @@ xRoll.prototype = {
       })
   }
 };
-/* header */
+/* header变变变 */
 const navbarFixed = ()=>{
   if ( $('.header_area').length ){ 
       $(window).on('scroll', function() {
@@ -42,7 +43,7 @@ const navbarFixed = ()=>{
       }); 
   };
 }; 
-/* 第二屏 */
+/* 第二屏导航 */
 const weeklyMovies = ()=>{
   const elApp = document.querySelector('.weekly-movies');
 
@@ -59,10 +60,9 @@ const weeklyMovies = ()=>{
   const elLastTspan = elTspans[length];
   const navPathLength = elNavPath.getTotalLength() - elLastTspan.getComputedTextLength();
   
-  function selectPlanetByIndex(i) {
+  function selectMovieByIndex(i) {
     currentPlanetIndex = i;
     elApp.style.setProperty('--active', i);
-    selectPlanet(planetKeys[i]);
   }
   
   elTspans.forEach((tspan, i) => {
@@ -73,11 +73,16 @@ const weeklyMovies = ()=>{
   
     tspan.addEventListener('click', e => {
       e.preventDefault();
-      selectPlanetByIndex(i);
-    });
-  
+      selectMovieByIndex(i);
+    });  
+  });
+
+  $('#carousel-example-generic').on('slide.bs.carousel', function (obj) {
+    var index = $(this).find('.item').index(obj.relatedTarget);
+    elApp.style.setProperty('--active', index);
   });
 }
+
 /* 开屏动画 */
 const calcScale = (itemRect, targetRect) => {
   const scaleX = targetRect.width / itemRect.width;
@@ -306,7 +311,6 @@ $(function(){
   $('.bg-layer').css('background-position',`${-x /
     10}px ${-y / 10}px`);
   });  
-
   /* 滚动监听 */
   new WOW().init();
 

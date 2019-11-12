@@ -450,37 +450,87 @@ select {
 }
 .main .left-section {
   position: relative;
+  /* footer */
 }
 .main .left-section .second-section {
-  height: 800px;
   color: black;
+  /* @media screen and (min-width: 480px){
+                  .weekly-movies-welcome-title{
+                    position:absolute;
+                    bottom:10%;
+                    left:50%;
+                    transform:translateX(-50%);
+                  }
+                } */
 }
-.main .left-section .second-section .weekly-movies {
-  height: 800px;
-  overflow: hidden;
-  position: relative;
-  /* 屁话一通 */
-  /* 导航栏 */
-  /* 每周电影item */
+.main .left-section .second-section .weekly-movies-welcome-title {
+  z-index: 9;
+  /* position:relative; */
 }
-.main .left-section .second-section .weekly-movies h1,
-.main .left-section .second-section .weekly-movies h3 {
+.main .left-section .second-section .weekly-movies-welcome-title h1,
+.main .left-section .second-section .weekly-movies-welcome-title h3 {
   text-align: center;
+  color: #000;
 }
-.main .left-section .second-section .weekly-movies .weekly-movies-welcome-title span:nth-child(1) {
+.main .left-section .second-section .weekly-movies-welcome-title span:nth-child(1) {
   color: #F3934A;
 }
-.main .left-section .second-section .weekly-movies .weekly-movies-welcome-title span:nth-child(2) {
+.main .left-section .second-section .weekly-movies-welcome-title span:nth-child(2) {
   color: #EB547D;
 }
-.main .left-section .second-section .weekly-movies .weekly-movies-welcome-title span:nth-child(3) {
+.main .left-section .second-section .weekly-movies-welcome-title span:nth-child(3) {
   color: #9F6AA7;
 }
-.main .left-section .second-section .weekly-movies .weekly-movies-welcome-title span:nth-child(4) {
+.main .left-section .second-section .weekly-movies-welcome-title span:nth-child(4) {
   color: #5476B3;
 }
-.main .left-section .second-section .weekly-movies .weekly-movies-welcome-title span:nth-child(5) {
+.main .left-section .second-section .weekly-movies-welcome-title span:nth-child(5) {
   color: #2BB19B;
+}
+.main .left-section .second-section .weekly-movies {
+  overflow: hidden;
+  position: relative;
+  margin: 50px auto;
+  display: table;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  /* 屁话一通 */
+  /* 轮播图 */
+  /* 导航栏 */
+}
+.main .left-section .second-section .weekly-movies img.theme {
+  position: absolute;
+  width: 2.5rem;
+  height: auto;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-item {
+  width: 100%;
+  max-height: 600px;
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-item .carousel-inner {
+  width: 100%;
+  height: 100%;
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-item .carousel-inner .item img {
+  width: 100%;
+  height: 100%;
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-item .carousel-inner .item .carousel-caption {
+  top: 60%;
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-item .carousel-inner .item .carousel-caption h3 {
+  font-size: 0.5rem;
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-item .carousel-inner .item .carousel-caption p {
+  font-size: 0.2rem;
+}
+@media screen and (max-width: 480px) {
+  .main .left-section .second-section .weekly-movies .weekly-movies-item .carousel-inner .item .carousel-caption p {
+    display: block;
+  }
 }
 .main .left-section .second-section .weekly-movies .weekly-movies-nav {
   grid-column: 1;
@@ -506,18 +556,18 @@ select {
 }
 @media (max-width: 600px) {
   .main .left-section .second-section .weekly-movies .weekly-movies-nav svg {
-    margin-bottom: -55%;
+    display: none;
   }
 }
 .main .left-section .second-section .weekly-movies .weekly-movies-nav tspan {
   cursor: pointer;
-  fill: #3085a3;
+  fill: #15b9f0;
   pointer-events: auto;
   opacity: 0;
   transition: opacity var(--duration) linear;
 }
 .main .left-section .second-section .weekly-movies .weekly-movies-nav tspan[x] {
-  opacity: 0.6;
+  opacity: 0.5;
 }
 .main .left-section .second-section .weekly-movies .weekly-movies-nav tspan:hover,
 .main .left-section .second-section .weekly-movies .weekly-movies-nav tspan:focus {
@@ -653,12 +703,29 @@ select {
   opacity: 0.8;
   position: absolute;
 }
+.main .left-section .footer_contact_us {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: #1b2a49;
+  font-size: 15px;
+  color: #fff;
+}
+.main .left-section .footer_contact_us a {
+  color: #fff;
+}
+.main .left-section .copy_right {
+  width: 100%;
+  background-color: #1b2a49;
+  color: #fff;
+}
 /* 小插件 */
 .up-down {
   position: absolute;
   bottom: 1rem;
   left: 50%;
   transform: translateX(-50%);
+  cursor: pointer;
   animation: rotate 1.5s linear infinite;
 }
 .up-down img {
