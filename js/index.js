@@ -301,9 +301,9 @@ const FilmReviewAnimation = ()=> {
 
 $(function(){
   $(window).on("load",function(){
-    /* $('.header_area').css('display','none'); 
+    $('.header_area').css('display','none'); 
     $('.left-section').css('display','none'); 
-    initialAnimation();   */
+    initialAnimation();
   });
   $(document.body).on("mousemove",function(){
   let x = event.clientX;
@@ -318,6 +318,12 @@ $(function(){
   FilmReviewAnimation();
   navbarFixed();
   weeklyMovies();
+
+  /* 点击下滑 */
+  $(".up-down").click(function(){
+    var h=$(window).scrollTop(); 
+    $("html,body").animate({ scrollTop: h + $('.second-section').height() + 20 }, 800);//点击按钮向下移动，时间为800毫秒
+  });
   
 });
 

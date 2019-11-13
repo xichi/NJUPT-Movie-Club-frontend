@@ -454,14 +454,6 @@ select {
 }
 .main .left-section .second-section {
   color: black;
-  /* @media screen and (min-width: 480px){
-                  .weekly-movies-welcome-title{
-                    position:absolute;
-                    bottom:10%;
-                    left:50%;
-                    transform:translateX(-50%);
-                  }
-                } */
 }
 .main .left-section .second-section .weekly-movies-welcome-title {
   z-index: 9;
@@ -509,6 +501,7 @@ select {
 .main .left-section .second-section .weekly-movies .weekly-movies-item {
   width: 100%;
   max-height: 600px;
+  /* 左右导航栏 */
 }
 .main .left-section .second-section .weekly-movies .weekly-movies-item .carousel-inner {
   width: 100%;
@@ -531,6 +524,11 @@ select {
   .main .left-section .second-section .weekly-movies .weekly-movies-item .carousel-inner .item .carousel-caption p {
     display: block;
   }
+}
+.main .left-section .second-section .weekly-movies .weekly-movies-item .carousel-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .main .left-section .second-section .weekly-movies .weekly-movies-nav {
   grid-column: 1;
@@ -629,6 +627,19 @@ select {
   width: 100px;
   height: 100px;
   left: 200px;
+  position: absolute;
+}
+.main .left-section .fourth-section .bg-1 {
+  background-image: linear-gradient(to bottom, #eeb8c3 0%, #c08eaf 100%);
+  opacity: 0.3;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  transform: rotate(7deg);
+  z-index: -1;
+  width: 200px;
+  height: 200px;
+  bottom: 5%;
+  left: 60%;
+  border-radius: 40%;
   position: absolute;
 }
 .main .left-section .fourth-section .nav {
