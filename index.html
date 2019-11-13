@@ -26,10 +26,10 @@
                      <div class="collapse navbar-collapse navbar_supported">
                          <ul class="navbar-nav"> 
                              <li>
-                                 <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-expanded="false">首页</a>
+                                 <a class="nav-link dropdown-toggle" href="#first-section" role="button" data-toggle="dropdown" aria-expanded="false">首页</a>
                              </li>
                              <li class="dropdown">
-                                <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-expanded="false">每周电影</a>
+                                <a class="nav-link dropdown-toggle" href="#second-section" role="button" data-toggle="dropdown" aria-expanded="false">每周电影</a>
                                 <ul class="dropdown-menu">  
                                     <li class="dropdown">
                                         <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">本周电影</a>
@@ -52,10 +52,10 @@
                                     <li><a href="">FAQ</a></li>      
                                 </ul>
                             </li> 
-                             <li><a class="nav-link" href="">部门介绍</a></li>  
-                             <li><a class="nav-link" href="">成员介绍</a></li>   
+                             <li><a class="nav-link" href="#third-section">部门介绍</a></li>  
+                             <li><a class="nav-link" href="#fourth-section">成员介绍</a></li>   
                              <li class="dropdown">
-                               <a href="">精彩影评</a>
+                               <a href="#fifth-section">精彩影评</a>
                                <ul class="dropdown-menu">
                                   <li class="dropdown">
                                       <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-expanded="false">优秀影评</a>
@@ -67,7 +67,7 @@
                                   <li><a href="">我要撰写</a></li> 
                                </ul>
                               </li>  
-                             <li class="contact_us"><a href="#">联系我们</a></li>  
+                             <li class="contact_us"><a href="#footer">联系我们</a></li>  
                         </ul>   
                     </div>
                 </nav>  
@@ -86,7 +86,7 @@
     </div>
   </div>
   <div class="main">
-     <div class='first-section'>
+     <div class='first-section' id='first-section'>
        <div class='image-wrapper'>
           <div class='back-img'></div>
        </div>
@@ -102,7 +102,7 @@
      </div>
      <div class='left-section'>
        <!-- 第二屏 -->
-        <div class='second-section'>
+        <div class='second-section'  id='second-section'>
             <div class='weekly-movies-welcome-title'>
                 <h1>
                     <span class='wow bounceIn' data-wow-delay="0.2s">你</span>
@@ -186,7 +186,7 @@
             </div>
         </div>
         <!-- 第三屏 -->
-        <div class='third-section clearfix'>
+        <div class='third-section clearfix'  id='third-section'>
             <div class='layer-1'></div>
             <div class="grid department-intro">
               <h1 class="wow rubberBand">DEPARTMENT INTRODUCE</h1>
@@ -210,7 +210,7 @@
             </div>         
         </div>
         <!-- 第四屏 -->
-        <div class='fourth-section clearfix'>
+        <div class='fourth-section clearfix'  id='fourth-section'>
             <div class='layer-2'></div>
             <div class='small-1'></div>
             <div class='small-2'></div>
@@ -403,7 +403,7 @@
             </div>
         </div>
         <!-- 第五屏 影评 -->
-        <div class='fifth-section'>
+        <div class='fifth-section' id='fifth-section'>
             <div class="filmReview">
                 <div class='banner-list'></div>
                 <div class="filmReview-title wow swing"><h1>精</h1><h1>彩</h1><h1>影</h1><h1>评</h1></div>
@@ -463,11 +463,10 @@
               </div>
         </div>
         <!-- footer 联系我们 -->
-          <div class="footer_contact_us row"> 
+          <div class="footer_contact_us row" id='footer'> 
               <div class="col-lg-4 col-md-6 footer_logo">
-                  <a href="index.html"><img src="images/logo.png" alt=""></a> 
-                  <p>欢迎加入我们</p>
-                  <h6><i class="fa fa-location-arrow"></i>南京</h6> 
+                  <a href="index.html"><img src="./asserts/icon1.png" alt=""></a> 
+                  <p>南京<i class="fa fa-location-arrow"></i>&emsp;&emsp;欢迎加入我们</p>
                   <ul class="footer_social"> 
                       <li><a href="#"><i class="fa fa-envelope"></i></a></li>
                       <li><a href="#"><i class="fa fa-qq"></i></a></li>
@@ -485,18 +484,14 @@
               </div>   
               <div class="footer_widget fw_3 col-lg-5 col-md-6">
                   <h4>Contact us</h4>
-                  <address>
-                      124 New Street, Suite 521 <br>New York, NY 10010
-                      <a href="#" class="mail">youremail@Mogh.com</a>
-                      <a href="#">+88 (0) 101 0000 000</a>
-                  </address>
+                  <h5><span>影协官方qq号</span> <span>19级新生qq群</span></h5>
+                  <img class='contact-us-qq' src="./asserts/new-qq.png" alt="">
+                  <img class='contact-us-qq' src="./asserts/office-qq.jpg" alt="">
               </div> 
-          </div>
-      </div>       
+          </div>      
       <div class="copy_right"> 
           <p>Copyrights -2019 nupt movie club</p> 
       </div>
-  </footer>
     </div>
    </div>
   <script src="./lib/jquery/jquery.min.js"></script>
