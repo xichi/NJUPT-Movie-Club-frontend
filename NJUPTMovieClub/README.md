@@ -1,4 +1,4 @@
-master分支上是用vue写的，dev分支上是用jquery写的。（做特效还是jQuery方便）
+Vue重构南京邮电大学宣传页面
 
 ## 技术栈：Vue
 
