@@ -1,26 +1,27 @@
 <template>
   <ul class="myHeader">
-    <li class="home"><img src="../assets/icon.png" alt="" /></li>
+    <li class="home"><img src="../assets/pic/icon.png" alt="" /></li>
     <ul class="right">
       <li class="weelky-movies dropdown">
-        <a href="">每周电影</a>
+        <router-link to="">每周电影</router-link>
         <ul class="dropdown-menu">
-          <li><a href="">本周电影</a></li>
-          <li><a href="">往期电影</a></li>
-          <li><a href="">我要推荐</a></li>
-          <li><a href="">FAQ</a></li>
+          <li><router-link to="">本周电影</router-link></li>
+          <li><router-link to="">往期电影</router-link></li>
+          <li><router-link to="">我要推荐</router-link></li>
+          <li><router-link to="">FAQ</router-link></li>
         </ul>
       </li>
-      <li class="department-introduction"><a href="">部门介绍</a></li>
-      <li class="member-introduction"><a href="">成员介绍</a></li>
+      <li class="department-introduction"><router-link to="">部门介绍</router-link></li>
+      <li class="member-introduction"><router-link to="">成员介绍</router-link></li>
       <li class="film-reviews dropdown">
-        <a href="">精彩影评</a>
+        <router-link to="">精彩影评</router-link>
         <ul class="dropdown-menu">
-          <li><a href="">优秀影评</a></li>
-          <li><a href="">我要撰写</a></li>
+          <li><router-link to="">优秀影评</router-link></li>
+          <li><router-link to="">我要撰写</router-link></li>
         </ul>
       </li>
-      <li class="contact-us"><a href="">联系我们</a></li>
+      <li class="contact-us"><router-link to="">联系我们</router-link></li>
+      <li class="sign-up"><router-link to="/signUp">sign up</router-link></li>
     </ul>
   </ul>
 </template>
@@ -29,6 +30,11 @@
 export default {
   data() {
     return {};
+  },
+  methods: {
+    clickFn(url){
+      this.$router.push(url);
+    }
   },
   mounted() {
 
@@ -59,7 +65,8 @@ export default {
     padding-top 20px
     height 150px
     cursor pointer
-    animation icon-move 2s linear infinite
+    &:hover
+      animation icon-move 2s linear infinite
     img
       width 150px
       height auto
