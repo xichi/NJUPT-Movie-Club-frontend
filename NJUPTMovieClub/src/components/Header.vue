@@ -30,8 +30,8 @@
       </li>
       <li class="contact-us"><router-link to="">联系我们</router-link></li>
       <li class="sign-up">
-        <router-link to="/signUp"
-          >{{ userInfo.username || "Sign Up" }}
+        <router-link to="/login"
+          >{{ userInfo.username || "Sign In" }}
         </router-link>
         <font-awesome-icon
           :icon="['far', 'user']"
