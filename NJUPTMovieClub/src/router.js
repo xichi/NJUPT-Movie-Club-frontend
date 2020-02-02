@@ -1,8 +1,8 @@
 import VueRouter from 'vue-router'
 
-import index from './pages/index.vue'
-import movieReview from './pages/movieReview/movieReview.vue'
-import signUp from './pages/signUp.vue'
+import index from '@/pages/index.vue'
+import movieReview from '@/pages/movieReview/movieReview.vue'
+import signUp from '@/pages/signUp.vue'
 
 var router = new VueRouter({
     routes:[
@@ -12,4 +12,5 @@ var router = new VueRouter({
         {path:'/movieReview',component:movieReview}
     ]
 })
+
 export default router

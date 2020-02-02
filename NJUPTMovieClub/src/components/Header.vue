@@ -1,9 +1,13 @@
 <template>
   <ul class="myHeader">
-    <li class="home"><img src="../assets/pic/icon.png" alt="" /></li>
+    <li class="home">
+      <router-link to="/index"
+        ><img src="../assets/pic/icon.png" alt=""
+      /></router-link>
+    </li>
     <ul class="right">
       <li class="weelky-movies dropdown">
-        <router-link to="">每周电影</router-link>
+        <router-link to="/index">每周电影</router-link>
         <ul class="dropdown-menu">
           <li><router-link to="">本周电影</router-link></li>
           <li><router-link to="">往期电影</router-link></li>
@@ -11,8 +15,12 @@
           <li><router-link to="">FAQ</router-link></li>
         </ul>
       </li>
-      <li class="department-introduction"><router-link to="">部门介绍</router-link></li>
-      <li class="member-introduction"><router-link to="">成员介绍</router-link></li>
+      <li class="department-introduction">
+        <router-link to="">部门介绍</router-link>
+      </li>
+      <li class="member-introduction">
+        <router-link to="">成员介绍</router-link>
+      </li>
       <li class="film-reviews dropdown">
         <router-link to="">精彩影评</router-link>
         <ul class="dropdown-menu">
@@ -21,24 +29,40 @@
         </ul>
       </li>
       <li class="contact-us"><router-link to="">联系我们</router-link></li>
-      <li class="sign-up"><router-link to="/signUp">sign up</router-link></li>
+      <li class="sign-up">
+        <router-link to="/signUp"
+          >{{ userInfo.username || "Sign Up" }}
+        </router-link>
+        <font-awesome-icon
+          :icon="['far', 'user']"
+          size="lg"
+          color="#fff"
+          align="bottom"
+          v-show="userLogin"
+        />
+      </li>
     </ul>
   </ul>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   data() {
     return {};
   },
   methods: {
-    clickFn(url){
+    clickFn(url) {
       this.$router.push(url);
     }
   },
-  mounted() {
-
-  }
+  computed: {
+    ...mapState({
+      userLogin: state => state.userLogin,
+      userInfo: state => state.userInfo
+    })
+  },
+  mounted() {}
 };
 </script>
 
@@ -49,15 +73,18 @@ export default {
   left 0
   z-index 9999
   width 100vw
-  height 150px
-  line-height 150px
+  height 50px
+  line-height 50px
   margin 0
   li
+    padding 50px 20px
     a
       color #fff
       font-size 20px
       text-decoration none
-    a:hover
+    &:hover a
+      color #d8e3e7
+    &:hover svg
       color #d8e3e7
   .home
     float left
@@ -92,6 +119,7 @@ export default {
           display flex
           justify-content flex-start
           position relative
+          padding 0 0 0 20px
           a
             color #666
             font-size 15px
@@ -111,7 +139,7 @@ export default {
           color #2775b6
           padding-left 12px
         li:hover a:before
-          visibility visible 
+          visibility visible
       .dropdown-menu:before
         content ""
         position absolute
@@ -139,5 +167,8 @@ export default {
   100% {
     transform: translateX(0);
   }
+}
+.svg-inline--fa.fa-lg {
+    vertical-align: -0.125em;
 }
 </style>
