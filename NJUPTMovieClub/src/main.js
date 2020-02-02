@@ -21,6 +21,9 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('font-awesome-layers', FontAwesomeLayers)
 Vue.component('font-awesome-layers-text', FontAwesomeLayersText)
 
+// svg 图标
+import '@/icons'
+
 new Vue({
   router: router,
   store,

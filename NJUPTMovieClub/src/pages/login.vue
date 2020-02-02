@@ -49,23 +49,10 @@
         </div>
         <button @click="signOut()">退出</button>
       </div>
-      <div class="Login-illustration">
-        <svg
-          xmlns:vectornator="http://vectornator.io"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 800 500"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M 310.5 99.2 h 236.7 c 11 0 19.8 8.9 19.8 19.8 v 357.2 c 0 11 -8.9 19.8 -19.8 19.8 h -334.5"
-            opacity=".973"
-            fill="#49b4c9"
-            id="Layer-1"
-          />
-        </svg>
+      <div class="login-illustration">
+        <div v-for="(name, index) in svgName" :key="index">
+            <svg-icon :iconClass="name" :id="name"></svg-icon>
+        </div>
       </div>
     </div>
   </div>
@@ -78,6 +65,7 @@ import { USER_SIGNOUT, USER_SIGNIN } from "@/store";
 export default {
   data() {
     return {
+      svgName: ['background', 'movie_night', 'watch_movie'],
       userMsg: {
         id: 0,
         username: "",
@@ -127,14 +115,14 @@ export default {
     height 60%
     border-radius 20px
     background-color rgba(255,255,255,0.8)
-    .Login-illustration
+    .login-illustration
       position absolute
       top 0
       left 0
+      width 50%
       height 100%
-      width 80%
-      #Layer-1
-        position absolute
-        top 0
-        left 0
+      #background
+        width 80vw
+        height 1000px
 </style>
+
