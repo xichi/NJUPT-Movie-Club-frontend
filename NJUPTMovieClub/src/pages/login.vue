@@ -1,58 +1,71 @@
 <template>
   <div class="main-body">
     <div class="login-container">
-      <div v-show="!userLogin" class="login">
-        <p>请登录</p>
-        <p>初次登录时：账号与密码均为学号</p>
-        <div>用户名：<input type="text" v-model="userMsg.username" /></div>
-        <div>
-          密码：<input
-            type="password"
-            v-model="userMsg.password"
-            class="password"
-          />
-          <span>
+      <div class="info-wrap">
+        <div v-show="!userLogin" class="login">
+          <p>请登录</p>
+          <p>初次登录时：账号与密码均为学号</p>
+          <div><input type="text" v-model="userMsg.username" />
+          <font-awesome-icon
+                class="icon user"
+                :icon="['fas', 'user']"
+              /></div>
+          <div>
             <font-awesome-icon
-              :icon="['fas', 'eye-slash']"
-              v-show="!passwordHidden"
-              @click="runPasswordHidden"
+                class="icon lock"
+                :icon="['fas', 'lock']"
+              />
+            <input
+              type="password"
+              v-model="userMsg.password"
+              class="password"
             />
-            <font-awesome-icon
-              :icon="['fas', 'eye']"
-              v-show="passwordHidden"
-              @click="runPasswordHidden"
-            />
-          </span>
+            <span>
+              <font-awesome-icon
+                class="icon eye"
+                :icon="['fas', 'eye-slash']"
+                v-show="!passwordHidden"
+                @click="runPasswordHidden"
+              />
+              <font-awesome-icon
+                class="icon eye"
+                :icon="['fas', 'eye']"
+                v-show="passwordHidden"
+                @click="runPasswordHidden"
+              />
+            </span>
+          </div>
+          <input type="button" value="登录" @click="signIn()">
         </div>
-        <button @click="signIn()">登录</button>
+        <div v-show="userLogin" class="profile">
+          <p>欢迎回来，{{ userInfo.username }}</p>
+          <p>请及时修改你的密码呦~</p>
+          <div>
+            修改密码：<input
+              type="text"
+              v-model="userMsg.password"
+              class="password"
+            /><span>
+              <font-awesome-icon
+                :icon="['fas', 'eye-slash']"
+                v-show="!passwordHidden"
+                @click="runPasswordHidden"
+              />
+              <font-awesome-icon
+                :icon="['fas', 'eye']"
+                v-show="passwordHidden"
+                @click="runPasswordHidden"
+              />
+            </span>
+          </div>
+          <input type="button" value="退出" @click="signOut()">
+        </div>
       </div>
-      <div v-show="userLogin" class="profile">
-        <p>欢迎回来，{{ userInfo.username }}</p>
-        <p>请及时修改你的密码呦~</p>
-        <div>
-          修改密码：<input
-            type="text"
-            v-model="userMsg.password"
-            class="password"
-          /><span>
-            <font-awesome-icon
-              :icon="['fas', 'eye-slash']"
-              v-show="!passwordHidden"
-              @click="runPasswordHidden"
-            />
-            <font-awesome-icon
-              :icon="['fas', 'eye']"
-              v-show="passwordHidden"
-              @click="runPasswordHidden"
-            />
-          </span>
-        </div>
-        <button @click="signOut()">退出</button>
-      </div>
-      <div class="login-illustration">
-        <div v-for="(name, index) in svgName" :key="index">
-            <svg-icon :iconClass="name" :id="name"></svg-icon>
-        </div>
+      <div class="illustration-wrap">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="bg">
+          <polygon points="0,100 100,0 100,100"/>
+        </svg>
+        <svg-icon v-for="(name, index) in svgName" :iconClass="name" :id="name" :key="index"></svg-icon>
       </div>
     </div>
   </div>
@@ -65,7 +78,7 @@ import { USER_SIGNOUT, USER_SIGNIN } from "@/store";
 export default {
   data() {
     return {
-      svgName: ['background', 'movie_night', 'watch_movie'],
+      svgName: ['movie_night', 'watch_movie'],
       userMsg: {
         id: 0,
         username: "",
@@ -110,19 +123,47 @@ export default {
   height 100vh
   background-image url("../assets/pic/home-bg.jpg")
   .login-container
+    display flex
     position relative
     width 60%
     height 60%
     border-radius 20px
     background-color rgba(255,255,255,0.8)
-    .login-illustration
-      position absolute
-      top 0
-      left 0
-      width 50%
-      height 100%
-      #background
-        width 80vw
-        height 1000px
+    .illustration-wrap
+      position relative
+      width 45%
+      border-radius 0 20px 20px 0
+      background-color #d8e7f7
+      .bg
+        position absolute
+        left -29px
+        bottom 0
+        width 30px
+        height 100%
+        fill #d8e7f7
+      #watch_movie
+        position absolute
+        top -5%
+        right 0
+        height 100%
+        width 40vw
+      #movie_night
+        position absolute
+        bottom 10px
+        right 10px
+        z-index 999
+    .info-wrap
+      width 55%
+      display flex
+      align-items center
+      justify-content center
+      .login, .profile
+        z-index 9999
+        max-width 250px
+        input
+          width 100%
+        .icon
+          position absoluted
+          top 0
+          left 0
 </style>
-

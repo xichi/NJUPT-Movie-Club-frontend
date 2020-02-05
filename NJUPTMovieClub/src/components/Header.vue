@@ -7,12 +7,12 @@
     </li>
     <ul class="right">
       <li class="weelky-movies dropdown">
-        <router-link to="/index">每周电影</router-link>
+        <router-link to="/weeklyMovie">每周电影</router-link>
         <ul class="dropdown-menu">
-          <li><router-link to="">本周电影</router-link></li>
-          <li><router-link to="">往期电影</router-link></li>
-          <li><router-link to="">我要推荐</router-link></li>
-          <li><router-link to="">FAQ</router-link></li>
+          <li><router-link to="/weeklyMovie/details/latest">本周电影</router-link></li>
+          <li><router-link to="/weeklyMovie">往期电影</router-link></li>
+          <li><router-link to="/weeklyMovie/recommend">我要推荐</router-link></li>
+          <li><router-link to="/weeklyMovie/FAQ">FAQ</router-link></li>
         </ul>
       </li>
       <li class="department-introduction">
@@ -22,10 +22,10 @@
         <router-link to="">成员介绍</router-link>
       </li>
       <li class="film-reviews dropdown">
-        <router-link to="">精彩影评</router-link>
+        <router-link to="/movieReview">精彩影评</router-link>
         <ul class="dropdown-menu">
-          <li><router-link to="">优秀影评</router-link></li>
-          <li><router-link to="">我要撰写</router-link></li>
+          <li><router-link to="/movieReview">优秀影评</router-link></li>
+          <li><router-link to="/movieReview/write">我要撰写</router-link></li>
         </ul>
       </li>
       <li class="contact-us"><router-link to="">联系我们</router-link></li>
@@ -71,7 +71,7 @@ export default {
   position fixed
   top 0
   left 0
-  z-index 9999
+  z-index 99
   width 100vw
   height 50px
   line-height 50px

@@ -119,6 +119,7 @@ export default {
 
 <style lang="stylus" scoped>
 .home
+  width 100vw
   height 100vh
   background-image url("../assets/pic/home-bg.jpg")
   background-size 100% 100%
