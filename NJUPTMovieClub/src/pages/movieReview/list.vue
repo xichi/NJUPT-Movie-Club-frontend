@@ -1,9 +1,6 @@
 <template>
   <div class="main">
     list
-        <transition name="router-slid" mode="out-in">
-          <router-view></router-view>
-        </transition>
   </div>
 </template>
 

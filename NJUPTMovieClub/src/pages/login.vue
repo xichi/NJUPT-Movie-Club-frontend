@@ -121,6 +121,7 @@ export default {
   align-items center
   width 100vw
   height 100vh
+  font-size 20px
   background-image url("../assets/pic/home-bg.jpg")
   .login-container
     display flex

@@ -238,6 +238,7 @@ export default {
 .weekly-movies
   margin-top 200px
   position relative
+  font-size 20px
   .home-pic
     position absolute
     top 0
@@ -254,4 +255,20 @@ export default {
     transform: translateY(0);
   }
 }
+/* 手机端 */
+@media screen and (max-width: 767px)
+  .home
+    .main-focus
+      .title,.subtitle
+        padding-left 0
+      .title
+        font-size 30px
+        line-height 50px
+      .contact-us
+        margin-left 5%
+    .movie-today
+      .title-in
+        font-size 12px
+      .dropdown-menu
+        display none  
 </style>

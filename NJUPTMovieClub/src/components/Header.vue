@@ -5,13 +5,25 @@
         ><img src="../assets/pic/icon.png" alt=""
       /></router-link>
     </li>
+    <div class="mobile-icon">
+      <font-awesome-icon
+        :icon="['fas', 'list']"
+        class="icon"
+        :color="mobileIcon"
+        @click="runMobileShow"
+      />
+    </div>
     <ul class="right">
       <li class="weelky-movies dropdown">
         <router-link to="/weeklyMovie">每周电影</router-link>
         <ul class="dropdown-menu">
-          <li><router-link to="/weeklyMovie/details/latest">本周电影</router-link></li>
+          <li>
+            <router-link to="/weeklyMovie/details/latest">本周电影</router-link>
+          </li>
           <li><router-link to="/weeklyMovie">往期电影</router-link></li>
-          <li><router-link to="/weeklyMovie/recommend">我要推荐</router-link></li>
+          <li>
+            <router-link to="/weeklyMovie/recommend">我要推荐</router-link>
+          </li>
           <li><router-link to="/weeklyMovie/FAQ">FAQ</router-link></li>
         </ul>
       </li>
@@ -35,7 +47,7 @@
         </router-link>
         <font-awesome-icon
           :icon="['far', 'user']"
-          size="lg"
+          class="user-icon"
           color="#fff"
           align="bottom"
           v-show="userLogin"
@@ -48,21 +60,49 @@
 <script>
 import { mapState } from "vuex";
 export default {
+  props: {
+    lightMode: {
+      type: Boolean, //light or dark mode
+      default: true
+    }
+  },
   data() {
-    return {};
+    return {
+      mobileShow: true,
+      mobileIcon: '#fff'
+    };
   },
   methods: {
+    runMobileShow() {
+      this.mobileShow = !this.mobileShow;
+      let right = document.getElementsByClassName("right")[0];
+      if (this.mobileShow) right.classList.add("mobile-nav");
+      else right.classList.remove("mobile-nav");
+    },
     clickFn(url) {
       this.$router.push(url);
+    },
+    navbarFixed() {
+      let header = document.getElementsByClassName("myHeader")[0];
+      window.onscroll = () => {
+        let scroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        if (scroll >= 300) {
+          header.classList.add("navbar_fixed");
+          this.mobileIcon = '#000';
+        } else {
+          header.classList.remove("navbar_fixed");
+          this.mobileIcon = '#fff';
+        }
+      };
     }
   },
   computed: {
-    ...mapState({
-      userLogin: state => state.userLogin,
-      userInfo: state => state.userInfo
-    })
+    ...mapState(["userLogin", "userInfo"])
   },
-  mounted() {}
+  mounted() {
+    this.navbarFixed();
+  }
 };
 </script>
 
@@ -73,14 +113,13 @@ export default {
   left 0
   z-index 99
   width 100vw
-  height 50px
   line-height 50px
   margin 0
   li
-    padding 50px 20px
+    padding 40px 20px
     a
       color #fff
-      font-size 20px
+      font-size 0.4rem
       text-decoration none
     &:hover a
       color #d8e3e7
@@ -88,18 +127,23 @@ export default {
       color #d8e3e7
   .home
     float left
-    padding-left 100px
+    padding-left 5%
     padding-top 20px
     height 150px
     cursor pointer
     &:hover
       animation icon-move 2s linear infinite
     img
-      width 150px
+      width 5rem
+      max-width 150px
       height auto
+  .mobile-icon
+    display none
   .right
     float right
-    padding-right 100px
+    padding-right 20px
+    .user-icon
+      font-size 0.4rem
     .dropdown
       position relative
       .dropdown-menu
@@ -151,6 +195,34 @@ export default {
       left 0
       opacity 1
       visibility visible
+.navbar_fixed
+  position: fixed;
+  width: 100%;
+  top: -71px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  padding: 0;
+  background: #fff;
+  box-shadow: 0px 0px 34px 0px rgba(60, 153, 230, 0.5);
+  transform: translateY(70px);
+  transition: transform 800ms ease, background 300ms ease;
+  .home
+    height 0
+    img
+      max-width 80px
+  li
+    padding 10px 20px
+    a
+      font-size 0.3rem
+      line-height 50px
+      color #000
+    &:hover a
+      color #298cce
+  .sign-up a
+    color #298cce
+  .mobile-icon
+    padding 15px 20px!important 
 @keyframes icon-move {
   0% {
     transform: translateX(0);
@@ -171,4 +243,41 @@ export default {
 .svg-inline--fa.fa-lg {
     vertical-align: -0.125em;
 }
+/* ipad端 */
+@media screen and (max-width: 1023px)
+  .myHeader li
+    padding 40px 0.15rem
+  .navbar_fixed li
+    padding 10px 20px
+/* 手机端 */
+@media screen and (max-width: 767px)
+  .myHeader
+    .mobile-icon
+      display block
+      float right
+      padding-right 20px
+      padding-top 1.2rem
+      font-size 1rem
+      cursor pointer
+    .right
+      display none
+    .mobile-nav
+      display block
+      background-color rgba(0,0,0,0.8)
+      position absolute
+      top 2rem
+      right 40px
+      width 100px
+      padding 0
+      padding-left 10px
+      border-radius 10px
+      li
+        padding 10px 10px 10px 0
+        line-height 20px
+      .sign-up a
+        color #298cce
+      .dropdown-menu
+        display none!important
+  .navbar_fixed li a
+    color #fff
 </style>

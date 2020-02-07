@@ -1,14 +1,9 @@
-div{
-  font-size: 40px;
-  -webkit-transition:font-size 0.2s ease-out;
+html{
+  font-size: 51.2px;
 }
-@media only screen and (max-width: 1200px) { div{ font-size: 39px; }}
-@media only screen and (max-width: 1100px) { div{ font-size: 38px; }}
-@media only screen and (max-width: 1000px) { div{ font-size: 37px; }}
-@media only screen and (max-width: 900px) { div{ font-size: 36px; }}
-@media only screen and (max-width: 800px) { div{ font-size: 35px; }}
-@media only screen and (max-width: 700px) { div{ font-size: 34px; }}
-@media only screen and (max-width: 600px) { div{ font-size: 33px; }}
-@media only screen and (max-width: 500px) { div{ font-size: 32px; }}
-@media only screen and (max-width: 400px) { div{ font-size: 31px; }}
-@media only screen and (max-width: 300px) { div{ font-size: 30px; }}
+@media only screen and (max-width: 1024px) { html{ font-size: 51.2px; }}
+@media only screen and (max-width: 900px) { html{ font-size: 45px; }}
+@media only screen and (max-width: 769px) { html{ font-size: 38.45px; }}
+@media only screen and (max-width: 425px) { html{ font-size: 21.25px; }}
+@media only screen and (max-width: 376px) { html{ font-size: 18.8px; }}
+@media only screen and (max-width: 320px) { html{ font-size: 16px; }}

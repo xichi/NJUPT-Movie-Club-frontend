@@ -1,7 +1,6 @@
 <template>
   <div class="main">
     list
-    <router-view></router-view>
   </div>
 </template>
 
