@@ -1,5 +1,6 @@
 <template>
   <div>
+    <my-header></my-header>
     <div class="home">
       <div class="main-focus">
         <p class="title">{{ mainFocus.title }}</p>
@@ -30,7 +31,10 @@
         <div class="dropdown-menu" v-show="movieTodayShow">
           <div class="topbar">
             <span>Movie Today</span>
-            <font-awesome-icon :icon="['fas', 'angle-down']" style="padding-left:5px;"/>
+            <font-awesome-icon
+              :icon="['fas', 'angle-down']"
+              style="padding-left:5px;"
+            />
           </div>
           <div class="mainbody">
             <div class="right">
@@ -40,8 +44,12 @@
               />
             </div>
             <div class="left">
-              <div class="name"><span>电影片名：</span>{{ movieToday.name }}</div>
-              <div class="score"><span>豆瓣评分：</span>{{ movieToday.score }}</div>
+              <div class="name">
+                <span>电影片名：</span>{{ movieToday.name }}
+              </div>
+              <div class="score">
+                <span>豆瓣评分：</span>{{ movieToday.score }}
+              </div>
               <div class="quote"><span>简介：</span>{{ movieToday.quote }}</div>
             </div>
           </div>
@@ -63,8 +71,11 @@
 </template>
 
 <script>
+import myHeader from "_c/Header";
 export default {
-  components: {},
+  components: {
+    myHeader
+  },
   data() {
     return {
       kudos: false,
@@ -89,7 +100,7 @@ export default {
     kudosChange() {
       this.kudos = !this.kudos;
     },
-    runMovieTodayShow(){
+    runMovieTodayShow() {
       this.movieTodayShow = !this.movieTodayShow;
     },
     show_default_image(event) {
@@ -118,6 +129,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+body
+  padding 0!important
 .home
   width 100vw
   height 100vh
@@ -270,5 +283,5 @@ export default {
       .title-in
         font-size 12px
       .dropdown-menu
-        display none  
+        display none
 </style>

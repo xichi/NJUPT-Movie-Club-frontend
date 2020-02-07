@@ -1,71 +1,74 @@
 <template>
-  <div class="main-body">
-    <div class="login-container">
-      <div class="info-wrap">
-        <div v-show="!userLogin" class="login">
-          <p>请登录</p>
-          <p>初次登录时：账号与密码均为学号</p>
-          <div><input type="text" v-model="userMsg.username" />
-          <font-awesome-icon
-                class="icon user"
-                :icon="['fas', 'user']"
-              /></div>
-          <div>
+  <div>
+    <my-header></my-header>
+    <div class="main-body">
+      <div class="login-container">
+        <div class="info-wrap">
+          <div v-show="!userLogin" class="login">
+            <p>请登录</p>
+            <p>初次登录时：账号与密码均为学号</p>
+            <div><input type="text" v-model="userMsg.username" />
             <font-awesome-icon
-                class="icon lock"
-                :icon="['fas', 'lock']"
-              />
-            <input
-              type="password"
-              v-model="userMsg.password"
-              class="password"
-            />
-            <span>
+                  class="icon user"
+                  :icon="['fas', 'user']"
+                /></div>
+            <div>
               <font-awesome-icon
-                class="icon eye"
-                :icon="['fas', 'eye-slash']"
-                v-show="!passwordHidden"
-                @click="runPasswordHidden"
+                  class="icon lock"
+                  :icon="['fas', 'lock']"
+                />
+              <input
+                type="password"
+                v-model="userMsg.password"
+                class="password"
               />
-              <font-awesome-icon
-                class="icon eye"
-                :icon="['fas', 'eye']"
-                v-show="passwordHidden"
-                @click="runPasswordHidden"
-              />
-            </span>
+              <span>
+                <font-awesome-icon
+                  class="icon eye"
+                  :icon="['fas', 'eye-slash']"
+                  v-show="!passwordHidden"
+                  @click="runPasswordHidden"
+                />
+                <font-awesome-icon
+                  class="icon eye"
+                  :icon="['fas', 'eye']"
+                  v-show="passwordHidden"
+                  @click="runPasswordHidden"
+                />
+              </span>
+            </div>
+            <input type="button" value="登录" @click="signIn()">
           </div>
-          <input type="button" value="登录" @click="signIn()">
-        </div>
-        <div v-show="userLogin" class="profile">
-          <p>欢迎回来，{{ userInfo.username }}</p>
-          <p>请及时修改你的密码呦~</p>
-          <div>
-            修改密码：<input
-              type="text"
-              v-model="userMsg.password"
-              class="password"
-            /><span>
-              <font-awesome-icon
-                :icon="['fas', 'eye-slash']"
-                v-show="!passwordHidden"
-                @click="runPasswordHidden"
-              />
-              <font-awesome-icon
-                :icon="['fas', 'eye']"
-                v-show="passwordHidden"
-                @click="runPasswordHidden"
-              />
-            </span>
+          <div v-show="userLogin" class="profile">
+            <p>欢迎回来，{{ userInfo.username }}</p>
+            <p>请及时修改你的密码呦~</p>
+            <div>
+              修改密码：<input
+                type="text"
+                v-model="userMsg.password"
+                class="password"
+              /><span>
+                <font-awesome-icon
+                  :icon="['fas', 'eye-slash']"
+                  v-show="!passwordHidden"
+                  @click="runPasswordHidden"
+                />
+                <font-awesome-icon
+                  :icon="['fas', 'eye']"
+                  v-show="passwordHidden"
+                  @click="runPasswordHidden"
+                />
+              </span>
+            </div>
+            <input type="button" value="退出" @click="signOut()">
           </div>
-          <input type="button" value="退出" @click="signOut()">
         </div>
-      </div>
-      <div class="illustration-wrap">
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="bg">
-          <polygon points="0,100 100,0 100,100"/>
-        </svg>
-        <svg-icon v-for="(name, index) in svgName" :iconClass="name" :id="name" :key="index"></svg-icon>
+        <div class="illustration-wrap">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="bg">
+            <polygon points="0,100 100,0 100,100"/>
+          </svg>
+          <svg-icon v-for="(name, index) in svgName" :iconClass="name" :id="name" :key="index"></svg-icon>
+        </div>
       </div>
     </div>
   </div>
@@ -74,8 +77,12 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import { USER_SIGNOUT, USER_SIGNIN } from "@/store";
+import  myHeader  from "_c/Header";
 
 export default {
+  components: {
+    myHeader
+  },
   data() {
     return {
       svgName: ['movie_night', 'watch_movie'],

@@ -1,19 +1,16 @@
 <template>
   <div id="app">
     <my-loading v-if="LOADING" width="80px" height="80px"></my-loading>
-    <my-header></my-header>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import {mapState} from 'vuex'
-import  myHeader  from "_c/Header";
 import  myLoading from "_c/loading";
 export default {
   name: 'app',
   components: {
-    myHeader,
     myLoading
   },
   computed:{
@@ -50,6 +47,7 @@ body {
   width: 100vw;
   overflow: hidden;
 }
+
 /* base */
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;

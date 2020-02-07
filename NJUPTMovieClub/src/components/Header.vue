@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       mobileShow: true,
-      mobileIcon: '#fff'
+      mobileIcon: "#fff"
     };
   },
   methods: {
@@ -89,12 +89,18 @@ export default {
           document.body.scrollTop || document.documentElement.scrollTop;
         if (scroll >= 300) {
           header.classList.add("navbar_fixed");
-          this.mobileIcon = '#000';
-        } else {
+          this.mobileIcon = "#000";
+        } else if (scroll < 300 && this.lightMode) {
           header.classList.remove("navbar_fixed");
-          this.mobileIcon = '#fff';
+          this.mobileIcon = "#fff";
         }
       };
+      //dark Mode
+      if (!this.lightMode) {
+        console.log("111");
+        header.classList.add("navbar_fixed");
+        this.mobileIcon = "#000";
+      }
     }
   },
   computed: {
@@ -204,7 +210,7 @@ export default {
   z-index: 999;
   padding: 0;
   background: #fff;
-  box-shadow: 0px 0px 34px 0px rgba(60, 153, 230, 0.5);
+  box-shadow: 0px 0px 34px 0px rgba(60, 153, 230, 0.35);
   transform: translateY(70px);
   transition: transform 800ms ease, background 300ms ease;
   .home
@@ -219,10 +225,12 @@ export default {
       color #000
     &:hover a
       color #298cce
-  .sign-up a
+    &:hover .user-icon
+      color #298cce
+  .sign-up a,  .sign-up svg
     color #298cce
   .mobile-icon
-    padding 15px 20px!important 
+    padding 15px 20px!important
 @keyframes icon-move {
   0% {
     transform: translateX(0);
@@ -274,7 +282,7 @@ export default {
       li
         padding 10px 10px 10px 0
         line-height 20px
-      .sign-up a
+      .sign-up a, .sign-up svg
         color #298cce
       .dropdown-menu
         display none!important
