@@ -3,5 +3,6 @@
 
 重构ing:
 + NJUPT Movie Club: vue + node
+测试地址：[南邮影协](http://xichi.xyz/test) 
 + website Design: jquery  
 原demo地址：[南邮影协](http://xichi.xyz/NJUPTMovieClub) 
