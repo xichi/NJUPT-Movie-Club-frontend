@@ -18,6 +18,6 @@ export default {
 
 <style lang="stylus" scoped>
 .main
-  padding 80px
+  padding-top 80px
   height 1200px
 </style>

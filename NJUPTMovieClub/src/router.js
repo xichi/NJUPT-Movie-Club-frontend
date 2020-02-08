@@ -1,15 +1,13 @@
 import VueRouter from 'vue-router'
 
-//一级路由
-import index from '@/pages/index.vue'
-import movieReview from '@/pages/movieReview/list.vue'
-import weeklyMovie from '@/pages/weeklyMovie/list.vue'
-import login from '@/pages/login.vue'
-import MR_write from '@/pages/movieReview/write.vue'
-import WM_details from '@/pages/weeklyMovie/details.vue'
-import WM_recommend from '@/pages/weeklyMovie/recommend.vue'
-import WM_FAQ from '@/pages/weeklyMovie/FAQ.vue'
-
+const index = r => require.ensure([], () => r(require('@/pages/index.vue')), 'index')
+const movieReview = r => require.ensure([], () => r(require('@/pages/movieReview/list.vue')), 'movieReview')
+const weeklyMovie = r => require.ensure([], () => r(require('@/pages/weeklyMovie/list.vue')), 'weeklyMovie')
+const login = r => require.ensure([], () => r(require('@/pages/login.vue')), 'login')
+const MR_write = r => require.ensure([], () => r(require('@/pages/movieReview/write.vue')), 'MR_write')
+const WM_details = r => require.ensure([], () => r(require('@/pages/weeklyMovie/details.vue')), 'WM_details')
+const WM_recommend = r => require.ensure([], () => r(require('@/pages/weeklyMovie/recommend.vue')), 'WM_recommend')
+const WM_FAQ = r => require.ensure([], () => r(require('@/pages/weeklyMovie/FAQ.vue')), 'WM_FAQ')
 
 var router = new VueRouter({
     routes: [
