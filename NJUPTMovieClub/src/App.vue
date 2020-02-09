@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <my-loading v-if="LOADING" width="80px" height="80px"></my-loading>
+    <my-loading v-if="LOADING"></my-loading>
     <router-view></router-view>
   </div>
 </template>

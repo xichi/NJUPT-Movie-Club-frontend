@@ -1,6 +1,10 @@
 <template>
   <div>
-    <my-header :lightMode="false"></my-header>
+    <my-header class="my-header" :lightMode="false">
+      <li id="submit_btn" slot="submit">
+        <span>提交影评</span>
+      </li>
+    </my-header>
     <div class="main">
       <div class="editor-wrap">
         <div class="upload-picture">
@@ -166,4 +170,18 @@ export default {
 <style lang="stylus">
 .ql-editor
   min-height 500px!important
+#submit_btn
+  float left
+  padding 10px 20px
+  span
+    font-size 0.3rem
+    letter-spacing 3px
+    padding 10px 10px 10px 13px
+    border-radius 5px
+    background-color #298cce
+    color #fff
+    cursor pointer
+    text-decoration none
+    &:hover
+      box-shadow 0px 0px 8px 0px rgba(#2775b6, 0.35)
 </style>

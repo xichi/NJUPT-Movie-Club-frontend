@@ -15,14 +15,6 @@
 <script>
 export default {
   props: {
-    width: {
-      type: String,
-      default: "40px"
-    },
-    height: {
-      type: String,
-      default: "40px"
-    },
     title: {
       type: String,
       default: "Loading..."

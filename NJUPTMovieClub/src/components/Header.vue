@@ -1,60 +1,77 @@
 <template>
-  <ul class="myHeader">
-    <li class="home">
-      <router-link to="/index"
-        ><img src="../assets/pic/icon.png" alt=""
-      /></router-link>
-    </li>
-    <div class="mobile-icon">
-      <font-awesome-icon
-        :icon="['fas', 'list']"
-        class="icon"
-        :color="mobileIcon"
-        @click="runMobileShow"
-      />
-    </div>
-    <ul class="right">
-      <li class="weelky-movies dropdown">
-        <router-link to="/weeklyMovie">每周电影</router-link>
-        <ul class="dropdown-menu">
-          <li>
-            <router-link to="/weeklyMovie/details/latest">本周电影</router-link>
-          </li>
-          <li><router-link to="/weeklyMovie">往期电影</router-link></li>
-          <li>
-            <router-link to="/weeklyMovie/recommend">我要推荐</router-link>
-          </li>
-          <li><router-link to="/weeklyMovie/FAQ">FAQ</router-link></li>
-        </ul>
+  <div>
+    <ul class="myHeader simpleHeader" v-if="simpleMode">
+      <li class="backward" @click="goBack">
+        <font-awesome-icon :icon="['far', 'caret-square-left']" size="2x"/>
       </li>
-      <li class="department-introduction">
-        <router-link to="">部门介绍</router-link>
-      </li>
-      <li class="member-introduction">
-        <router-link to="">成员介绍</router-link>
-      </li>
-      <li class="film-reviews dropdown">
-        <router-link to="/movieReview">精彩影评</router-link>
-        <ul class="dropdown-menu">
-          <li><router-link to="/movieReview">优秀影评</router-link></li>
-          <li><router-link to="/movieReview/write">我要撰写</router-link></li>
-        </ul>
-      </li>
-      <li class="contact-us"><router-link to="">联系我们</router-link></li>
-      <li class="sign-up">
-        <router-link to="/login"
-          >{{ userInfo.username || "Sign In" }}
-        </router-link>
-        <font-awesome-icon
-          :icon="['far', 'user']"
-          class="user-icon"
-          color="#fff"
-          align="bottom"
-          v-show="userLogin"
-        />
+      <slot class="article"></slot>
+      <li class="home">
+        <router-link to="/index"
+          ><img src="../assets/pic/icon.png" alt=""
+        /></router-link>
       </li>
     </ul>
-  </ul>
+    <ul class="myHeader" v-if="!simpleMode">
+      <li class="home">
+        <router-link to="/index"
+          ><img src="../assets/pic/icon.png" alt=""
+        /></router-link>
+      </li>
+      <slot name="write"></slot>
+      <slot name="submit"></slot>
+      <div class="mobile-icon">
+        <font-awesome-icon
+          :icon="['fas', 'list']"
+          class="icon"
+          :color="mobileIcon"
+          @click="runMobileShow"
+        />
+      </div>
+      <ul class="right">
+        <li class="weelky-movies dropdown">
+          <router-link to="/weeklyMovie">每周电影</router-link>
+          <ul class="dropdown-menu">
+            <li>
+              <router-link to="/weeklyMovie/details/latest"
+                >本周电影</router-link
+              >
+            </li>
+            <li><router-link to="/weeklyMovie">往期电影</router-link></li>
+            <li>
+              <router-link to="/weeklyMovie/recommend">我要推荐</router-link>
+            </li>
+            <li><router-link to="/weeklyMovie/FAQ">FAQ</router-link></li>
+          </ul>
+        </li>
+        <li class="department-introduction">
+          <router-link to="">部门介绍</router-link>
+        </li>
+        <li class="member-introduction">
+          <router-link to="">成员介绍</router-link>
+        </li>
+        <li class="film-reviews dropdown">
+          <router-link to="/movieReview">精彩影评</router-link>
+          <ul class="dropdown-menu">
+            <li><router-link to="/movieReview">优秀影评</router-link></li>
+            <li><router-link to="/movieReview/write">我要撰写</router-link></li>
+          </ul>
+        </li>
+        <li class="contact-us"><router-link to="">联系我们</router-link></li>
+        <li class="sign-up">
+          <router-link to="/login"
+            >{{ userInfo.username || "Sign In" }}
+          </router-link>
+          <font-awesome-icon
+            :icon="['far', 'user']"
+            class="user-icon"
+            color="#fff"
+            align="bottom"
+            v-show="userLogin"
+          />
+        </li>
+      </ul>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -64,6 +81,10 @@ export default {
     lightMode: {
       type: Boolean, //light or dark mode
       default: true
+    },
+    simpleMode: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -82,6 +103,9 @@ export default {
     clickFn(url) {
       this.$router.push(url);
     },
+    goBack(){
+      this.$router.back(-1);
+    },
     navbarFixed() {
       let header = document.getElementsByClassName("myHeader")[0];
       window.onscroll = () => {
@@ -97,7 +121,6 @@ export default {
       };
       //dark Mode
       if (!this.lightMode) {
-        console.log("111");
         header.classList.add("navbar_fixed");
         this.mobileIcon = "#000";
       }
@@ -161,7 +184,7 @@ export default {
         visibility hidden
         width 200px
         border-radius 15px
-        background-color rgba(255,255,255,0.9)
+        background-color #fff
         box-shadow 0px 0px 34px 0px rgba(60, 153, 230, 0.35)
         transition all .3s ease-in
         li
@@ -196,7 +219,7 @@ export default {
         top -19px
         left 25px
         border solid 10px transparent
-        border-bottom solid 10px rgba(255,255,255,0.9)
+        border-bottom solid 10px #fff
     .dropdown:hover .dropdown-menu
       left 0
       opacity 1
@@ -217,6 +240,10 @@ export default {
     height 0
     img
       max-width 80px
+  .backward svg
+    color #000!important
+    &:hover
+      color #298cce!important
   li
     padding 10px 20px
     a
@@ -231,6 +258,22 @@ export default {
     color #298cce
   .mobile-icon
     padding 15px 20px!important
+.simpleHeader
+  height 70px
+  .backward
+    float left 
+    line-height 70px
+    margin-left 50px
+    padding 0
+    cursor pointer
+    svg
+      color rgba(255, 255, 255,0.8)
+  .home
+    padding-top 10px
+    float right
+    margin-right 50px
+    img
+      max-width 80px
 @keyframes icon-move {
   0% {
     transform: translateX(0);
@@ -256,7 +299,7 @@ export default {
   .myHeader li
     padding 40px 0.15rem
   .navbar_fixed li
-    padding 10px 20px
+    padding 10px 15px
 /* 手机端 */
 @media screen and (max-width: 767px)
   .myHeader

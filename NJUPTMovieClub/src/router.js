@@ -5,6 +5,7 @@ const movieReview = r => require.ensure([], () => r(require('@/pages/movieReview
 const weeklyMovie = r => require.ensure([], () => r(require('@/pages/weeklyMovie/list.vue')), 'weeklyMovie')
 const login = r => require.ensure([], () => r(require('@/pages/login.vue')), 'login')
 const MR_write = r => require.ensure([], () => r(require('@/pages/movieReview/write.vue')), 'MR_write')
+const MR_details = r => require.ensure([], () => r(require('@/pages/movieReview/details.vue')), 'MR_details')
 const WM_details = r => require.ensure([], () => r(require('@/pages/weeklyMovie/details.vue')), 'WM_details')
 const WM_recommend = r => require.ensure([], () => r(require('@/pages/weeklyMovie/recommend.vue')), 'WM_recommend')
 const WM_FAQ = r => require.ensure([], () => r(require('@/pages/weeklyMovie/FAQ.vue')), 'WM_FAQ')
@@ -16,6 +17,7 @@ var router = new VueRouter({
         { path: '/login', component: login },
         { path: '/movieReview', component: movieReview},
         { path: '/movieReview/write', component: MR_write },
+        { path: '/movieReview/details/:id', component: MR_details },
         { path: '/weeklyMovie', component: weeklyMovie },
         { path: '/weeklyMovie/details/:time', component: WM_details },
         { path: '/weeklyMovie/recommend', component: WM_recommend },
