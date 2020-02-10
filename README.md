@@ -29,7 +29,11 @@
     │   │   └── common.css
     │   ├── icons                           复杂的svg库
     │   │   └── svg   
+    │   ├── api                             接口
+    │   │   └── index.js    
     │   ├── mock                            模拟数据
+    │   │   └── index.js            
+    │   ├── utils                           狭存放自己封装的工具类函数
     │   │   └── index.js    
     │   ├── components                      公共组件目录
     │   │   └── Header.vue

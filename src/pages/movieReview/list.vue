@@ -70,7 +70,6 @@ export default {
 <style lang="stylus" scoped>
 #movie-review-list
   padding-top 80px
-  max-height 2000px
 </style>
 <style lang="stylus">
 #write_btn

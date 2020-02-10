@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style>
-@import './css/common.css';
+@import "./css/common.css";
 
 /* 解决移动端页面出现 X轴横向滚动条问题 */
 html {

@@ -8,7 +8,9 @@ module.exports = {
   assetsDir: '', // 相对于outputDir的静态资源(js、css、img、fonts)目录
   runtimeCompiler: true, // 是否使用包含运行时编译器的 Vue 构建版本
   productionSourceMap: false, // 生产环境的 source map
-  configureWebpack: config => { },
+  configureWebpack: config => { 
+
+  },
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
@@ -33,6 +35,28 @@ module.exports = {
     config.module
       .rule('images')
       .test(/\.(png|jpe?g|gif|svg)(\?.*)?$/)
+  },
+  devServer: {
+    open: true, // 自动启动浏览器
+    port: 8080, // 端口号
+    https: false,
+    hotOnly: false, // 热更新
+    proxy: {
+      // 本地代理包含api的接口 如： /api/getUser 
+      '^/api': {
+        target: process.env.VUE_APP_SRC,
+        ws: true,   //开启WebSocket
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''  //需要rewrite的,
+        }  
+      },
+      '^/v1': {  //匹配包含 /v1的接口  如：v1/xxx/xx
+        target: process.env.VUE_APP_V,
+        ws: true,
+        changeOrigin: true
+      }
+    }
   }
 }
 

@@ -8,7 +8,9 @@
     "lint": "vue-cli-service lint",
     "start:dev": "vue-cli-service serve --open",
     "start:prod": "vue-cli-service build --mode=production",
-    "start:uat": "vue-cli-service build --mode=test"
+    "start:test": "vue-cli-service build --mode=test",
+    "mock": "json-server --watch src/mock/db.json --port 3000 --routes src/mock/routes.json",
+    "mockdev": "yarn mock & yarn start:dev"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -32,11 +34,13 @@
     "@vue/cli-plugin-babel": "^4.0.0",
     "@vue/cli-plugin-eslint": "^4.0.0",
     "@vue/cli-service": "^4.0.0",
+    "axios": "^0.19.2",
     "babel-eslint": "^10.0.3",
     "deepmerge": "^4.2.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "fibers": "^4.0.2",
+    "mockjs": "^1.1.0",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {

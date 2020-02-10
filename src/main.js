@@ -7,7 +7,11 @@ import router from './router.js'
 
 import store from './store'
 
-//font awesome icon
+Vue.config.productionTip = false;
+
+/**
+ * font awesome icon
+ */
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
@@ -24,7 +28,9 @@ Vue.component('font-awesome-layers-text', FontAwesomeLayersText)
 // svg 图标
 import '@/icons'
 
-//vue editor
+/**
+ * vue editor
+ */
 import VueQuillEditor from 'vue-quill-editor'
 
 // require styles
