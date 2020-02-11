@@ -17,3 +17,8 @@ export const mockGetUserInfo = () => {
 export const mockGetMovieReview = () => {
   return request.get('/movieReview');
 };
+
+//详细影评
+export const mockGetMovieReviewDetail = id => {
+  return request.get(`/movieReview?id=${id}`);
+};

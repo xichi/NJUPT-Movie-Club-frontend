@@ -3,7 +3,7 @@
     <my-header class="my-header" :simpleMode="true"></my-header>
     <div class="movie-review-wrap">
       <div class="post-head-wrap">
-        <div class='post-head'>
+        <div class="post-head">
           <div class="title">{{ movieReview.title }}</div>
           <div class="author">
             <font-awesome-icon :icon="['far', 'user']" />{{
@@ -32,6 +32,7 @@
 
 <script>
 import myHeader from "_c/Header";
+import { getMovieReviewDetail } from "@/api/index";
 export default {
   components: {
     myHeader
@@ -39,15 +40,24 @@ export default {
   data() {
     return {
       movieReview: {
-        id: "255467",
-        title: "蒙太奇的诞生与发展",
-        detail:
-          "什么是蒙太奇？蒙太奇是法语“Montage”的音译，原为建筑学术语，是“剪切”的意思，但在前苏联它被发展成一种电影中镜头组合的理论。简单来说，当不同镜头拼接在一起时，往往又会产生各个镜头单独存在时所不具有的特定含义，这就是蒙太奇。当卢米埃尔兄弟在19世纪末拍出史上最早的影片时，他是不需要考虑到蒙太奇问题的。因为他们拍出的只是生活的片段。后来，电影史上的第一位导演乔治·梅里埃将这些生活片段戏剧化，但他总是把摄影机对着舞台，摆在一个固定的位置上，有点类似今天的舞台剧。什么是蒙太奇？蒙太奇是法语“Montage”的音译，原为建筑学术语，是“剪切”的意思，但在前苏联它被发展成一种电影中镜头组合的理论。简单来说，当不同镜头拼接在一起时，往往又会产生各个镜头单独存在时所不具有的特定含义，这就是蒙太奇。当卢米埃尔兄弟在19世纪末拍出史上最早的影片时，他是不需要考虑到蒙太奇问题的。因为他们拍出的只是生活的片段。后来，电影史上的第一位导演乔治·梅里埃将这些生活片段戏剧化，但他总是把摄影机对着舞台，摆在一个固定的位置上，有点类似今天的舞台剧。",
-        postTime: "2020/02/09",
-        author: "西池",
-        pic: "url('../../assets/pic/home-bg.jpg')"
+        id: "",
+        title: "",
+        detail: "",
+        postTime: "",
+        author: "",
+        pic: ""
       }
     };
+  },
+  methods: {
+    async loadMovieReview() {
+      const id = this.$route.params.id;
+      const { data: movieReviewDetail } = await getMovieReviewDetail(id);
+      this.movieReview = movieReviewDetail[0];
+    }
+  },
+  mounted() {
+    this.loadMovieReview();
   }
 };
 </script>

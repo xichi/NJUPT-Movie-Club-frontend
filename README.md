@@ -13,13 +13,16 @@
 
 1.  `yarn install` 安装依赖
 2.  `yarn start:dev` 本地运行
+3.  `yarn mock`    开启本地模拟数据
 
 ## 4.结构目录
 
     ├── babel.config.js 
     ├── yarn.lock
     ├── README.md   
-    ├── vue.config.js                  环境配置                 
+    ├── vue.config.js                    配置  
+    ├── .env.development                 开发环境参数
+    ├── .env.production                  生产环境参数                
     ├── package-lock.json
     ├── package.json                    npm包配置文件，里面定义了项目的npm脚本，依赖包等信息
     ├── src                             项目源码目录    
@@ -52,3 +55,4 @@
         ├── logo.jpg                         
         └── favicon.ico   
 
+## 4.目标

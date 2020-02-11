@@ -56,7 +56,7 @@
             <li><router-link to="/movieReview/write">我要撰写</router-link></li>
           </ul>
         </li>
-        <li class="contact-us"><router-link to="">联系我们</router-link></li>
+        <!-- <li class="contact-us"><router-link to="">联系我们</router-link></li> -->
         <li class="sign-up">
           <router-link to="/login"
             >{{ userInfo.username || "Sign In" }}

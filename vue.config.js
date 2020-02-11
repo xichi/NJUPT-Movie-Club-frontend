@@ -8,7 +8,7 @@ module.exports = {
   assetsDir: '', // 相对于outputDir的静态资源(js、css、img、fonts)目录
   runtimeCompiler: true, // 是否使用包含运行时编译器的 Vue 构建版本
   productionSourceMap: false, // 生产环境的 source map
-  configureWebpack: config => { 
+  configureWebpack: config => {
 
   },
   chainWebpack: config => {
@@ -16,7 +16,20 @@ module.exports = {
       .set('@', resolve('src'))
       .set('_c', resolve('src/components/'))
       .set('_p', resolve('src/assets/pic/'))
-      
+
+    /* // 压缩图片
+    config.module
+      .rule('images')
+      .use('image-webpack-loader')
+      .loader('image-webpack-loader')
+      .options({
+        mozjpeg: { progressive: true, quality: 65 },
+        optipng: { enabled: false },
+        pngquant: { quality: '65-90', speed: 4 },
+        gifsicle: { interlaced: false },
+        webp: { quality: 75 }
+      }) */
+
     // svg rule loader
     const svgRule = config.module.rule('svg') // 找到svg-loader
     svgRule.uses.clear() // 清除已有的loader, 如果不这样做会添加在此loader之后
@@ -49,12 +62,7 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''  //需要rewrite的,
-        }  
-      },
-      '^/v1': {  //匹配包含 /v1的接口  如：v1/xxx/xx
-        target: process.env.VUE_APP_V,
-        ws: true,
-        changeOrigin: true
+        }
       }
     }
   }

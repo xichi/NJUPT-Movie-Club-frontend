@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const { port, hostname } = window.location;
-
-export const baseURL = process.env.VUE_APP_API_URL || `http://${hostname}${port ? `:${port}` : ''}/api/v1`; // 线上地址
+export const baseURL = process.env.PRODUCTION_ENV === "production"
+  ? process.env.VUE_APP_API_URL
+  : "http://localhost:3000";
 
 let request = axios.create({
   baseURL: `${baseURL}`,
@@ -11,9 +11,17 @@ let request = axios.create({
   }
 });
 
-// test
-export const getTopics = () => {
-  return request.get('/topics');
+//用户信息
+export const getUserInfo = () => {
+  return request.get('/userInfo');
 };
-// 获取用户信息
-export const getUserinfo = () => request.get('/user').then(res => res.data);
+
+//影评
+export const getMovieReview = () => {
+  return request.get('/movieReview');
+};
+
+//详细影评
+export const getMovieReviewDetail = id => {
+  return request.get(`/movieReview?id=${id}`);
+};

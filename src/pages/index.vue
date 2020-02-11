@@ -39,7 +39,7 @@
           <div class="mainbody">
             <div class="right">
               <img
-                :src="getImages(movieToday.pic)"
+                :src="movieToday.pic"
                 @error="show_default_image"
               />
             </div>
@@ -90,7 +90,7 @@ export default {
         name: "肖申克的救赎 / The Shawshank Redemption",
         score: 9.7,
         pic:
-          "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.jpg",
+          "http://njupt.xichi.xyz/th.jpg",
         quote: "希望让人自由。",
         comments: []
       }
@@ -105,14 +105,6 @@ export default {
     },
     show_default_image(event) {
       event.target.src = "http://temp.im/150x300";
-    },
-    getImages(url) {
-      if (url !== undefined) {
-        return url[0].replace(
-          /http\w{0,1}:\/\/p/g,
-          "https://images.weserv.nl/?url=p"
-        );
-      }
     }
   },
   mounted() {

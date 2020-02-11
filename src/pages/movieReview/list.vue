@@ -8,30 +8,36 @@
       </li>
     </my-header>
     <div id="movie-review-list">
-      <div v-for="(t, i) in 5" :key="i">
-        <detail-card
-          v-for="(item, index) in detailCards"
-          :key="index"
-          class="detail-card"
+      <!-- <div v-for="(t, i) in 5" :key="i"> -->
+      <detail-card
+        v-for="(item, index) in detailCards"
+        :key="index"
+        class="detail-card"
+      >
+        <div
+          slot="title"
+          class="title"
+          @click="clickFn('/movieReview/details/' + item.id, item.id)"
         >
-          <div slot="title" class="title" @click="clickFn('/movieReview/details/',item.id)">{{ item.title }}</div>
-          <div slot="detail" class="detail">{{ item.detail }}</div>
-          <div slot="postTime" class="postTime">
-            <font-awesome-icon :icon="['far', 'calendar']" />
-            {{ item.postTime }}
+          {{ item.title }}
+        </div>
+        <div slot="detail" class="detail">{{ item.detail }}</div>
+        <div slot="postTime" class="postTime">
+          <font-awesome-icon :icon="['far', 'calendar']" />
+          {{ item.postTime }}
+        </div>
+        <div slot="author" class="author">
+          <font-awesome-icon :icon="['far', 'user']" />
+          {{ item.author }}
+        </div>
+        <div slot="pic" class="pic">
+          <div class="pic-wrap">
+            <div class="pic-title">{{ item.title }}</div>
+            <div class="pic-author">{{ item.author }}</div>
           </div>
-          <div slot="author" class="author">
-            <font-awesome-icon :icon="['far', 'user']" />
-            {{ item.author }}
-          </div>
-          <div slot="pic" class="pic">
-            <div class="pic-wrap">
-              <div class="pic-title">{{ item.title }}</div>
-              <div class="pic-author">{{ item.author }}</div>
-            </div>
-          </div>
-        </detail-card>
-      </div>
+        </div>
+      </detail-card>
+      <!--  </div> -->
     </div>
   </div>
 </template>
@@ -39,6 +45,7 @@
 <script>
 import myHeader from "_c/Header";
 import detailCard from "_c/detailCard";
+import { mockGetMovieReview } from "@/mock/index";
 export default {
   components: {
     myHeader,
@@ -46,23 +53,25 @@ export default {
   },
   data() {
     return {
-      detailCards: [
-        {
-          id: '255467',
-          title: "蒙太奇的诞生与发展",
-          detail:
-            "什么是蒙太奇？蒙太奇是法语“Montage”的音译，原为建筑学术语，是“剪切”的意思，但在前苏联它被发展成一种电影中镜头组合的理论。简单来说，当不同镜头拼接在一起时，往往又会产生各个镜头单独存在时所不具有的特定含义，这就是蒙太奇。当卢米埃尔兄弟在19世纪末拍出史上最早的影片时，他是不需要考虑到蒙太奇问题的。因为他们拍出的只是生活的片段。后来，电影史上的第一位导演乔治·梅里埃将这些生活片段戏剧化，但他总是把摄影机对着舞台，摆在一个固定的位置上，有点类似今天的舞台剧。什么是蒙太奇？蒙太奇是法语“Montage”的音译，原为建筑学术语，是“剪切”的意思，但在前苏联它被发展成一种电影中镜头组合的理论。简单来说，当不同镜头拼接在一起时，往往又会产生各个镜头单独存在时所不具有的特定含义，这就是蒙太奇。当卢米埃尔兄弟在19世纪末拍出史上最早的影片时，他是不需要考虑到蒙太奇问题的。因为他们拍出的只是生活的片段。后来，电影史上的第一位导演乔治·梅里埃将这些生活片段戏剧化，但他总是把摄影机对着舞台，摆在一个固定的位置上，有点类似今天的舞台剧。",
-          postTime: "2020/02/09",
-          author: "西池",
-          pic: "url('../../assets/pic/home-bg.jpg')"
-        }
-      ]
+      detailCards: []
     };
   },
-  methods:{
+  methods: {
     clickFn(baseUrl, id) {
-      this.$router.push(baseUrl + id);
+      this.$router.push({
+        path: baseUrl,
+        params: {
+          id: id
+        }
+      });
+    },
+    async loadDetailCards() {
+      const { data: movieReview } = await mockGetMovieReview();
+      this.detailCards = movieReview;
     }
+  },
+  mounted() {
+    this.loadDetailCards();
   }
 };
 </script>
