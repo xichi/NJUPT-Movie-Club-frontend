@@ -4,7 +4,7 @@
       <li class="backward" @click="goBack">
         <font-awesome-icon :icon="['far', 'caret-square-left']" size="2x"/>
       </li>
-      <slot class="article"></slot>
+      <slot name="title" v-if="titleShow"></slot>
       <li class="home">
         <router-link to="/index"
           ><img src="../assets/pic/icon.png" alt=""
@@ -90,7 +90,8 @@ export default {
   data() {
     return {
       mobileShow: true,
-      mobileIcon: "#fff"
+      mobileIcon: "#fff",
+      titleShow: false
     };
   },
   methods: {
@@ -114,9 +115,11 @@ export default {
         if (scroll >= 300) {
           header.classList.add("navbar_fixed");
           this.mobileIcon = "#000";
+          this.titleShow = true;
         } else if (scroll < 300 && this.lightMode) {
           header.classList.remove("navbar_fixed");
           this.mobileIcon = "#fff";
+          this.titleShow = false;
         }
       };
       //dark Mode
@@ -267,11 +270,12 @@ export default {
     padding 0
     cursor pointer
     svg
+      margin 20px auto
       color rgba(255, 255, 255,0.8)
   .home
     padding-top 10px
     float right
-    margin-right 50px
+    margin-right 20px
     img
       max-width 80px
 @keyframes icon-move {
@@ -331,4 +335,7 @@ export default {
         display none!important
   .navbar_fixed li a
     color #fff
+  .navbar_fixed
+    .home
+      padding-top 10px
 </style>

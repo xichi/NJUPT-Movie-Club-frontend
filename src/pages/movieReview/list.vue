@@ -45,7 +45,7 @@
 <script>
 import myHeader from "_c/Header";
 import detailCard from "_c/detailCard";
-import { mockGetMovieReview } from "@/mock/index";
+import { getMovieReview } from "@/api/index";
 export default {
   components: {
     myHeader,
@@ -66,7 +66,7 @@ export default {
       });
     },
     async loadDetailCards() {
-      const { data: movieReview } = await mockGetMovieReview();
+      const { data: movieReview } = await getMovieReview();
       this.detailCards = movieReview;
     }
   },

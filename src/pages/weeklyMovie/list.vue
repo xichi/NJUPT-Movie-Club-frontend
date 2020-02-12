@@ -2,6 +2,7 @@
   <div>
     <my-header :lightMode="false"></my-header>
     <div class="main">
+      <div>test</div>
       {{userInfo}}
       {{movieReview}}
     </div>

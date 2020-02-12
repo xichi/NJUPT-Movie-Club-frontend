@@ -1,6 +1,8 @@
 <template>
   <div class="main">
-    <my-header class="my-header" :simpleMode="true"></my-header>
+    <my-header class="my-header" :simpleMode="true">
+      <li slot="title" id="header-title">{{ movieReview.title }}</li>
+    </my-header>
     <div class="movie-review-wrap">
       <div class="post-head-wrap">
         <div class="post-head">
@@ -24,7 +26,9 @@
         </div>
       </div>
       <div class="detail-wrap">
-        {{ movieReview.detail }}
+        <div class="detail">
+          {{ movieReview.detail }}
+        </div>
       </div>
     </div>
   </div>
@@ -65,18 +69,23 @@ export default {
 <style lang="stylus" scoped>
 .main
   font-size 15px
-  height 1800px
+  .my-header
+    position fixed
+    top 0
+    left 0
+    z-index 999
   .movie-review-wrap
     width 100vw
     margin 0 auto
     .post-head-wrap
-      height 400px
       display flex
       flex-direction column
       align-items center
       justify-content center
-      background-image url('../../assets/pic/home-bg.jpg')
-      background-position center center
+      height 400px
+      width 100%
+      background url('../../assets/pic/home-bg.jpg') fixed center center 
+      z-index -1
       filter brightness(.85)
       background-size cover
       .post-head
@@ -97,7 +106,32 @@ export default {
             svg
               padding-right 0
     .detail-wrap
-      width 70%
-      margin 0 auto
-      margin-top 50px
+      width 100%
+      height auto
+      padding 50px 0 100px 0
+      background-color #fff
+      z-index 200
+      .detail
+        width 70%
+        margin 0 auto
+.clearfix:after{
+  content: "020"; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;  
+  }
+.clearfix {
+  /* 触发 hasLayout */ 
+  zoom: 1; 
+  }
+</style>
+<style lang="stylus">
+#header-title
+  float left
+  padding-left 1rem
+  font-size 25px
+@media screen and (max-width: 767px)
+  #header-title
+    display none
 </style>
