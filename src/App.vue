@@ -28,7 +28,11 @@ export default {
 
 <style>
 @import "./css/common.css";
-
+/* 字体 */
+@font-face {
+  font-family: A61;
+  src: url("http://njupt.xichi.xyz/fonts%2FA61%E5%8D%8E%E5%BA%B7%E5%A8%83%E5%A8%83%E4%BD%93.ttf");
+}
 /* 解决移动端页面出现 X轴横向滚动条问题 */
 html {
   overflow-y: scroll;

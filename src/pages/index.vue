@@ -67,14 +67,18 @@
         <svg width="100%" height="100%"></svg>
       </div>
     </div>
+    <my-footer></my-footer>
   </div>
 </template>
 
 <script>
 import myHeader from "_c/Header";
+import myFooter from "_c/footer";
+
 export default {
   components: {
-    myHeader
+    myHeader,
+    myFooter
   },
   data() {
     return {

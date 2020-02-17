@@ -14,6 +14,7 @@
 1.  `yarn install` 安装依赖
 2.  `yarn start:dev` 本地运行
 3.  `yarn mock`    开启本地模拟数据
+4.  `yarn mockdev` 也可以直接执行该命令，即为2、3两步骤
 
 ## 4.结构目录
 

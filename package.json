@@ -10,7 +10,7 @@
     "start:prod": "vue-cli-service build --mode=production",
     "start:test": "vue-cli-service build --mode=test",
     "mock": "json-server --watch src/mock/db.json --port 3000 --routes src/mock/routes.json",
-    "mockdev": "yarn mock & yarn start:dev"
+    "mockdev": "yarn mock | yarn start:dev"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
