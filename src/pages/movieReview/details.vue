@@ -1,7 +1,9 @@
 <template>
   <div class="main">
     <my-header class="my-header" :simpleMode="true">
-      <li slot="title" id="header-title">{{ movieReview.title }}</li>
+      <li slot="title" id="header-title" @click="scrollToTop">
+        {{ movieReview.title }}
+      </li>
     </my-header>
     <div class="movie-review-wrap">
       <div class="post-head-wrap">
@@ -37,6 +39,7 @@
 <script>
 import myHeader from "_c/Header";
 import { getMovieReviewDetail } from "@/api/index";
+
 export default {
   components: {
     myHeader
@@ -58,6 +61,16 @@ export default {
       const id = this.$route.params.id;
       const { data: movieReviewDetail } = await getMovieReviewDetail(id);
       this.movieReview = movieReviewDetail[0];
+    },
+    scrollToTop() {
+      (function smoothscroll() {
+        var currentScroll =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        if (currentScroll > 0) {
+          window.requestAnimationFrame(smoothscroll);
+          window.scrollTo(0, currentScroll - currentScroll / 5);
+        }
+      })();
     }
   },
   mounted() {
@@ -84,7 +97,7 @@ export default {
       justify-content center
       height 400px
       width 100%
-      background url('../../assets/pic/home-bg.jpg') fixed center center 
+      background url('../../assets/pic/home-bg.jpg') fixed center center
       z-index -1
       filter brightness(.85)
       background-size cover
@@ -115,15 +128,15 @@ export default {
         width 70%
         margin 0 auto
 .clearfix:after{
-  content: "020"; 
-  display: block; 
-  height: 0; 
-  clear: both; 
-  visibility: hidden;  
+  content: "020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
   }
 .clearfix {
-  /* 触发 hasLayout */ 
-  zoom: 1; 
+  /* 触发 hasLayout */
+  zoom: 1;
   }
 </style>
 <style lang="stylus">
@@ -131,6 +144,7 @@ export default {
   float left
   padding-left 1rem
   font-size 25px
+  cursor pointer
 @media screen and (max-width: 767px)
   #header-title
     display none

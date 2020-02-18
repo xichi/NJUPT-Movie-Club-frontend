@@ -2,7 +2,7 @@
   <div>
     <ul class="myHeader simpleHeader" v-if="simpleMode">
       <li class="backward" @click="goBack">
-        <font-awesome-icon :icon="['far', 'caret-square-left']" size="2x"/>
+        <font-awesome-icon :icon="['far', 'caret-square-left']" size="2x" />
       </li>
       <slot name="title" v-if="titleShow"></slot>
       <li class="home">
@@ -104,12 +104,12 @@ export default {
     clickFn(url) {
       this.$router.push(url);
     },
-    goBack(){
+    goBack() {
       this.$router.back(-1);
     },
     navbarFixed() {
       let header = document.getElementsByClassName("myHeader")[0];
-      window.onscroll = () => {
+      window.addEventListener("scroll", () => {
         let scroll =
           document.body.scrollTop || document.documentElement.scrollTop;
         if (scroll >= 300) {
@@ -121,7 +121,7 @@ export default {
           this.mobileIcon = "#fff";
           this.titleShow = false;
         }
-      };
+      });
       //dark Mode
       if (!this.lightMode) {
         header.classList.add("navbar_fixed");
@@ -264,7 +264,7 @@ export default {
 .simpleHeader
   height 70px
   .backward
-    float left 
+    float left
     line-height 70px
     margin-left 50px
     padding 0

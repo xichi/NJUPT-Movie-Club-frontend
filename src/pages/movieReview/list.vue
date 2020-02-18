@@ -10,7 +10,7 @@
     <div id="movie-review-list">
       <!-- <div v-for="(t, i) in 5" :key="i"> -->
       <detail-card
-        v-for="(item, index) in detailCards"
+        v-for="(item, index) in currentCards"
         :key="index"
         class="detail-card"
       >
@@ -30,7 +30,7 @@
           <font-awesome-icon :icon="['far', 'user']" />
           {{ item.author }}
         </div>
-        <div slot="pic" class="pic">
+        <div slot="pic" class="pic" @click="clickFn('/movieReview/details/' + item.id, item.id)">
           <div class="pic-wrap">
             <div class="pic-title">{{ item.title }}</div>
             <div class="pic-author">{{ item.author }}</div>
@@ -38,6 +38,15 @@
         </div>
       </detail-card>
       <!--  </div> -->
+      <el-pagination
+        class="pagination"
+        layout="prev, pager, next"
+        @current-change="handleCurrentChange"
+        :total="detailCards.length"
+        :page-size="pageSize"
+        hide-on-single-page
+      >
+      </el-pagination>
     </div>
   </div>
 </template>
@@ -46,6 +55,8 @@
 import myHeader from "_c/Header";
 import detailCard from "_c/detailCard";
 import { getMovieReview } from "@/api/index";
+import { scrollToTop } from "@/utils/index";
+
 export default {
   components: {
     myHeader,
@@ -53,7 +64,9 @@ export default {
   },
   data() {
     return {
-      detailCards: []
+      detailCards: [],
+      currentCards: [],
+      pageSize: 5
     };
   },
   methods: {
@@ -65,9 +78,17 @@ export default {
         }
       });
     },
+    handleCurrentChange(val){
+      const start = (val - 1)*this.pageSize;
+      const end = (this.detailCards.length - start) > this.pageSize ? val*this.pageSize : this.detailCards.length;
+      this.currentCards = this.detailCards.slice(start,end);
+      scrollToTop();
+    },
     async loadDetailCards() {
       const { data: movieReview } = await getMovieReview();
       this.detailCards = movieReview;
+      if(this.detailCards.length > this.pageSize) this.currentCards = this.detailCards.slice(0,this.pageSize);
+      else this.currentCards = this.detailCards;      
     }
   },
   mounted() {
@@ -79,6 +100,8 @@ export default {
 <style lang="stylus" scoped>
 #movie-review-list
   padding-top 80px
+  .pagination
+    margin-top 20px
 </style>
 <style lang="stylus">
 #write_btn
@@ -124,6 +147,7 @@ export default {
       background-size cover
       box-shadow 0 0 8px 0 #888
       transition all .5s ease
+      cursor pointer
       .pic-title, .pic-author
         position absolute
         top 70%

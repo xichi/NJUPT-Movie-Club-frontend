@@ -25,3 +25,8 @@ export const getMovieReview = () => {
 export const getMovieReviewDetail = id => {
   return request.get(`/movieReview?id=${id}`);
 };
+
+//本周电影
+export const getLatestMovies = () => {
+  return request.get('/latestMovies');
+};

@@ -40,6 +40,14 @@ import 'quill/dist/quill.bubble.css'
 
 Vue.use(VueQuillEditor, /* { default global options } */)
   
+/**
+ * element-ui
+ */
+import { Pagination, Carousel, CarouselItem } from 'element-ui';
+Vue.use(Pagination);
+Vue.use(Carousel);
+Vue.use(CarouselItem);
+
 new Vue({
   router: router,
   store,

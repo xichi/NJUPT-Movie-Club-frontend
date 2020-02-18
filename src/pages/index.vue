@@ -57,16 +57,7 @@
       </div>
       <div class="up-down"></div>
     </div>
-    <div class="weekly-movies">
-      <div class="introduction">
-        <p>你知道吗?</p>
-        <p>图书馆2楼放映室每周都会放映电影哦</p>
-      </div>
-      <img src="../assets/pic/1.png" class="home-pic" />
-      <div class="navbar">
-        <svg width="100%" height="100%"></svg>
-      </div>
-    </div>
+    <weekly-movies></weekly-movies>
     <my-footer></my-footer>
   </div>
 </template>
@@ -74,11 +65,13 @@
 <script>
 import myHeader from "_c/Header";
 import myFooter from "_c/footer";
+import weeklyMovies from "_c/index/weeklyMovies"
 
 export default {
   components: {
     myHeader,
-    myFooter
+    myFooter,
+    weeklyMovies
   },
   data() {
     return {
@@ -244,15 +237,6 @@ body
           color #e3e3e3
           span
             color #fff
-.weekly-movies
-  margin-top 200px
-  position relative
-  font-size 20px
-  .home-pic
-    position absolute
-    top 0
-    right 0
-    width 30%
 @keyframes up-and-down{
   0%{
     transform: translateY(0);
