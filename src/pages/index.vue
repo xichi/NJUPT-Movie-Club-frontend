@@ -58,6 +58,7 @@
       <div class="up-down"></div>
     </div>
     <weekly-movies></weekly-movies>
+    <department-info></department-info>
     <my-footer></my-footer>
   </div>
 </template>
@@ -66,12 +67,14 @@
 import myHeader from "_c/Header";
 import myFooter from "_c/footer";
 import weeklyMovies from "_c/index/weeklyMovies"
+import departmentInfo from "_c/index/departmentInfo"
 
 export default {
   components: {
     myHeader,
     myFooter,
-    weeklyMovies
+    weeklyMovies,
+    departmentInfo
   },
   data() {
     return {
