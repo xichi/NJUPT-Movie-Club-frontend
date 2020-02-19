@@ -44,10 +44,20 @@
       </svg>
     </div>
     <div class="main-card">
+      <div class="theme-of-the-week">
+        <p><font-awesome-icon class="svg-film" :icon="['fas', 'film']" />本周主题：</p>
+        <p class="theme">{{ theme }}</p>
+      </div>
       <el-carousel indicator-position="outside">
-        <el-carousel-item v-for="item in latestMovies" :key="item">
-          <h3>{{ item.name }}</h3>
-          <div>{{ item.info }}</div>
+        <el-carousel-item
+          v-for="(item, key) in latestMovies"
+          :key="key"
+          :style="{ backgroundImage: 'url(' + item.pic + ')' }"
+        >
+          <div class="detail">
+            <div class="big">{{ item.name }}</div>
+            <div class="small">{{ item.info }}</div>
+          </div>
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -60,13 +70,15 @@ import { getLatestMovies } from "@/api/index";
 export default {
   data() {
     return {
-      latestMovies: []
+      latestMovies: [],
+      theme: ""
     };
   },
   methods: {
     async loadLatestMovies() {
-      const { data: movies } = await getLatestMovies();
-      this.latestMovies = movies;
+      const { data: moviesData } = await getLatestMovies();
+      this.latestMovies = moviesData.movies;
+      this.theme = moviesData.theme;
     },
     typing() {
       let title = document.getElementById("info-title").innerHTML;
@@ -111,26 +123,73 @@ export default {
     width 12rem
     height auto
     margin 0 auto
+  .main-card
+    position relative
+    .theme-of-the-week
+      position absolute
+      top 50%
+      left 20%
+      transform translate(-100%, -50%)
+      text-align left
+      color #999
+      font-size 20px
+      padding 0 20px
+      > p
+        margin 5px 0
+        .svg-film
+          padding 0 5px
+      .theme
+        font-size 30px
+        color #000
 @media screen and (max-width: 767px)
   .weekly-movies
     #svg-info
       width 100vw
       height auto
+    .main-card
+      .theme-of-the-week
+        position initial
+        top 0
+        left 0
+        transform translate(0,0)
+        text-align center
 </style>
 <style lang="stylus">
 .weekly-movies
   .main-card
-    margin-top 1rem
+    margin-top 10px
     .el-carousel__container
       height 400px
       width 60%
       margin 0 auto
+      border-radius 10px
+      box-shadow 0 0 15px 0 rgba(0,0,0,0.3)
       .el-carousel__item
-        background-color #d3dce6
+        border-radius 10px
+        background-size cover
+        background-position center center
+        color #fff
+        .detail
+          position absolute
+          top 90%
+          transition all .5s ease-in
+          padding 0 20px 10px 20px
+        &:hover .detail
+            top 100%
+            transform translateY(-100%)
+          .big
+            font-size .8rem
+          .small
+            font-size .3rem
+    .el-carousel__indicators
+      margin-top 10px
 @media screen and (max-width: 767px)
   .weekly-movies
     .main-card
       .el-carousel__container
         height 400px
         width 90%
+        .detail
+          top 95%
+          transform translateY(-100%)
 </style>
