@@ -10,9 +10,9 @@
           <div class="developer">
             <div>Developer</div>
             <ul>
-              <li><font-awesome-icon :icon="['fab', 'github']" size="2x" /></li>
-              <li><font-awesome-icon :icon="['fab', 'qq']" size="2x"/></li>
-              <li><font-awesome-icon :icon="['fas', 'laptop-code']" size="2x" /></li>
+              <li><font-awesome-icon :icon="['fab', 'github']" size="1g" /></li>
+              <li><font-awesome-icon :icon="['fab', 'qq']" size="1g"/></li>
+              <li><font-awesome-icon :icon="['fas', 'laptop-code']" size="1g" /></li>
             </ul>
           </div>
         </div>
@@ -128,9 +128,9 @@ export default {
           margin 10px auto
           background-size 100% 100%
         .official-qq .QR-code
-            background-image url("../assets/pic/office-qq.png")
+            background-image url("../../assets/pic/office-qq.png")
         .freshman-qq .QR-code
-            background-image url("../assets/pic/new-qq.jpg")
+            background-image url("../../assets/pic/new-qq.jpg")
     .footer
       margin 0 auto
       padding 10px

@@ -7,14 +7,14 @@
       <slot name="title" v-if="titleShow"></slot>
       <li class="home">
         <router-link to="/index"
-          ><img src="../assets/pic/icon.png" alt=""
+          ><img src="../../assets/pic/icon.png" alt=""
         /></router-link>
       </li>
     </ul>
     <ul class="myHeader" v-if="!simpleMode">
       <li class="home">
         <router-link to="/index"
-          ><img src="../assets/pic/icon.png" alt=""
+          ><img src="../../assets/pic/icon.png" alt=""
         /></router-link>
       </li>
       <slot name="write"></slot>

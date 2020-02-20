@@ -48,8 +48,9 @@ export default {
       margin 0 auto
       background-color #3085a3
   .cards
+    margin 0 auto
     margin-top 1rem
-    padding 0 5rem
+    width 70%
     .card-wrap
       display flex
       justify-content space-between
@@ -70,6 +71,8 @@ export default {
           transform translate(-50%, -150%)
           font-size 12px
           color rgba(255,255,255,0.5)
+          &:hover
+            color rgba(255,255,255,0.8)
       .info
         width 50%
     .projection

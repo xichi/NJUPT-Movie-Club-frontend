@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import myHeader from "_c/Header";
+import myHeader from "_c/common/Header";
 import { mockGetUserInfo, mockGetMovieReview } from "@/mock/index";
 export default {
   components: {

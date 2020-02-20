@@ -57,7 +57,7 @@
 <script>
 import "babel-polyfill"; // es6 shim
 import myUpload from "vue-image-crop-upload/upload-2.vue";
-import myHeader from "_c/Header";
+import myHeader from "_c/common/Header";
 export default {
   components: {
     myHeader,

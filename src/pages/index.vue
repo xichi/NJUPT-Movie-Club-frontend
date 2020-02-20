@@ -38,10 +38,13 @@
           </div>
           <div class="mainbody">
             <div class="right">
-              <img
-                :src="movieToday.pic"
+              <div
+                class="pic"
+                :style="
+                  'background-image:url(' + getImage(movieToday.pic) + ');'
+                "
                 @error="show_default_image"
-              />
+              ></div>
             </div>
             <div class="left">
               <div class="name">
@@ -60,19 +63,22 @@
     <weekly-movies></weekly-movies>
     <department-info></department-info>
     <my-footer></my-footer>
+    <mouse-animation></mouse-animation>
   </div>
 </template>
 
 <script>
-import myHeader from "_c/Header";
-import myFooter from "_c/footer";
-import weeklyMovies from "_c/index/weeklyMovies"
-import departmentInfo from "_c/index/departmentInfo"
+import myHeader from "_c/common/Header";
+import myFooter from "_c/common/footer";
+import mouseAnimation from "_c/common/mouseAnimation"
+import weeklyMovies from "_c/index/weeklyMovies";
+import departmentInfo from "_c/index/departmentInfo";
 
 export default {
   components: {
     myHeader,
     myFooter,
+    mouseAnimation,
     weeklyMovies,
     departmentInfo
   },
@@ -90,7 +96,7 @@ export default {
         name: "肖申克的救赎 / The Shawshank Redemption",
         score: 9.7,
         pic:
-          "http://njupt.xichi.xyz/th.jpg",
+          "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.jpg",
         quote: "希望让人自由。",
         comments: []
       }
@@ -105,17 +111,28 @@ export default {
     },
     show_default_image(event) {
       event.target.src = "http://temp.im/150x300";
+    },
+    getImage(url) {
+      // 把现在的图片连接传进来，返回一个不受限制的路径
+      if (url !== undefined) {
+        return "https://images.weserv.nl/?url=" + url;
+      }
+    },
+    movieTodayAnimation() {
+      let titleIn = document.getElementsByClassName("title-in")[0];
+      titleIn.onmouseenter = function() {
+        titleIn.style.opacity = ".9";
+      };
+      titleIn.onmouseleave = function() {
+        titleIn.style.opacity = ".5";
+      };
     }
   },
   mounted() {
-    //movie today animation
-    let titleIn = document.getElementsByClassName("title-in")[0];
-    titleIn.onmouseenter = function() {
-      titleIn.style.opacity = ".9";
-    };
-    titleIn.onmouseleave = function() {
-      titleIn.style.opacity = ".5";
-    };
+    this.movieTodayAnimation();
+    /* this.$http.get('/bing/bingPic/').then(res => {
+      console.log(res)
+    }); */
   }
 };
 </script>
@@ -230,9 +247,11 @@ body
         display flex
         .right
           width 30%
-          img
+          .pic
             width 100%
             height 150px
+            background-position center center
+            background-size cover
         .left
           width 70%
           padding-left 10px

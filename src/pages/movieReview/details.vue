@@ -28,7 +28,7 @@
         </div>
       </div>
       <div class="detail-wrap">
-        <div class="detail">
+        <div class="detail" ref="detail">
           {{ movieReview.detail }}
         </div>
       </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import myHeader from "_c/Header";
+import myHeader from "_c/common/Header";
 import { getMovieReviewDetail } from "@/api/index";
 
 export default {
@@ -71,10 +71,17 @@ export default {
           window.scrollTo(0, currentScroll - currentScroll / 5);
         }
       })();
+    },
+    copyTip() {
+      let detail = this.$refs.detail;
+      detail.addEventListener("copy", () => {
+        alert("转载请注明出处~");
+      });
     }
   },
   mounted() {
     this.loadMovieReview();
+    this.copyTip();
   }
 };
 </script>

@@ -9,6 +9,8 @@ import store from './store'
 
 Vue.config.productionTip = false;
 
+import axios from 'axios'
+Vue.prototype.$http= axios
 /**
  * font awesome icon
  */

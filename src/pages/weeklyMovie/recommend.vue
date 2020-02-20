@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import  myHeader  from "_c/Header";
+import  myHeader  from "_c/common/Header";
 export default {
   components: {
     myHeader

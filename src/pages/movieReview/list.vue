@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import myHeader from "_c/Header";
+import myHeader from "_c/common/Header";
 import detailCard from "_c/detailCard";
 import { getMovieReview } from "@/api/index";
 import { scrollToTop } from "@/utils/index";

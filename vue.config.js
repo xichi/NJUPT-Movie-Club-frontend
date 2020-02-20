@@ -59,9 +59,19 @@ module.exports = {
       '^/api': {
         target: process.env.VUE_APP_SRC,
         ws: true,   //开启WebSocket
+        secure: false,  // 如果是https接口，需要配置这个参数
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''  //需要rewrite的,
+        }
+      },
+      '^/bing': {
+        target: 'https://open.saintic.com/api/',
+        ws: true,   //开启WebSocket
+        secure: true,  // 如果是https接口，需要配置这个参数
+        changeOrigin: true,
+        pathRewrite: {
+          '^/bing': ''  //需要rewrite的,
         }
       }
     }

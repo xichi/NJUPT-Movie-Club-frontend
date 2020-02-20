@@ -7,7 +7,7 @@
 
 <script>
 import {mapState} from 'vuex'
-import  myLoading from "_c/loading";
+import  myLoading from "_c/common/loading";
 export default {
   name: 'app',
   components: {

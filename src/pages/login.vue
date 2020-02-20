@@ -77,7 +77,7 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import { USER_SIGNOUT, USER_SIGNIN } from "@/store";
-import  myHeader  from "_c/Header";
+import  myHeader  from "_c/common/Header";
 
 export default {
   components: {

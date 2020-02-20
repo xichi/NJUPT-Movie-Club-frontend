@@ -9,3 +9,11 @@ export function scrollToTop() {
     }
   })();
 }
+
+/* 跨域获取图片 */
+export function getImage(url) {
+  // 把现在的图片连接传进来，返回一个不受限制的路径
+  if (url !== undefined) {
+    return "https://images.weserv.nl/?url=" + url;
+  }
+}
