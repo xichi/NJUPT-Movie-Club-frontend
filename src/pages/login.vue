@@ -3,71 +3,121 @@
     <my-header></my-header>
     <div class="main-body">
       <div class="login-container">
-        <div class="info-wrap">
-          <div v-show="!userLogin" class="login">
-            <p>请登录</p>
-            <p>初次登录时：账号与密码均为学号</p>
-            <div><input type="text" v-model="userMsg.username" />
-            <font-awesome-icon
-                  class="icon user"
-                  :icon="['fas', 'user']"
-                /></div>
-            <div>
+        <my-tabs v-show="!userLogin" :tabList="tabList" v-on:currentTab="updateCurrentTab" class="tabs-wrap">
+          <div :slot="tabList[0].id" class="sign-in tabs">
+            <div class="text-input">
+              <input
+                type="text"
+                class="firstInput"
+                v-model="userMsg.username"
+                placeholder="请输入用户名或邮箱"
+                @focus="textAnime"
+              />
               <font-awesome-icon
-                  class="icon lock"
-                  :icon="['fas', 'lock']"
-                />
+                class="icon user"
+                :icon="['fas', 'user']"
+                size="xs"
+              />
+              <div class="line"></div>
+            </div>
+            <div class="text-input">
+              <font-awesome-icon
+                class="icon lock"
+                :icon="['fas', 'lock']"
+                size="xs"
+              />
               <input
                 type="password"
                 v-model="userMsg.password"
                 class="password"
+                placeholder="请输入密码"
+                @focus="textAnime"
               />
-              <span>
-                <font-awesome-icon
-                  class="icon eye"
-                  :icon="['fas', 'eye-slash']"
-                  v-show="!passwordHidden"
-                  @click="runPasswordHidden"
-                />
-                <font-awesome-icon
-                  class="icon eye"
-                  :icon="['fas', 'eye']"
-                  v-show="passwordHidden"
-                  @click="runPasswordHidden"
-                />
-              </span>
+              <div class="line"></div>
+              <font-awesome-icon
+                class="icon eye"
+                :icon="['fas', 'eye-slash']"
+                v-show="!passwordHidden"
+                @click="runPasswordHidden"
+                size="xs"
+              />
+              <font-awesome-icon
+                class="icon eye"
+                :icon="['fas', 'eye']"
+                v-show="passwordHidden"
+                @click="runPasswordHidden"
+                size="xs"
+              />
             </div>
-            <input type="button" value="登录" @click="signIn()">
+            <input
+              type="button"
+              class="signIn-btn"
+              value="登录"
+              @click="signIn()"
+            />
           </div>
-          <div v-show="userLogin" class="profile">
-            <p>欢迎回来，{{ userInfo.username }}</p>
-            <p>请及时修改你的密码呦~</p>
-            <div>
-              修改密码：<input
+          <div :slot="tabList[1].id" class="sign-up tabs">
+            <div class="text-input">
+              <input
                 type="text"
-                v-model="userMsg.password"
-                class="password"
-              /><span>
-                <font-awesome-icon
-                  :icon="['fas', 'eye-slash']"
-                  v-show="!passwordHidden"
-                  @click="runPasswordHidden"
-                />
-                <font-awesome-icon
-                  :icon="['fas', 'eye']"
-                  v-show="passwordHidden"
-                  @click="runPasswordHidden"
-                />
-              </span>
+                class="firstInput"
+                v-model="userMsg.username"
+                placeholder="请输入邮箱"
+                @focus="textAnime"
+              />
+              <font-awesome-icon
+                class="icon user"
+                :icon="['fas', 'user']"
+                size="xs"
+              />
+              <div class="line"></div>
             </div>
-            <input type="button" value="退出" @click="signOut()">
+            <div class="text-input">
+              <font-awesome-icon
+                class="icon email"
+                :icon="['fas', 'envelope']"
+                size="xs"
+              />
+              <input
+                type="text"
+                ref="firstInput"
+                v-model="userMsg.password"
+                placeholder="请输入验证码"
+                @focus="textAnime"
+              />
+              <span class="verification-code">发送验证码</span>
+              <div class="line"></div>
+            </div>
+            <input
+              type="button"
+              class="signIn-btn"
+              value="注册"
+              @click="signIn()"
+            />
           </div>
-        </div>
-        <div class="illustration-wrap">
-          <svg viewBox="0 0 100 100" preserveAspectRatio="none" class="bg">
-            <polygon points="0,100 100,0 100,100"/>
-          </svg>
-          <svg-icon v-for="(name, index) in svgName" :iconClass="name" :id="name" :key="index"></svg-icon>
+        </my-tabs>
+        <div v-show="userLogin" class="profile">
+          <p>欢迎回来，{{ userInfo.username }}</p>
+          <p>请及时修改你的密码呦~</p>
+          <div>
+            修改密码：<input
+              type="text"
+              v-model="userMsg.password"
+              class="password"
+            /><span>
+              <font-awesome-icon
+                :icon="['fas', 'eye-slash']"
+                v-show="!passwordHidden"
+                @click="runPasswordHidden"
+              />
+              <font-awesome-icon
+                :icon="['fas', 'eye']"
+                v-show="passwordHidden"
+                @click="runPasswordHidden"
+              />
+            </span>
+          </div>
+          <input type="button" value="退出" @click="signOut()" />
         </div>
       </div>
     </div>
@@ -77,21 +127,28 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import { USER_SIGNOUT, USER_SIGNIN } from "@/store";
-import  myHeader  from "_c/common/Header";
+import myHeader from "_c/common/Header";
+import myTabs from "_c/base/tabs";
 
 export default {
   components: {
-    myHeader
+    myHeader,
+    myTabs
   },
   data() {
     return {
-      svgName: ['movie_night', 'watch_movie'],
+      tabList: [
+        { id: 0, name: "登录" },
+        { id: 1, name: "注册" }
+      ],
       userMsg: {
         id: 0,
         username: "",
-        password: ""
+        password: "",
+        currentTab: 0
       },
-      passwordHidden: true
+      passwordHidden: true,
+      currentTab: 0,
     };
   },
   computed: {
@@ -99,6 +156,13 @@ export default {
       userLogin: state => state.userLogin,
       userInfo: state => state.userInfo
     })
+  },
+  watch:{
+    currentTab: ()=>{
+      //console.log('111');
+    
+      document.querySelector(".firstInput").focus();
+    }
   },
   methods: {
     ...mapActions([USER_SIGNOUT, USER_SIGNIN]),
@@ -116,7 +180,18 @@ export default {
         if (this.passwordHidden) item.setAttribute("type", "password");
         else item.setAttribute("type", "text");
       });
+    },
+    textAnime(e) {
+      let line = e.currentTarget.parentNode.getElementsByClassName("line")[0];
+      line.style.width = "100%";
+      line.style.opacity = "1";
+    },
+    updateCurrentTab(e){
+      this.currentTab = e;
     }
+  },
+  mounted() {
+    document.querySelector(".firstInput").focus();
   }
 };
 </script>
@@ -133,45 +208,68 @@ export default {
   .login-container
     display flex
     position relative
-    width 60%
-    height 60%
+    width 350px
+    height 50%
     border-radius 20px
-    background-color rgba(255,255,255,0.8)
-    .illustration-wrap
-      position relative
-      width 45%
-      border-radius 0 20px 20px 0
-      background-color #d8e7f7
-      .bg
-        position absolute
-        left -29px
-        bottom 0
-        width 30px
-        height 100%
-        fill #d8e7f7
-      #watch_movie
-        position absolute
-        top -5%
-        right 0
-        height 100%
-        width 40vw
-      #movie_night
-        position absolute
-        bottom 10px
-        right 10px
-        z-index 999
-    .info-wrap
-      width 55%
-      display flex
-      align-items center
-      justify-content center
-      .login, .profile
-        z-index 9999
-        max-width 250px
-        input
-          width 100%
+    background-color #fff
+    display flex
+    align-items center
+    justify-content center
+    box-shadow 0 0 10px 0 rgba(0,0,0,0.2)
+    input[type='text'], input[type='password']
+      width 100%
+      border none
+      outline none
+      background-color rgba(255,255,255,0.5)
+    input[type="button"]
+      width 80%
+      margin-top 50px
+      padding 5px 0
+      color #ffffff
+      background-color #57c3c2
+      border none
+      outline none
+      border-radius 5px
+      letter-spacing 1em
+      padding-left 1em
+      text-align center
+      vertical-align middle
+    .tabs-wrap
+      height 90%
+      width 70%
+      z-index 999
+      .text-input
+        position relative
+        margin-top 1rem
+        text-indent 1em
+        .line
+          width 0
+          height 2px
+          border-radius 1px
+          margin 0 auto
+          margin-top 5px
+          background-color #57c3c2
+          opacity 0.3
+          transition all .6s ease-in
         .icon
-          position absoluted
-          top 0
-          left 0
+          position absolute
+          bottom 9px
+          left 2px
+          color #c4c4c4
+        .eye
+          left 100%
+          transform translateX(-120%)
+      .sign-up
+        .verification-code
+          position absolute
+          bottom 9px
+          right 0
+          color #3085a3
+          font-size 13px
+          cursor pointer
+          &:hover
+            color #999
+@media screen and (max-width: 767px)
+  .main-body .login-container
+    width 280px
 </style>

@@ -63,22 +63,20 @@
     <weekly-movies></weekly-movies>
     <department-info></department-info>
     <my-footer></my-footer>
-    <mouse-animation></mouse-animation>
   </div>
 </template>
 
 <script>
 import myHeader from "_c/common/Header";
 import myFooter from "_c/common/footer";
-import mouseAnimation from "_c/common/mouseAnimation"
 import weeklyMovies from "_c/index/weeklyMovies";
 import departmentInfo from "_c/index/departmentInfo";
+//import "_c/common/mouseAni.js"
 
 export default {
   components: {
     myHeader,
     myFooter,
-    mouseAnimation,
     weeklyMovies,
     departmentInfo
   },

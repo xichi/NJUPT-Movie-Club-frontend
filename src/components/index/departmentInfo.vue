@@ -86,6 +86,7 @@ export default {
   .main
     .cards
       padding 0
+      width 100%
       .card-wrap
         flex-direction column
         .card

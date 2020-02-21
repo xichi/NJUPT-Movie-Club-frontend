@@ -5,7 +5,7 @@
 <script>
 export default {
   watch: {
-    $route: {
+    '$route.path': {
       handler: function(val, oldVal) {
         console.log(val, oldVal);
       }
@@ -37,8 +37,7 @@ export default {
 
         switch (++clickCount) {
           case 1:
-            symbol.style.fontSize = "18px";
-            symbol.innerText = "❤";
+            symbol.innerText = "NJUPT";
             break;
           case 2:
             symbol.innerText = "MOVIE";
@@ -51,7 +50,8 @@ export default {
             symbol.innerText = "☁";
             break;
           default:
-            symbol.innerText = "NJUPT";
+            symbol.innerText = "❤";
+            symbol.style.fontSize = "18px";
             clickCount = 0;
         }
 

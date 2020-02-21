@@ -10,9 +10,9 @@
           <div class="developer">
             <div>Developer</div>
             <ul>
-              <li><font-awesome-icon :icon="['fab', 'github']" size="1g" /></li>
-              <li><font-awesome-icon :icon="['fab', 'qq']" size="1g"/></li>
-              <li><font-awesome-icon :icon="['fas', 'laptop-code']" size="1g" /></li>
+              <li><font-awesome-icon :icon="['fab', 'github']" size="lg" /></li>
+              <li><font-awesome-icon :icon="['fab', 'qq']" size="lg"/></li>
+              <li><font-awesome-icon :icon="['fas', 'laptop-code']" size="lg" /></li>
             </ul>
           </div>
         </div>

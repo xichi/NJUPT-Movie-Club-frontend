@@ -20,8 +20,7 @@ let f = e => {
 
   switch (++clickCount) {
     case 1:
-      symbol.style.fontSize = "18px";
-      symbol.innerText = "❤";
+      symbol.innerText = "NJUPT";
       break;
     case 2:
       symbol.innerText = "MOVIE";
@@ -34,7 +33,8 @@ let f = e => {
       symbol.innerText = "☁";
       break;
     default:
-      symbol.innerText = "NJUPT";
+      symbol.innerText = "❤";
+      symbol.style.fontSize = "18px";
       clickCount = 0;
   }
 
@@ -43,11 +43,9 @@ let f = e => {
     symbol.style.opacity = 0;
   });
 };
-  if(window.location.href == "http://localhost:8080/#/index"){
-    console.log('111');
-    document.addEventListener("click", f);
-  }else{
-    console.log('222');
-    document.removeEventListener("click", f);
-  }
+  document.addEventListener("click", f);
+  setInterval(document.addEventListener("hashchange",()=>{
+    console.log('11');
+  }), 100);
+  //setTimeout(document.removeEventListener("click", f),200)
 
