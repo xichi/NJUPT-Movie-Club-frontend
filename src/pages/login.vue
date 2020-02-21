@@ -159,9 +159,9 @@ export default {
   },
   watch:{
     currentTab: ()=>{
-      //console.log('111');
-    
-      document.querySelector(".firstInput").focus();
+      setTimeout(()=>{
+        document.querySelector(".firstInput").focus();
+      },100)
     }
   },
   methods: {
