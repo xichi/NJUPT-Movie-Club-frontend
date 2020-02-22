@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <div class="footer">Copyrights - 2020 NUPT Movie Club</div>
+      <div class="footer">Copyright © -2020 NUPT Movie Club</div>
     </div>
     <svg
       id="svg-wave"

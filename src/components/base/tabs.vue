@@ -42,7 +42,7 @@ export default {
   methods: {
     toggleTab(index) {
       this.currentTab = index;
-      this.$emit("currentTab",index);
+      this.$emit("toggleTab",index);
     }
   }
 };

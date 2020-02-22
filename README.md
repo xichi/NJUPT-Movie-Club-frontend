@@ -4,8 +4,9 @@
 ## 1.demo:
 + NJUPT Movie Club: vue + node  
 测试地址：[南邮影协](http://xichi.xyz/test) 
-+ website Design: jquery  
-原demo地址：[南邮影协](http://xichi.xyz/NJUPTMovieClub) 
++ website Design: jquery
+2019年“和巨耀通杯”网页设计大赛一等奖作品  
+地址：[南邮影协](http://xichi.xyz/NJUPTMovieClub)
 
 ## 2.技术栈：Vue
 
@@ -40,7 +41,9 @@
     │   ├── utils                           狭存放自己封装的工具类函数
     │   │   └── index.js    
     │   ├── components                      公共组件目录
-    │   │   └── Header.vue
+    │   │   └── base                           造点轮子(主要是练习)
+    │   │   └── common                         通用组件
+    │   │   └── index                          首页组件
     │   ├── assets                          资源目录，这里的资源会被wabpack构建
     │   │   └── images
     │   │       └── logo.png
@@ -63,6 +66,8 @@
   - [ ] 每日电影随机推荐
   - [x] 本地代理
   - [x] svg动画
+  - [ ] 顶部进度条
+  - [ ] 图片加载动画
 - [ ] 每周电影
 - [ ] 精彩影评
   - [x] 影评列表页
@@ -70,13 +75,15 @@
   - [x] 富文本编辑页
   - [ ] 评论组件
   - [ ] 图片上传
-  - [x] 分页
-  - [ ] 分享影评、本周电影
+  - [x] 分页Pagination
+  - [ ] 分享，生成canvas海报
   - [ ] 上传 .md、.word文件，并转化成html
+  - [ ] 发布投票、用户投票
+  - [ ] 投票数据数据可视化
 - [ ] 部门介绍
 - [ ] 成员介绍
 - [ ] 登录页
-  - [ ] 发送短信、语音验证
+  - [ ] 发送邮箱验证码
   - [ ] 修改密码
 - [ ] 个人中心
 

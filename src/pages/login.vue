@@ -3,7 +3,12 @@
     <my-header></my-header>
     <div class="main-body">
       <div class="login-container">
-        <my-tabs v-show="!userLogin" :tabList="tabList" v-on:currentTab="updateCurrentTab" class="tabs-wrap">
+        <my-tabs
+          v-show="!userLogin"
+          :tabList="tabList"
+          @toggleTab="updateCurrentTab"
+          class="tabs-wrap"
+        >
           <div :slot="tabList[0].id" class="sign-in tabs">
             <div class="text-input">
               <input
@@ -48,6 +53,12 @@
                 @click="runPasswordHidden"
                 size="xs"
               />
+              <div class="options">
+                <div>忘记密码</div>
+                <div @click="toggleManageCheck">管理员登录
+                  <span class="checked" v-show="manageChecked">✔</span>
+                </div>
+              </div>
             </div>
             <input
               type="button"
@@ -144,11 +155,12 @@ export default {
       userMsg: {
         id: 0,
         username: "",
+        email: "",
         password: "",
-        currentTab: 0
       },
       passwordHidden: true,
       currentTab: 0,
+      manageChecked: false
     };
   },
   computed: {
@@ -157,11 +169,10 @@ export default {
       userInfo: state => state.userInfo
     })
   },
-  watch:{
-    currentTab: ()=>{
-      setTimeout(()=>{
-        document.querySelector(".firstInput").focus();
-      },100)
+  watch: {
+    currentTab: async function() {
+      await this.$nextTick();
+      document.querySelector(".firstInput").focus();
     }
   },
   methods: {
@@ -186,8 +197,14 @@ export default {
       line.style.width = "100%";
       line.style.opacity = "1";
     },
-    updateCurrentTab(e){
+    updateCurrentTab(e) {
       this.currentTab = e;
+    },
+    toggleManageCheck(){
+      this.manageChecked = !this.manageChecked;
+    },
+    sendEmail(){
+
     }
   },
   mounted() {
@@ -209,7 +226,7 @@ export default {
     display flex
     position relative
     width 350px
-    height 50%
+    height 350px
     border-radius 20px
     background-color #fff
     display flex
@@ -223,7 +240,7 @@ export default {
       background-color rgba(255,255,255,0.5)
     input[type="button"]
       width 80%
-      margin-top 50px
+      margin-top 70px
       padding 5px 0
       color #ffffff
       background-color #57c3c2
@@ -240,7 +257,7 @@ export default {
       z-index 999
       .text-input
         position relative
-        margin-top 1rem
+        margin-top 40px
         text-indent 1em
         .line
           width 0
@@ -259,6 +276,27 @@ export default {
         .eye
           left 100%
           transform translateX(-120%)
+      .sign-in
+        .options
+          position absolute
+          bottom 0
+          right 0
+          transform translateY(200%)
+          color #3085a3
+          font-size 12px
+          cursor pointer
+          > div
+            display inline-block
+            &:nth-child(1)
+              padding 0 8px
+            &:nth-child(2)
+              position relative
+              .checked
+                position absolute
+                bottom -20%
+                left 50%
+                transform translateX(-50%)
+                color #de1c31
       .sign-up
         .verification-code
           position absolute
