@@ -8,7 +8,7 @@
 2019年“和巨耀通杯”网页设计大赛一等奖作品  
 地址：[南邮影协](http://xichi.xyz/NJUPTMovieClub)
 
-## 2.技术栈：Vue
+## 2.技术栈：Vue + json-server
 
 ## 3.How to start?
 
@@ -87,4 +87,7 @@
   - [ ] 修改密码
 - [ ] 个人中心
 
+## 测试账号
 
+username：admin
+password：123

@@ -1,16 +1,23 @@
 import axios from 'axios';
 
-export const baseURL = process.env.PRODUCTION_ENV === "production"
+/* export const baseURL = process.env.PRODUCTION_ENV === "production"
   ? process.env.VUE_APP_API_URL
-  : "http://localhost:3001";
+  : "http://localhost:3000"; */
 
 let request = axios.create({
-  baseURL: `${baseURL}`,
+  //baseURL: `${baseURL}`,
   headers: {
     Authorization: `Bearer ${localStorage.getItem('njupt_movie_club_token')}`
   }
 });
 
+//登录
+export const login = (username, password) => {
+  return request.post('/api/admin/login', {
+      username,
+      password
+  })
+}
 //用户信息
 export const getUserInfo = () => {
   return request.get('/userInfo');

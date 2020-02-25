@@ -55,7 +55,8 @@
               />
               <div class="options">
                 <div>忘记密码</div>
-                <div @click="toggleManageCheck">管理员登录
+                <div @click="toggleManageCheck">
+                  管理员登录
                   <span class="checked" v-show="manageChecked">✔</span>
                 </div>
               </div>
@@ -92,7 +93,6 @@
               <input
                 type="text"
                 ref="firstInput"
-                v-model="userMsg.password"
                 placeholder="请输入验证码"
                 @focus="textAnime"
               />
@@ -138,6 +138,7 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import { USER_SIGNOUT, USER_SIGNIN } from "@/store";
+import { login } from "@/api/index";
 import myHeader from "_c/common/Header";
 import myTabs from "_c/base/tabs";
 
@@ -156,7 +157,7 @@ export default {
         id: 0,
         username: "",
         email: "",
-        password: "",
+        password: ""
       },
       passwordHidden: true,
       currentTab: 0,
@@ -177,9 +178,14 @@ export default {
   },
   methods: {
     ...mapActions([USER_SIGNOUT, USER_SIGNIN]),
-    signIn() {
+    async signIn() {
       //this.$store.dispatch("USER_SIGNIN", this.userMsg);
-      this.USER_SIGNIN(this.userMsg);
+      const { data: loginData} = await login(this.userMsg.username, this.userMsg.password);
+      if(loginData.status === 1){
+        this.USER_SIGNIN(this.userMsg);
+      }else{
+        this.$message.error(loginData.message);
+      }
     },
     signOut() {
       this.USER_SIGNOUT();
@@ -200,12 +206,10 @@ export default {
     updateCurrentTab(e) {
       this.currentTab = e;
     },
-    toggleManageCheck(){
+    toggleManageCheck() {
       this.manageChecked = !this.manageChecked;
     },
-    sendEmail(){
-
-    }
+    sendEmail() {}
   },
   mounted() {
     document.querySelector(".firstInput").focus();

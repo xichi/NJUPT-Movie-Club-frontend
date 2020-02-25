@@ -45,10 +45,11 @@ Vue.use(VueQuillEditor, /* { default global options } */)
 /**
  * element-ui
  */
-import { Pagination, Carousel, CarouselItem } from 'element-ui';
+import { Pagination, Carousel, CarouselItem, Message } from 'element-ui';
 Vue.use(Pagination);
 Vue.use(Carousel);
 Vue.use(CarouselItem);
+Vue.prototype.$message = Message;
 
 new Vue({
   router: router,
