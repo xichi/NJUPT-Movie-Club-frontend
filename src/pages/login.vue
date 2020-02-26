@@ -74,6 +74,50 @@
                 type="text"
                 class="firstInput"
                 v-model="userMsg.username"
+                placeholder="请输入用户名"
+                @focus="textAnime"
+              />
+              <font-awesome-icon
+                class="icon user"
+                :icon="['fas', 'user']"
+                size="xs"
+              />
+              <div class="line"></div>
+            </div>
+            <div class="text-input">
+              <font-awesome-icon
+                class="icon lock"
+                :icon="['fas', 'lock']"
+                size="xs"
+              />
+              <input
+                type="password"
+                v-model="userMsg.password"
+                class="password"
+                placeholder="请输入密码"
+                @focus="textAnime"
+              />
+              <div class="line"></div>
+              <font-awesome-icon
+                class="icon eye"
+                :icon="['fas', 'eye-slash']"
+                v-show="!passwordHidden"
+                @click="runPasswordHidden"
+                size="xs"
+              />
+              <font-awesome-icon
+                class="icon eye"
+                :icon="['fas', 'eye']"
+                v-show="passwordHidden"
+                @click="runPasswordHidden"
+                size="xs"
+              />
+            </div>
+            <div class="text-input">
+              <input
+                type="text"
+                class="firstInput"
+                v-model="userMsg.username"
                 placeholder="请输入邮箱"
                 @focus="textAnime"
               />
@@ -180,10 +224,13 @@ export default {
     ...mapActions([USER_SIGNOUT, USER_SIGNIN]),
     async signIn() {
       //this.$store.dispatch("USER_SIGNIN", this.userMsg);
-      const { data: loginData} = await login(this.userMsg.username, this.userMsg.password);
-      if(loginData.status === 1){
+      const { data: loginData } = await login(
+        this.userMsg.username,
+        this.userMsg.password
+      );
+      if (loginData.status === 1) {
         this.USER_SIGNIN(this.userMsg);
-      }else{
+      } else {
         this.$message.error(loginData.message);
       }
     },
@@ -230,7 +277,7 @@ export default {
     display flex
     position relative
     width 350px
-    height 350px
+    height 450px
     border-radius 20px
     background-color #fff
     display flex
@@ -281,6 +328,7 @@ export default {
           left 100%
           transform translateX(-120%)
       .sign-in
+        margin-top 80px
         .options
           position absolute
           bottom 0
@@ -302,6 +350,8 @@ export default {
                 transform translateX(-50%)
                 color #de1c31
       .sign-up
+        input[type="button"]
+          margin-top 30px
         .verification-code
           position absolute
           bottom 9px

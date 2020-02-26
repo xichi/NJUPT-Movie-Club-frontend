@@ -2,6 +2,7 @@
 电影协会宣传页面
 
 ## 1.demo:
+
 + NJUPT Movie Club: vue + node  
 测试地址：[南邮影协](http://xichi.xyz/test) 
 + website Design: jquery
@@ -80,14 +81,22 @@
   - [ ] 上传 .md、.word文件，并转化成html
   - [ ] 发布投票、用户投票
   - [ ] 投票数据数据可视化
-- [ ] 部门介绍
+- [x] 部门介绍
 - [ ] 成员介绍
 - [ ] 登录页
-  - [ ] 发送邮箱验证码
+  - [x] 发送邮箱验证码
   - [ ] 修改密码
 - [ ] 个人中心
 
+## API文档
+
+[API](./API.md)
+
 ## 测试账号
 
-username：admin
-password：123
+|账号|密码|权限|
+|:-----|:------|:-----|
+|superAdmin      |123 | 2 |
+|admin     |456  | 1 |
+|user     |789 | 0 |
+

@@ -8,7 +8,7 @@
     "start:dev": "vue-cli-service serve --mode=development --open",
     "start:prod": "vue-cli-service build --mode=production",
     "start:test": "vue-cli-service build --mode=test",
-    "mock": "json-server --watch src/mock/db.json --port 3000 --routes src/mock/routes.json",
+    "mock": "json-server --watch src/mock/db.json --port 3001 --routes src/mock/routes.json",
     "mockdev": "yarn mock | yarn start:dev"
   },
   "dependencies": {
