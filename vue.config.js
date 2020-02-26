@@ -57,8 +57,7 @@ module.exports = {
     proxy: {
       // 本地代理包含api的接口 如： /api/getUser 
       '^/api': {
-        //target: process.env.VUE_APP_SRC,
-        target: 'http://localhost:3000',
+        target: process.env.VUE_APP_SRC,
         ws: true,   //开启WebSocket
         secure: false,  // 如果是https接口，需要配置这个参数
         changeOrigin: true,
