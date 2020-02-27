@@ -14,7 +14,7 @@
               <input
                 type="text"
                 class="firstInput"
-                v-model="userMsg.username"
+                v-model="username"
                 placeholder="请输入用户名或邮箱"
                 @focus="textAnime"
               />
@@ -33,7 +33,7 @@
               />
               <input
                 type="password"
-                v-model="userMsg.password"
+                v-model="password"
                 class="password"
                 placeholder="请输入密码"
                 @focus="textAnime"
@@ -73,7 +73,7 @@
               <input
                 type="text"
                 class="firstInput"
-                v-model="userMsg.username"
+                v-model="username"
                 placeholder="请输入用户名"
                 @focus="textAnime"
               />
@@ -92,7 +92,7 @@
               />
               <input
                 type="password"
-                v-model="userMsg.password"
+                v-model="password"
                 class="password"
                 placeholder="请输入密码"
                 @focus="textAnime"
@@ -117,13 +117,13 @@
               <input
                 type="text"
                 class="firstInput"
-                v-model="userMsg.username"
+                v-model="email"
                 placeholder="请输入邮箱"
                 @focus="textAnime"
               />
               <font-awesome-icon
                 class="icon user"
-                :icon="['fas', 'user']"
+                :icon="['fas', 'envelope']"
                 size="xs"
               />
               <div class="line"></div>
@@ -131,23 +131,26 @@
             <div class="text-input">
               <font-awesome-icon
                 class="icon email"
-                :icon="['fas', 'envelope']"
+                :icon="['fas', 'code']"
                 size="xs"
               />
               <input
                 type="text"
                 ref="firstInput"
+                v-model="code"
                 placeholder="请输入验证码"
                 @focus="textAnime"
               />
-              <span class="verification-code">发送验证码</span>
+              <span class="verification-code" @click="sendEmail"
+                >发送验证码</span
+              >
               <div class="line"></div>
             </div>
             <input
               type="button"
               class="signIn-btn"
               value="注册"
-              @click="signIn()"
+              @click="signUp"
             />
           </div>
         </my-tabs>
@@ -182,7 +185,13 @@
 <script>
 import { mapActions, mapState } from "vuex";
 import { USER_SIGNOUT, USER_SIGNIN } from "@/store";
-import { login } from "@/api/index";
+import {
+  login,
+  signout,
+  getUserInfo,
+  getEmailCode,
+  register
+} from "@/api/index";
 import myHeader from "_c/common/Header";
 import myTabs from "_c/base/tabs";
 
@@ -197,12 +206,11 @@ export default {
         { id: 0, name: "登录" },
         { id: 1, name: "注册" }
       ],
-      userMsg: {
-        id: 0,
-        username: "",
-        email: "",
-        password: ""
-      },
+      userMsg: {},
+      email: "",
+      password: "",
+      code: "",
+      username: "",
       passwordHidden: true,
       currentTab: 0,
       manageChecked: false
@@ -223,19 +231,25 @@ export default {
   methods: {
     ...mapActions([USER_SIGNOUT, USER_SIGNIN]),
     async signIn() {
-      //this.$store.dispatch("USER_SIGNIN", this.userMsg);
-      const { data: loginData } = await login(
-        this.userMsg.username,
-        this.userMsg.password
-      );
+      const { data: loginData } = await login(this.username, this.password);
       if (loginData.status === 1) {
-        this.USER_SIGNIN(this.userMsg);
+        const { data: userData } = await getUserInfo();
+        this.USER_SIGNIN(userData.data);
       } else {
         this.$message.error(loginData.message);
       }
     },
-    signOut() {
-      this.USER_SIGNOUT();
+    async signOut() {
+      const { data: signoutData } = await signout();
+      if (signoutData.status === 1) {
+        this.USER_SIGNOUT();
+        this.email = "";
+        this.username = "";
+        this.code = "";
+        this.password = "";
+      } else {
+        this.$message.error("退出失败了呢QAQ");
+      }
     },
     runPasswordHidden() {
       this.passwordHidden = !this.passwordHidden;
@@ -252,11 +266,40 @@ export default {
     },
     updateCurrentTab(e) {
       this.currentTab = e;
+      this.email = "";
+      this.username = "";
+      this.code = "";
+      this.password = "";
     },
     toggleManageCheck() {
       this.manageChecked = !this.manageChecked;
     },
-    sendEmail() {}
+    async sendEmail() {
+      try {
+        const { data: codeData } = await getEmailCode(this.email);
+        if(codeData.status === 1){
+          this.$message.success("验证码已发送，请注意查收");
+        }else{
+          this.$message.error(codeData.message);
+        }
+      } catch (err) {
+        this.$message.error("内部错误，请联系管理员");
+      }
+    },
+    async signUp() {
+      const { data: registerData } = await register(
+        this.username,
+        this.password,
+        this.code,
+        this.email
+      );
+      if (registerData.status === 1) {
+        const { data: userData } = await getUserInfo();
+        this.USER_SIGNIN(userData.data);
+      } else {
+        this.$message.error(registerData.message);
+      }
+    }
   },
   mounted() {
     document.querySelector(".firstInput").focus();

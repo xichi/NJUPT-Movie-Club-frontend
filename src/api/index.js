@@ -18,10 +18,38 @@ export const login = (username, password) => {
       password
   })
 }
-//用户信息
+
+//退出登录
+export const signout = () => {
+  return request.get('/api/admin/signout');
+}
+
+//获取用户信息
 export const getUserInfo = () => {
-  return request.get('/userInfo');
-};
+  return request.get('/api/admin/info');
+}
+
+//注册
+export const register = (username, password, code, email) => {
+  return request.post('/api/admin/register', {
+      username,
+      password,
+      code,
+      email
+  })
+}
+
+//获取所有用户信息
+export const getAllUsersInfo = (limit, offset) => {
+  return request.get(`/api/admin/all?limit=${limit}&?offset=${offset}`);
+}
+
+//获取邮箱验证码
+export const getEmailCode = (email) => {
+  return request.post('/api/admin/code',{
+    email
+  });
+}
 
 //影评
 export const getMovieReview = () => {

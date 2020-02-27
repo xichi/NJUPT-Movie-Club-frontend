@@ -1,6 +1,6 @@
 # API文档
 
-baseUrl: https://www.xichi.xyz
+baseUrl: https://www.xichi.xyz/api
 
 ## 目录
 
@@ -29,7 +29,7 @@ baseUrl: https://www.xichi.xyz
 POST
 ```
 
-#### 参数类型：query
+#### 参数类型：params
 
 |参数|是否必选|类型|说明|
 |:-----|:-------:|:-----|:-----|
@@ -136,14 +136,14 @@ GET
 POST
 ```
 
-#### 参数类型：query
+#### 参数类型：params
 
 |参数|是否必选|类型|说明|
 |:-----|:-------:|:-----|:-----|
 |username      |Y       |string   | 用户名 |
 |password      |Y       |string  | 密码 |
 |code      |Y       |string  | 验证码 |
-
+|email     |Y       |string  | 邮箱 |
 
 
 #### 返回示例：
@@ -174,8 +174,8 @@ GET
 
 |参数|是否必选|类型|说明|
 |:-----|:-------:|:-----|:-----|
-|limit      |Y       |int | 获取数据数量，默认 20 |
-|offset      |Y       |int | 跳过数据条数 默认 0 |
+|limit      |N       |int | 获取数据数量，默认 20 |
+|offset      |N       |int | 跳过数据条数 默认 0 |
 
 
 #### 返回示例：
@@ -212,12 +212,12 @@ GET
 }
 ```
 
-### 1、用户登录
+### 6、获取邮箱验证码
 
 #### 请求URL：
 
 ```
-/admin/login
+/admin/code
 ```
 
 #### 示例：
@@ -228,21 +228,23 @@ GET
 POST
 ```
 
-#### 参数类型：query
+#### 参数类型：params
 
 |参数|是否必选|类型|说明|
 |:-----|:-------:|:-----|:-----|
-|username      |Y       |string   | 用户名 |
-|password      |Y       |string  | 密码 |
+|email      |Y       |string   | 邮箱 |
+
 
 
 
 #### 返回示例：
 
 ```javascript
-
 {
-  status: 1,
-  success: '登录成功'
+    "status": 1,
+    "data": {
+        "code": 422094,
+        "email": "474504964@qq.com"
+    }
 }
 ```
