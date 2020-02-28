@@ -58,7 +58,7 @@
         </li>
         <!-- <li class="contact-us"><router-link to="">联系我们</router-link></li> -->
         <li class="sign-up">
-          <router-link to="/login"
+          <router-link :to="this.userLogin? '/profile': '/login'"
             >{{ userInfo.username || "Sign In" }}
           </router-link>
           <font-awesome-icon

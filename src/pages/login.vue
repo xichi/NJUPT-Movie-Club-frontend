@@ -235,6 +235,7 @@ export default {
       if (loginData.status === 1) {
         const { data: userData } = await getUserInfo();
         this.USER_SIGNIN(userData.data);
+        this.$router.push('/profile');
       } else {
         this.$message.error(loginData.message);
       }
@@ -296,6 +297,7 @@ export default {
       if (registerData.status === 1) {
         const { data: userData } = await getUserInfo();
         this.USER_SIGNIN(userData.data);
+        this.$router.push('/profile');
       } else {
         this.$message.error(registerData.message);
       }
