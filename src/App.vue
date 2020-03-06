@@ -19,7 +19,9 @@ export default {
     ])
   },
   mounted(){
-    window.onload = ()=>{
+    let img = new Image();
+    img.src = 'http://njupt.xichi.xyz/movies/home-bg.jpg';
+    img.onload = ()=>{
       this.$store.commit('HIDE_LOADING');
     }
   }

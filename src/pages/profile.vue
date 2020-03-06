@@ -12,16 +12,16 @@
             class="avatar"
             :style="'background-image:url(' + avatar + ');'"
           ></div>
-          <ul class="infoList">
-            <li>
+          <div class="infoList">
+            <div>
               <p class="title">用户名：</p>
               <p>{{ userInfo.username }}</p>
-            </li>
-            <li>
+            </div>
+            <div>
               <p class="title">邮箱：</p>
               <p>{{ userInfo.email }}</p>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -99,6 +99,7 @@ export default {
         background-position center center
         background-size cover
       .infoList
+        padding 10px 20px
         font-size 13px
         text-align left
         .title
@@ -120,7 +121,6 @@ export default {
       padding-left 20px
       > span 
         padding-left 5px
-
 
 @media screen and (max-width: 1024px)
   .userinfo

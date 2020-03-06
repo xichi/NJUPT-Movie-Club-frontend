@@ -1,5 +1,6 @@
 import VueRouter from 'vue-router'
 
+const App = r => require.ensure([], () => r(require('./App.vue')), 'App')
 const index = r => require.ensure([], () => r(require('@/pages/index.vue')), 'index')
 const movieReview = r => require.ensure([], () => r(require('@/pages/movieReview/list.vue')), 'movieReview')
 const weeklyMovie = r => require.ensure([], () => r(require('@/pages/weeklyMovie/list.vue')), 'weeklyMovie')
@@ -13,17 +14,21 @@ const WM_FAQ = r => require.ensure([], () => r(require('@/pages/weeklyMovie/FAQ.
 
 var router = new VueRouter({
     routes: [
-        { path: '/', redirect: '/index' },
-        { path: '/index', component: index },
-        { path: '/login', component: login },
-        { path: '/profile', component: profile },
-        { path: '/movieReview', component: movieReview},
-        { path: '/movieReview/write', component: MR_write },
-        { path: '/movieReview/details/:id', component: MR_details },
-        { path: '/weeklyMovie', component: weeklyMovie },
-        { path: '/weeklyMovie/details/:time', component: WM_details },
-        { path: '/weeklyMovie/recommend', component: WM_recommend },
-        { path: '/weeklyMovie/FAQ', component: WM_FAQ }
+        {
+            path: '/', redirect: '/index', component: App,children: [
+                { path: '/index', component: index },
+                { path: '/login', component: login },
+                { path: '/profile', component: profile },
+                { path: '/movieReview', component: movieReview },
+                { path: '/movieReview/write', component: MR_write },
+                { path: '/movieReview/details/:id', component: MR_details },
+                { path: '/weeklyMovie', component: weeklyMovie },
+                { path: '/weeklyMovie/details/:time', component: WM_details },
+                { path: '/weeklyMovie/recommend', component: WM_recommend },
+                { path: '/weeklyMovie/FAQ', component: WM_FAQ }
+            ]
+        },
+
     ]
 })
 

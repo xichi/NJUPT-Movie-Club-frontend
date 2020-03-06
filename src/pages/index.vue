@@ -141,7 +141,7 @@ body
 .home
   width 100vw
   height 100vh
-  background-image url("../assets/pic/home-bg.jpg")
+  background-image url("http://njupt.xichi.xyz/movies/home-bg.jpg")
   background-size 100% 100%
   position relative
   .main-focus
