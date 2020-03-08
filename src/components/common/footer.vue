@@ -4,15 +4,16 @@
       <div class="head">
         <div class="welcome">
           <div>
-            <span class="icon">南邮<font-awesome-icon :icon="['fas', 'paper-plane']" /></span>
+            <span class="icon"
+              >南邮<i class="fa fa-paper-plane"></i></span>
             <span>欢迎加入我们</span>
           </div>
           <div class="developer">
             <div>Developer</div>
             <ul>
-              <li><font-awesome-icon :icon="['fab', 'github']" size="lg" /></li>
-              <li><font-awesome-icon :icon="['fab', 'qq']" size="lg"/></li>
-              <li><font-awesome-icon :icon="['fas', 'laptop-code']" size="lg" /></li>
+              <li><i class="fa fa-github fa-lg"></i></li>
+              <li><i class="fa fa-qq fa-lg"></i></li>
+              <li><i class="fa fa-laptop fa-lg"></i></li>
             </ul>
           </div>
         </div>

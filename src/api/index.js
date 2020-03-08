@@ -53,15 +53,15 @@ export const getEmailCode = (email) => {
 
 //影评
 export const getMovieReview = () => {
-  return request.get('/movieReview');
+  return request.get('/api/movieReview');
 };
 
 //详细影评
 export const getMovieReviewDetail = id => {
-  return request.get(`/movieReview?id=${id}`);
+  return request.get(`/api/movieReview?id=${id}`);
 };
 
 //本周电影
 export const getLatestMovies = () => {
-  return request.get('/latestMovies');
+  return request.get('/api/latestMovies');
 };

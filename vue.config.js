@@ -26,7 +26,7 @@ const cdn = {
   // 开发环境
   dev: {
     css: [
-      
+      'http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
     ],
     js: [
       
@@ -35,7 +35,7 @@ const cdn = {
   // 生产环境
   build: {
     css: [
-      
+      'http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
     ],
     js: [
       'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js',

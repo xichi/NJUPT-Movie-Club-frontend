@@ -10,12 +10,10 @@
         <div class="upload-picture">
           <div class="upload-btn">
             <a class="title">设置题图</a>
-            <font-awesome-icon
-              :icon="['fas', 'camera']"
-              color="#cacaca"
-              class="camera"
+            <i
+              class="fa fa-camera camera"
               @click="toggleShow"
-            />
+            ></i>
           </div>
           <my-upload
             field="img"
@@ -161,6 +159,7 @@ export default {
           transition bottom .5s ease, opacity .3s ease
         .camera
           cursor pointer
+          color #cacaca
       .pic-profile
         width 100%
         height 100%

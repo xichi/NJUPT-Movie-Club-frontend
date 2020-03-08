@@ -10,18 +10,16 @@
         <div class="post-head">
           <div class="title">{{ movieReview.title }}</div>
           <div class="author">
-            <font-awesome-icon :icon="['far', 'user']" />{{
-              movieReview.author
-            }}
+            <i class="fa fa-user"></i>
+            {{ movieReview.author }}
           </div>
           <div class="footer">
             <div class="postTime">
-              <font-awesome-icon :icon="['far', 'calendar']" />{{
-                movieReview.postTime
-              }}
+              <i class="fa fa-calendar"></i>
+              {{ movieReview.postTime }}
             </div>
             <div class="share">
-              <font-awesome-icon :icon="['far', 'paper-plane']" />
+              <i class="fa fa-paper-plane"></i>
               Share
             </div>
           </div>

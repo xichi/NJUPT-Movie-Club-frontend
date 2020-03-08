@@ -3,8 +3,8 @@
     <my-header class="my-header" :lightMode="false">
       <li id="write_btn" slot="write">
         <router-link to="/movieReview/write"
-          >我要撰写 <font-awesome-icon :icon="['far', 'edit']"
-        /></router-link>
+          >我要撰写 <i class="fa fa-edit"></i>
+        </router-link>
       </li>
     </my-header>
     <div id="movie-review-list">
@@ -23,11 +23,11 @@
         </div>
         <div slot="detail" class="detail">{{ item.detail }}</div>
         <div slot="postTime" class="postTime">
-          <font-awesome-icon :icon="['far', 'calendar']" />
+          <i class="fa fa-calendar"></i>
           {{ item.postTime }}
         </div>
         <div slot="author" class="author">
-          <font-awesome-icon :icon="['far', 'user']" />
+          <i class="fa fa-user"></i>
           {{ item.author }}
         </div>
         <div slot="pic" class="pic" @click="clickFn('/movieReview/details/' + item.id, item.id)">

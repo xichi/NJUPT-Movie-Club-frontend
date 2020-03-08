@@ -14,27 +14,25 @@
         <p class="title-in" @click="runMovieTodayShow">
           <span>{{ movieToday.name }}</span>
           <span>
-            <font-awesome-icon
-              class="kudos-empty kudos"
-              :icon="['far', 'heart']"
+            <i
+              class="fa fa-heart-o kudos-empty kudos"
               v-show="!kudos"
               @click.stop="kudosChange"
-            />
-            <font-awesome-icon
-              class="kudos-full kudos"
-              :icon="['fas', 'heart']"
+            ></i>
+            <i
+              class="fa fa-heart kudos-full kudos"
               v-show="kudos"
               @click.stop="kudosChange"
-            />
+            ></i>
           </span>
         </p>
         <div class="dropdown-menu" v-show="movieTodayShow">
           <div class="topbar">
             <span>Movie Today</span>
-            <font-awesome-icon
-              :icon="['fas', 'angle-down']"
+            <i
+              class="fa fa-angle-down"
               style="padding-left:5px;"
-            />
+            ></i>
           </div>
           <div class="mainbody">
             <div class="right">

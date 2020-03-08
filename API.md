@@ -1,6 +1,6 @@
 # API文档
 
-baseUrl: https://www.xichi.xyz/api
+baseUrl: https://api.xichi.xyz/movieClub
 
 ## 目录
 

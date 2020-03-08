@@ -2,7 +2,7 @@
   <div>
     <ul class="myHeader simpleHeader" v-if="simpleMode">
       <li class="backward" @click="goBack">
-        <font-awesome-icon :icon="['far', 'caret-square-left']" size="2x" />
+        <i class="fa fa-chevron-left  fa-lg"></i>
       </li>
       <slot name="title" v-if="titleShow"></slot>
       <li class="home">
@@ -20,12 +20,11 @@
       <slot name="write"></slot>
       <slot name="submit"></slot>
       <div class="mobile-icon">
-        <font-awesome-icon
-          :icon="['fas', 'list']"
-          class="icon"
-          :color="mobileIcon"
+        <i
+          class="fa fa-list icon"
+          :style="{ color: mobileIcon }"
           @click="runMobileShow"
-        />
+        ></i>
       </div>
       <ul class="right">
         <li class="weelky-movies dropdown">
@@ -58,16 +57,10 @@
         </li>
         <!-- <li class="contact-us"><router-link to="">联系我们</router-link></li> -->
         <li class="sign-up">
-          <router-link :to="this.userLogin? '/profile': '/login'"
+          <i class="fa fa-user-o user-icon" align="bottom" v-show="userLogin"></i>
+          <router-link :to="this.userLogin ? '/profile' : '/login'"
             >{{ userInfo.username || "Sign In" }}
           </router-link>
-          <font-awesome-icon
-            :icon="['far', 'user']"
-            class="user-icon"
-            color="#fff"
-            align="bottom"
-            v-show="userLogin"
-          />
         </li>
       </ul>
     </ul>
@@ -175,6 +168,7 @@ export default {
     float right
     padding-right 20px
     .user-icon
+      color #fff
       font-size 0.4rem
     .dropdown
       position relative

@@ -18,19 +18,11 @@
                 placeholder="请输入用户名或邮箱"
                 @focus="textAnime"
               />
-              <font-awesome-icon
-                class="icon user"
-                :icon="['fas', 'user']"
-                size="xs"
-              />
+              <i class="fa fa-user icon user"></i>
               <div class="line"></div>
             </div>
             <div class="text-input">
-              <font-awesome-icon
-                class="icon lock"
-                :icon="['fas', 'lock']"
-                size="xs"
-              />
+              <i class="fa fa-lock icon lock"></i>
               <input
                 type="password"
                 v-model="password"
@@ -39,20 +31,16 @@
                 @focus="textAnime"
               />
               <div class="line"></div>
-              <font-awesome-icon
-                class="icon eye"
-                :icon="['fas', 'eye-slash']"
+              <i
+                class="fa fa-eye-slash icon eye"
                 v-show="!passwordHidden"
                 @click="runPasswordHidden"
-                size="xs"
-              />
-              <font-awesome-icon
-                class="icon eye"
-                :icon="['fas', 'eye']"
+              ></i>
+              <i
+                class="fa fa-eye icon eye"
                 v-show="passwordHidden"
                 @click="runPasswordHidden"
-                size="xs"
-              />
+              ></i>
               <div class="options">
                 <div>忘记密码</div>
                 <div @click="toggleManageCheck">
@@ -77,19 +65,11 @@
                 placeholder="请输入用户名"
                 @focus="textAnime"
               />
-              <font-awesome-icon
-                class="icon user"
-                :icon="['fas', 'user']"
-                size="xs"
-              />
+              <i class="fa fa-user icon user"></i>
               <div class="line"></div>
             </div>
             <div class="text-input">
-              <font-awesome-icon
-                class="icon lock"
-                :icon="['fas', 'lock']"
-                size="xs"
-              />
+              <i class="fa fa-lock icon lock"></i>
               <input
                 type="password"
                 v-model="password"
@@ -98,20 +78,16 @@
                 @focus="textAnime"
               />
               <div class="line"></div>
-              <font-awesome-icon
-                class="icon eye"
-                :icon="['fas', 'eye-slash']"
+              <i
+                class="fa fa-eye-slash icon eye "
                 v-show="!passwordHidden"
                 @click="runPasswordHidden"
-                size="xs"
-              />
-              <font-awesome-icon
-                class="icon eye"
-                :icon="['fas', 'eye']"
+              ></i>
+              <i
+                class="fa fa-eye icon eye "
                 v-show="passwordHidden"
                 @click="runPasswordHidden"
-                size="xs"
-              />
+              ></i>
             </div>
             <div class="text-input">
               <input
@@ -121,19 +97,11 @@
                 placeholder="请输入邮箱"
                 @focus="textAnime"
               />
-              <font-awesome-icon
-                class="icon user"
-                :icon="['fas', 'envelope']"
-                size="xs"
-              />
+              <i class="fa fa-envelope icon icon-xs "></i>
               <div class="line"></div>
             </div>
             <div class="text-input">
-              <font-awesome-icon
-                class="icon email"
-                :icon="['fas', 'code']"
-                size="xs"
-              />
+              <i class="fa fa-code icon icon-xs "></i>
               <input
                 type="text"
                 ref="firstInput"
@@ -163,16 +131,16 @@
               v-model="userMsg.password"
               class="password"
             /><span>
-              <font-awesome-icon
-                :icon="['fas', 'eye-slash']"
+              <i
+                class="fa fa-eye-slash icon eye"
                 v-show="!passwordHidden"
                 @click="runPasswordHidden"
-              />
-              <font-awesome-icon
-                :icon="['fas', 'eye']"
+              ></i>
+              <i
+                class="fa fa-eye icon eye"
                 v-show="passwordHidden"
                 @click="runPasswordHidden"
-              />
+              ></i>
             </span>
           </div>
           <input type="button" value="退出" @click="signOut()" />
@@ -235,7 +203,7 @@ export default {
       if (loginData.status === 1) {
         const { data: userData } = await getUserInfo();
         this.USER_SIGNIN(userData.data);
-        this.$router.push('/profile');
+        this.$router.push("/profile");
       } else {
         this.$message.error(loginData.message);
       }
@@ -278,9 +246,9 @@ export default {
     async sendEmail() {
       try {
         const { data: codeData } = await getEmailCode(this.email);
-        if(codeData.status === 1){
+        if (codeData.status === 1) {
           this.$message.success("验证码已发送，请注意查收");
-        }else{
+        } else {
           this.$message.error(codeData.message);
         }
       } catch (err) {
@@ -297,7 +265,7 @@ export default {
       if (registerData.status === 1) {
         const { data: userData } = await getUserInfo();
         this.USER_SIGNIN(userData.data);
-        this.$router.push('/profile');
+        this.$router.push("/profile");
       } else {
         this.$message.error(registerData.message);
       }
@@ -367,8 +335,10 @@ export default {
         .icon
           position absolute
           bottom 9px
-          left 2px
+          left -1em
           color #c4c4c4
+        .icon-xs::before
+          font-size .8em
         .eye
           left 100%
           transform translateX(-120%)
