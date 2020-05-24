@@ -13,7 +13,7 @@ let request = axios.create({
 
 //登录
 export const login = (username, password) => {
-  return request.post('/api/admin/login', {
+  return request.post('api/admin/login', {
       username,
       password
   })

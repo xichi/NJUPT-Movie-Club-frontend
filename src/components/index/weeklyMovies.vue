@@ -161,7 +161,7 @@ export default {
     .el-carousel__container
       height 400px
       width 60%
-      margin 0 auto
+      margin 15px auto
       border-radius 10px
       box-shadow 0 0 15px 0 rgba(0,0,0,0.3)
       .el-carousel__item

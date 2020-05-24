@@ -60,6 +60,7 @@
     </div>
     <weekly-movies></weekly-movies>
     <department-info></department-info>
+    <members-info></members-info>
     <my-footer></my-footer>
   </div>
 </template>
@@ -69,6 +70,7 @@ import myHeader from "_c/common/Header";
 import myFooter from "_c/common/footer";
 import weeklyMovies from "_c/index/weeklyMovies";
 import departmentInfo from "_c/index/departmentInfo";
+import membersInfo from "_c/index/membersInfo";
 //import "_c/common/mouseAni.js"
 
 export default {
@@ -76,7 +78,8 @@ export default {
     myHeader,
     myFooter,
     weeklyMovies,
-    departmentInfo
+    departmentInfo,
+    membersInfo
   },
   data() {
     return {

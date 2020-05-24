@@ -10,10 +10,7 @@
         <div class="upload-picture">
           <div class="upload-btn">
             <a class="title">设置题图</a>
-            <i
-              class="fa fa-camera camera"
-              @click="toggleShow"
-            ></i>
+            <i class="fa fa-camera camera" @click="toggleShow"></i>
           </div>
           <my-upload
             field="img"

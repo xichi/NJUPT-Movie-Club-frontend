@@ -42,12 +42,6 @@
             <li><router-link to="/weeklyMovie/FAQ">FAQ</router-link></li>
           </ul>
         </li>
-        <li class="department-introduction">
-          <router-link to="">部门介绍</router-link>
-        </li>
-        <li class="member-introduction">
-          <router-link to="">成员介绍</router-link>
-        </li>
         <li class="film-reviews dropdown">
           <router-link to="/movieReview">精彩影评</router-link>
           <ul class="dropdown-menu">
@@ -166,7 +160,7 @@ export default {
     display none
   .right
     float right
-    padding-right 20px
+    padding-right 50px
     .user-icon
       color #fff
       font-size 0.4rem
@@ -295,7 +289,7 @@ export default {
 /* ipad端 */
 @media screen and (max-width: 1023px)
   .myHeader li
-    padding 40px 0.15rem
+    padding 40px 0.5rem
   .navbar_fixed li
     padding 10px 15px
 /* 手机端 */
