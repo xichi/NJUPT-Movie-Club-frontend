@@ -6,6 +6,7 @@
     <div class="cards">
       <div class="projection card-wrap">
         <div class="card">
+          <img class="img" src="../../assets/pic/projection.jpg">
           <div class="copyright">Photo by Aneta Pawlik on Unsplash</div>
         </div>
         <div class="info">
@@ -16,6 +17,7 @@
       </div>
       <div class="propaganda card-wrap">
         <div class="card">
+          <img class="img" src="../../assets/pic/propaganda.jpg"/>
           <div class="copyright">Photo by Noom Peerapong on Unsplash</div>
         </div>
         <div class="info">
@@ -64,6 +66,14 @@ export default {
         background-color #999
         background-size cover
         background-position center center
+        overflow hidden
+        .img
+          width 100%
+          height 100%
+          object-fit cover
+          transition all .6s
+          &:hover
+            transform scale(1.1)
         .copyright
           position absolute
           top 100%
@@ -75,15 +85,12 @@ export default {
             color rgba(255,255,255,0.8)
       .info
         width 50%
-    .projection
-      .card
-        background-image url("../../assets/pic/projection.jpg")
     .propaganda
       flex-direction row-reverse
-      .card
-        background-image url("../../assets/pic/propaganda.jpg")
 @media screen and (max-width: 767px)
   .main
+    .title
+      font-size 25px
     .cards
       padding 0
       width 100%

@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="index">
     <my-header></my-header>
     <div class="home">
       <div class="main-focus">
-        <p class="title">{{ mainFocus.title }}</p>
+        <p class="title" :data-text="mainFocus.title">{{ mainFocus.title }}</p>
         <p class="subtitle">{{ mainFocus.subtitle }}</p>
         <button class="contact-us">
           <p>Contact us</p>
@@ -29,10 +29,7 @@
         <div class="dropdown-menu" v-show="movieTodayShow">
           <div class="topbar">
             <span>Movie Today</span>
-            <i
-              class="fa fa-angle-down"
-              style="padding-left:5px;"
-            ></i>
+            <i class="fa fa-angle-down" style="padding-left:5px;"></i>
           </div>
           <div class="mainbody">
             <div class="right">
@@ -57,6 +54,10 @@
         </div>
       </div>
       <div class="up-down"></div>
+      <div class="wave">
+        <div id="bg_wave_1"></div>
+        <div id="bg_wave_2"></div>
+      </div>
     </div>
     <weekly-movies></weekly-movies>
     <department-info></department-info>
@@ -79,7 +80,7 @@ export default {
     myFooter,
     weeklyMovies,
     departmentInfo,
-    membersInfo
+    membersInfo,
   },
   data() {
     return {
@@ -88,7 +89,7 @@ export default {
       mainFocus: {
         title: "世界这么大，我只想和你谈谈电影~",
         subtitle:
-          "The world is so big, I just want to talk about movies with you."
+          "The world is so big, I just want to talk about movies with you.",
       },
       movieToday: {
         id: 1,
@@ -97,8 +98,8 @@ export default {
         pic:
           "https://img3.doubanio.com/view/photo/s_ratio_poster/public/p480747492.jpg",
         quote: "希望让人自由。",
-        comments: []
-      }
+        comments: [],
+      },
     };
   },
   methods: {
@@ -125,14 +126,14 @@ export default {
       titleIn.onmouseleave = function() {
         titleIn.style.opacity = ".5";
       };
-    }
+    },
   },
   mounted() {
     this.movieTodayAnimation();
     /* this.$http.get('/bing/bingPic/').then(res => {
       console.log(res)
     }); */
-  }
+  },
 };
 </script>
 
@@ -156,9 +157,32 @@ body
       text-align left
       margin 0 20px
     .title
-      padding-left calc(25% - 20px)
+      position relative
+      margin-left calc(25% - 20px)
       font-size 40px
+      font-weight bold
+      letter-spacing 5px
       line-height 70px
+      mix-blend-mode lighten
+      &:hover::before
+        text-shadow 5px 0 #ff3f1a
+        animation glitch-loop-1 .8s infinite ease-in-out alternate-reverse
+      &:hover::after
+        text-shadow -5px 0 #00a7e0
+        animation glitch-loop-2 .8s infinite ease-in-out alternate-reverse
+      &::after, &::before
+        content attr(data-text)
+        position absolute
+        top 0
+        width 100%
+        background rgba(0, 0, 0, 0)
+        clip rect(0, 0, 0, 0)
+      &::before
+        left -1px
+        text-shadow 1px 0 #ff3f1a
+      &::after
+        left 1px
+        text-shadow -1px 0 #00a7e0
     .subtitle
       padding-left calc(25% - 20px)
       font-size 18px
@@ -181,18 +205,41 @@ body
     width 50px
     height 50px
     position absolute
-    bottom 8%
+    bottom 15%
     left 50%
     transform translateX(-50%)
     background-image url("../assets/icon/down.png")
     background-size 100% 100%
     cursor pointer
     animation up-and-down 2s linear infinite
+  .wave
+    z-index 99
+    position absolute
+    height 110px
+    width 100%
+    overflow hidden
+    bottom 0px
+    #bg_wave_1
+      position absolute
+      top 30px
+      left -100%
+      width 200%
+      height 100%
+      animation water-right 20s infinite linear
+      background url('http://njupt.xichi.xyz/movieClub/wave1.png') repeat-x
+    #bg_wave_2
+      position absolute
+      top 30px
+      left 0
+      width 200%
+      height 100%
+      animation water-left 30s infinite linear
+      background url('http://njupt.xichi.xyz/movieClub/wave2.png') repeat-x
   .movie-today
     position absolute
     height 100px
     width 20%
-    bottom 0
+    bottom 80px
     right 0
     color #fff
     font-size 18px
@@ -269,6 +316,71 @@ body
     transform: translateY(0);
   }
 }
+@keyframes water-right {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+      transform: translateX(25%) translateZ(0) scaleY(0.85);
+  }
+  100% {
+      transform: translateX(50%) translateZ(0) scaleY(1);
+  }
+}
+@keyframes water-left {
+  0% {
+    transform: translate(0%, 0px);
+  }
+
+  100% {
+      transform: translate(-50%, 0px);
+  }
+}
+@keyframes glitch-loop-1 {
+    0% {
+        clip: rect(8px, 9999px, 9px, 0)
+    }
+    25% {
+        clip: rect(14px, 9999px, 99px, 0)
+    }
+    50% {
+        clip: rect(50px, 9999px, 132px, 0)
+    }
+    75% {
+        clip: rect(20px, 9999px, 92px, 0)
+    }
+    100% {
+        clip: rect(91px, 9999px, 98px, 0)
+    }
+}
+@keyframes glitch-loop-2 {
+    0% {
+        top: -1px;
+        left: 1px;
+        clip: rect(15px, 9999px, 119px, 0)
+    }
+    25% {
+        top: -1px;
+        left: 4px;
+        clip: rect(29px, 9999px, 19px, 0)
+    }
+    50% {
+        top:  1px;
+        left: 1px;
+        clip: rect(38px, 9999px, 11px, 0)
+    }
+    75% {
+        top: 0;
+        left: -3px;
+        clip: rect(65px, 9999px, 53px, 0)
+    }
+    100% {
+        top: -1px;
+        left: -1px;
+        clip: rect(11px, 9999px, 149px, 0)
+    }
+}
+
 /* 手机端 */
 @media screen and (max-width: 767px)
   .home
