@@ -133,11 +133,11 @@ export default {
 .members-info
   margin-top 100px
   .tabbar
-    font-size 20px
+    font-size 25px
     font-weight bold
     display flex
     justify-content space-between
-    width 500px
+    width 580px
     margin 0 auto
     .tabbar-item
       position relative
@@ -155,8 +155,8 @@ export default {
       left 100%
       transform translate(50%, -50%)
   .tabbar-container
-    height 400px
-    width 800px
+    height 300px
+    width 900px
     margin 0 auto
     padding 50px 0
     .members-container

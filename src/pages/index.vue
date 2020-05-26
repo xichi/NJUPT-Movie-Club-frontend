@@ -62,6 +62,8 @@
     <weekly-movies></weekly-movies>
     <department-info></department-info>
     <members-info></members-info>
+    <info></info>
+    <film-review></film-review>
     <my-footer></my-footer>
   </div>
 </template>
@@ -72,6 +74,8 @@ import myFooter from "_c/common/footer";
 import weeklyMovies from "_c/index/weeklyMovies";
 import departmentInfo from "_c/index/departmentInfo";
 import membersInfo from "_c/index/membersInfo";
+import info from "_c/index/info";
+import filmReview from "_c/index/filmReview";
 //import "_c/common/mouseAni.js"
 
 export default {
@@ -81,6 +85,8 @@ export default {
     weeklyMovies,
     departmentInfo,
     membersInfo,
+    info,
+    filmReview,
   },
   data() {
     return {
@@ -144,7 +150,7 @@ body
   width 100vw
   height 100vh
   background-image url("http://njupt.xichi.xyz/movies/home-bg.jpg")
-  background-size 100% 100%
+  background-size cover
   position relative
   .main-focus
     height 100%
