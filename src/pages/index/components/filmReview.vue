@@ -16,8 +16,8 @@
 </template>
 
 <script>
-import FilmReview1 from '../../assets/pic/FilmReview1.jpg'
-import FilmReview2 from '../../assets/pic/FilmReview2.jpg'
+import FilmReview1 from '_p/FilmReview1.jpg'
+import FilmReview2 from '_p/FilmReview2.jpg'
 export default {
   data(){
     return{

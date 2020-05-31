@@ -71,11 +71,11 @@
 <script>
 import myHeader from "_c/common/Header";
 import myFooter from "_c/common/footer";
-import weeklyMovies from "_c/index/weeklyMovies";
-import departmentInfo from "_c/index/departmentInfo";
-import membersInfo from "_c/index/membersInfo";
-import info from "_c/index/info";
-import filmReview from "_c/index/filmReview";
+import weeklyMovies from "./components/weeklyMovies";
+import departmentInfo from "./components/departmentInfo";
+import membersInfo from "./components/membersInfo";
+import info from "./components/info";
+import filmReview from "./components/filmReview";
 //import "_c/common/mouseAni.js"
 
 export default {
@@ -214,7 +214,7 @@ body
     bottom 15%
     left 50%
     transform translateX(-50%)
-    background-image url("../assets/icon/down.png")
+    background-image url("../../assets/icon/down.png")
     background-size 100% 100%
     cursor pointer
     animation up-and-down 2s linear infinite

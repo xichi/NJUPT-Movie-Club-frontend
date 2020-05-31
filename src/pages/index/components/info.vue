@@ -1,5 +1,6 @@
 <template>
   <div class="info">
+    <div>南邮影协</div>
     <div class="bg_wrap"></div>
   </div>
 </template>
@@ -15,7 +16,7 @@ export default {
   position relative
   width 100%
   height 500px
-  background url('../../assets/pic/HOLLYWOOD.jpg')
+  background url('../../../assets/pic/HOLLYWOOD.jpg')
   background-size cover
   background-position center center
   .bg_wrap

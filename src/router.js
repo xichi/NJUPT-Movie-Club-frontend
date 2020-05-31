@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
 
 const App = r => require.ensure([], () => r(require('./App.vue')), 'App')
-const index = r => require.ensure([], () => r(require('@/pages/index.vue')), 'index')
+const index = r => require.ensure([], () => r(require('@/pages/index/index.vue')), 'index')
 const movieReview = r => require.ensure([], () => r(require('@/pages/movieReview/list.vue')), 'movieReview')
 const weeklyMovie = r => require.ensure([], () => r(require('@/pages/weeklyMovie/list.vue')), 'weeklyMovie')
 const login = r => require.ensure([], () => r(require('@/pages/login.vue')), 'login')

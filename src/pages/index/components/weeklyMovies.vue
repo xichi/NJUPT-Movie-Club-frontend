@@ -44,11 +44,11 @@
       </svg>
     </div>
     <div class="main-card">
-      <div class="theme-of-the-week">
+      <div class="theme-of-the-week" v-if="theme">
         <p><font-awesome-icon class="svg-film" :icon="['fas', 'film']" />本周主题：</p>
         <p class="theme">{{ theme }}</p>
       </div>
-      <el-carousel indicator-position="outside">
+      <el-carousel indicator-position="outside" v-if="latestMovies.length > 0">
         <el-carousel-item
           v-for="(item, key) in latestMovies"
           :key="key"
@@ -60,6 +60,10 @@
           </div>
         </el-carousel-item>
       </el-carousel>
+      <div class="empty-movies-box" v-else>
+        <img class="error-img" src="../../../assets/pic/error/empty-box.png">
+        <div class="error-text">本周暂无放映计划</div>
+      </div>
     </div>
   </div>
 </template>
@@ -130,7 +134,7 @@ export default {
       top 50%
       left 20%
       transform translate(-100%, -50%)
-      text-align left
+      text-align center
       color #999
       font-size 20px
       padding 0 20px
@@ -141,6 +145,25 @@ export default {
       .theme
         font-size 30px
         color #000
+    .empty-movies-box
+      position relative
+      height 400px
+      width 700px
+      margin 0 auto
+      border 1px solid #efefef
+      border-radius 10px
+      box-shadow 0 0 15px 0 rgba(0,0,0,0.3)
+      .error-img
+        width 100%
+        height 100%
+        object-fit contain
+        opacity .8
+      .error-text
+        position absolute
+        bottom 50px
+        left 50%
+        font-size 30px
+        transform translateX(-50%)
 @media screen and (max-width: 767px)
   .weekly-movies
     #svg-info
@@ -153,6 +176,9 @@ export default {
         left 0
         transform translate(0,0)
         text-align center
+      .empty-movies-box
+        height 400px
+        width 80%
 </style>
 <style lang="stylus">
 .weekly-movies

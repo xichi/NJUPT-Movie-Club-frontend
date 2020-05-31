@@ -6,7 +6,7 @@
     <div class="cards">
       <div class="projection card-wrap">
         <div class="card">
-          <img class="img" src="../../assets/pic/projection.jpg">
+          <img class="img" src="../../../assets/pic/projection.jpg">
           <div class="copyright">Photo by Aneta Pawlik on Unsplash</div>
         </div>
         <div class="info">
@@ -17,7 +17,7 @@
       </div>
       <div class="propaganda card-wrap">
         <div class="card">
-          <img class="img" src="../../assets/pic/propaganda.jpg"/>
+          <img class="img" src="../../../assets/pic/propaganda.jpg"/>
           <div class="copyright">Photo by Noom Peerapong on Unsplash</div>
         </div>
         <div class="info">
