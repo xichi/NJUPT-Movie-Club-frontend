@@ -45,7 +45,7 @@
     </div>
     <div class="main-card">
       <div class="theme-of-the-week" v-if="theme">
-        <p><font-awesome-icon class="svg-film" :icon="['fas', 'film']" />本周主题：</p>
+        <p><i class="fa fa-film icon film"></i>本周主题：</p>
         <p class="theme">{{ theme }}</p>
       </div>
       <el-carousel indicator-position="outside" v-if="latestMovies.length > 0">
