@@ -1,6 +1,8 @@
 # NJUPT-Movie-Club
 电影协会宣传页面
 
+坑了，暂时不会更新...
+
 ## 1.demo:
 
 + NJUPT Movie Club: vue + node  
